@@ -9,5 +9,4 @@ instamojo-wrapper==1.2.0
 psycopg2==2.9.1
 pytz==2020.1
 sqlparse==0.4.2
-typing-extensions==3.20.0.0
 whitenoise==6.0.0
