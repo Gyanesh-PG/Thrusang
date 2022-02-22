@@ -80,7 +80,7 @@ def login_user(request):
 def pay_initiate(request):
     if request.user.is_authenticated and request.user.profile.payment=="No":
 
-        response = api.payment_request_create(buyer_name=request.user.first_name,email=request.user.email,phone=request.user.profile.mobile,amount='10', purpose='Test', send_email=False,redirect_url="https://thrusang2022.herokuapp.com/success")
+        response = api.payment_request_create(buyer_name=request.user.first_name,email=request.user.email,phone=request.user.profile.mobile,amount='10', purpose='Test', send_email=False,redirect_url="https://thrusang2022.herokuapp.com/success/")
         pro = profile.objects.get(id_no=request.user.profile.id_no)
         pro.pay_id=response['payment_request']['id']
         pro.save()
