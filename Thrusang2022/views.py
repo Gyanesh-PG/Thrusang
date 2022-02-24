@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from .models import profile
+from .models import profile,workshop
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login,logout
@@ -107,5 +107,292 @@ def logout_user(request):
     return render(request, 'index.html')
 
 
+def cws(request):
+    if request.user.is_authenticated and request.user.profile.payment == "No":
+
+        response = api.payment_request_create(buyer_name=request.user.first_name, email=request.user.email,
+                                              phone=request.user.profile.mobile, amount='20', purpose='Test',
+                                              send_email=False, redirect_url="http://127.0.0.1:8000/cwssuccess")
+        ws = workshop.objects.get(user=request.user)
+        ws.pay_id = response['payment_request']['id']
+        ws.save()
+        pro = profile.objects.get(id_no=request.user.profile.id_no)
+        pro.pay_id = response['payment_request']['id']
+        pro.save()
+        return redirect(response['payment_request']['longurl'])
+    elif request.user.is_authenticated and request.user.profile.payment == "Yes":
+        response = api.payment_request_create(buyer_name=request.user.first_name, email=request.user.email,
+                                              phone=request.user.profile.mobile, amount='10', purpose='Test',
+                                              send_email=False, redirect_url="http://127.0.0.1:8000/cwssuccess")
+        ws = workshop.objects.get(user=request.user)
+        ws.pay_id = response['payment_request']['id']
+        ws.save()
+        return redirect(response['payment_request']['longurl'])
+    else:
+        return render(request, 'index.html')
+
+
+def cwssuccess(request):
+    pay_id = request.GET.get('payment_request_id')
+    response = api.payment_request_status(pay_id)
+    if response['payment_request']['status'] == "Completed":
+        ws = workshop.objects.get(pay_id=pay_id)
+        pro = profile.objects.filter(pay_id=pay_id)
+        if not pro:
+            ws.payment = "Yes"
+            ws.tg = "cs"
+            ws.save()
+        else:
+            pro1 = profile.objects.get(pay_id=pay_id)
+            pro1.payment = "Yes"
+            pro1.save()
+            ws.payment = "Yes"
+            ws.tg = "cs"
+            ws.save()
+        messages.error(request, 'Payment Successfully Completed.', extra_tags='paid')
+        return render(request, 'index.html')
+    messages.error(request, 'Payment Failed.', extra_tags='fail')
+
+    return render(request, 'events.html')
+
+
+def iot(request):
+    if request.user.is_authenticated and request.user.profile.payment == "No":
+
+        response = api.payment_request_create(buyer_name=request.user.first_name, email=request.user.email,
+                                              phone=request.user.profile.mobile, amount='20', purpose='Test',
+                                              send_email=False, redirect_url="http://127.0.0.1:8000/iotsuccess")
+        ws = workshop.objects.get(user=request.user)
+        ws.pay_id = response['payment_request']['id']
+        ws.save()
+        pro = profile.objects.get(id_no=request.user.profile.id_no)
+        pro.pay_id = response['payment_request']['id']
+        pro.save()
+        return redirect(response['payment_request']['longurl'])
+    elif request.user.is_authenticated and request.user.profile.payment == "Yes":
+        response = api.payment_request_create(buyer_name=request.user.first_name, email=request.user.email,
+                                              phone=request.user.profile.mobile, amount='10', purpose='Test',
+                                              send_email=False, redirect_url="http://127.0.0.1:8000/iotsuccess")
+        ws = workshop.objects.get(user=request.user)
+        ws.pay_id = response['payment_request']['id']
+        ws.save()
+        return redirect(response['payment_request']['longurl'])
+    else:
+        return render(request, 'index.html')
+
+
+def iotsuccess(request):
+    pay_id = request.GET.get('payment_request_id')
+    response = api.payment_request_status(pay_id)
+    if response['payment_request']['status'] == "Completed":
+        ws = workshop.objects.get(pay_id=pay_id)
+        pro = profile.objects.filter(pay_id=pay_id)
+        if not pro:
+            ws.payment = "Yes"
+            ws.tg = "iot"
+            ws.save()
+        else:
+            pro1 = profile.objects.get(pay_id=pay_id)
+            pro1.payment = "Yes"
+            pro1.save()
+            ws.payment = "Yes"
+            ws.tg = "iot"
+            ws.save()
+        messages.error(request, 'Payment Successfully Completed.', extra_tags='paid')
+        return render(request, 'index.html')
+    messages.error(request, 'Payment Failed.', extra_tags='fail')
+
+    return render(request, 'events.html')
+
+
+def afs(request):
+    if request.user.is_authenticated and request.user.profile.payment == "No":
+
+        response = api.payment_request_create(buyer_name=request.user.first_name, email=request.user.email,
+                                              phone=request.user.profile.mobile, amount='20', purpose='Test',
+                                              send_email=False, redirect_url="http://127.0.0.1:8000/afssuccess")
+        ws = workshop.objects.get(user=request.user)
+        ws.pay_id = response['payment_request']['id']
+        ws.save()
+        pro = profile.objects.get(id_no=request.user.profile.id_no)
+        pro.pay_id = response['payment_request']['id']
+        pro.save()
+        return redirect(response['payment_request']['longurl'])
+    elif request.user.is_authenticated and request.user.profile.payment == "Yes":
+        response = api.payment_request_create(buyer_name=request.user.first_name, email=request.user.email,
+                                              phone=request.user.profile.mobile, amount='10', purpose='Test',
+                                              send_email=False, redirect_url="http://127.0.0.1:8000/afssuccess")
+        ws = workshop.objects.get(user=request.user)
+        ws.pay_id = response['payment_request']['id']
+        ws.save()
+        return redirect(response['payment_request']['longurl'])
+    else:
+        return render(request, 'index.html')
+
+
+def afssuccess(request):
+    pay_id = request.GET.get('payment_request_id')
+    response = api.payment_request_status(pay_id)
+    if response['payment_request']['status'] == "Completed":
+        ws = workshop.objects.get(pay_id=pay_id)
+        pro = profile.objects.filter(pay_id=pay_id)
+        if not pro:
+            ws.payment = "Yes"
+            ws.tg = "afs"
+            ws.save()
+        else:
+            pro1 = profile.objects.get(pay_id=pay_id)
+            pro1.payment = "Yes"
+            pro1.save()
+            ws.payment = "Yes"
+            ws.tg = "afs"
+            ws.save()
+        messages.error(request, 'Payment Successfully Completed.', extra_tags='paid')
+        return render(request, 'index.html')
+    messages.error(request, 'Payment Failed.', extra_tags='fail')
+
+    return render(request, 'events.html')
+
+
+def bcm(request):
+    if request.user.is_authenticated and request.user.profile.payment == "No":
+
+        response = api.payment_request_create(buyer_name=request.user.first_name, email=request.user.email,
+                                              phone=request.user.profile.mobile, amount='20', purpose='Test',
+                                              send_email=False, redirect_url="http://127.0.0.1:8000/bcmsuccess")
+        ws = workshop.objects.get(user=request.user)
+        ws.pay_id = response['payment_request']['id']
+        ws.save()
+        pro = profile.objects.get(id_no=request.user.profile.id_no)
+        pro.pay_id = response['payment_request']['id']
+        pro.save()
+        return redirect(response['payment_request']['longurl'])
+    elif request.user.is_authenticated and request.user.profile.payment == "Yes":
+        response = api.payment_request_create(buyer_name=request.user.first_name, email=request.user.email,
+                                              phone=request.user.profile.mobile, amount='10', purpose='Test',
+                                              send_email=False, redirect_url="http://127.0.0.1:8000/bcmsuccess")
+        ws = workshop.objects.get(user=request.user)
+        ws.pay_id = response['payment_request']['id']
+        ws.save()
+        return redirect(response['payment_request']['longurl'])
+    else:
+        return render(request, 'index.html')
+
+
+def bcmsuccess(request):
+    pay_id = request.GET.get('payment_request_id')
+    response = api.payment_request_status(pay_id)
+    if response['payment_request']['status'] == "Completed":
+        ws = workshop.objects.get(pay_id=pay_id)
+        pro = profile.objects.filter(pay_id=pay_id)
+        if not pro:
+            ws.payment = "Yes"
+            ws.tg = "bcm"
+            ws.save()
+        else:
+            pro1 = profile.objects.get(pay_id=pay_id)
+            pro1.payment = "Yes"
+            pro1.save()
+            ws.payment = "Yes"
+            ws.tg = "bcm"
+            ws.save()
+        messages.error(request, 'Payment Successfully Completed.', extra_tags='paid')
+        return render(request, 'index.html')
+    messages.error(request, 'Payment Failed.', extra_tags='fail')
+
+    return render(request, 'events.html')
+
+
+def prt(request):
+    if request.user.is_authenticated and request.user.profile.payment == "No":
+
+        response = api.payment_request_create(buyer_name=request.user.first_name, email=request.user.email,
+                                              phone=request.user.profile.mobile, amount='20', purpose='Test',
+                                              send_email=False, redirect_url="http://127.0.0.1:8000/prtsuccess")
+        ws = workshop.objects.get(user=request.user)
+        ws.pay_id = response['payment_request']['id']
+        ws.save()
+        pro = profile.objects.get(id_no=request.user.profile.id_no)
+        pro.pay_id = response['payment_request']['id']
+        pro.save()
+        return redirect(response['payment_request']['longurl'])
+    elif request.user.is_authenticated and request.user.profile.payment == "Yes":
+        response = api.payment_request_create(buyer_name=request.user.first_name, email=request.user.email,
+                                              phone=request.user.profile.mobile, amount='10', purpose='Test',
+                                              send_email=False, redirect_url="http://127.0.0.1:8000/prtsuccess")
+        ws = workshop.objects.get(user=request.user)
+        ws.pay_id = response['payment_request']['id']
+        ws.save()
+        return redirect(response['payment_request']['longurl'])
+    else:
+        return render(request, 'index.html')
+
+
+def prtsuccess(request):
+    pay_id = request.GET.get('payment_request_id')
+    response = api.payment_request_status(pay_id)
+    if response['payment_request']['status'] == "Completed":
+        ws = workshop.objects.get(pay_id=pay_id)
+        pro = profile.objects.filter(pay_id=pay_id)
+        if not pro:
+            ws.payment = "Yes"
+            ws.tg = "3d"
+            ws.save()
+        else:
+            pro1 = profile.objects.get(pay_id=pay_id)
+            pro1.payment = "Yes"
+            pro1.save()
+            ws.payment = "Yes"
+            ws.tg = "3d"
+            ws.save()
+        messages.error(request, 'Payment Successfully Completed.', extra_tags='paid')
+        return render(request, 'index.html')
+    messages.error(request, 'Payment Failed.', extra_tags='fail')
+
+    return render(request, 'events.html')
+
+def evpay_initiate(request):
+    if request.user.is_authenticated and request.user.profile.payment == "No":
+
+        response = api.payment_request_create(buyer_name=request.user.first_name, email=request.user.email,
+                                              phone=request.user.profile.mobile, amount='10', purpose='Test',
+                                              send_email=False, redirect_url="http://127.0.0.1:8000/success")
+        pro = profile.objects.get(id_no=request.user.profile.id_no)
+        pro.pay_id = response['payment_request']['id']
+        pro.save()
+        return redirect(response['payment_request']['longurl'])
+    else:
+        return render(request, 'index.html')
+
+
+def evsuccess(request):
+
+    pay_id = request.GET.get('payment_request_id')
+    response = api.payment_request_status(pay_id)
+    if response['payment_request']['status'] == "Completed":
+        pro = profile.objects.get(pay_id=pay_id)
+        pro.payment = "Yes"
+        pro.save()
+        messages.error(request, 'Payment Successfully Completed.', extra_tags='paid')
+        return render(request, 'profile.html')
+    messages.error(request, 'Payment Failed.', extra_tags='fail')
+
+    return render(request, 'profile.html')
+def tt(request):
+    if request.user.is_authenticated:
+        pro=profile.objects.get(user=request.user)
+        pro.tt="Yes"
+        pro.save()
+        return render(request, 'events.html')
+    else:
+        return render(request, 'login.html')
+def sl(request):
+    if request.user.is_authenticated:
+        pro=profile.objects.get(user=request.user)
+        pro.sl="Yes"
+        pro.save()
+        return render(request, 'index.html')
+    else:
+        return render(request, 'login.html')
 
 

@@ -82,9 +82,7 @@
     </nav>
 </section>
      <!-- Header End -->
-
-
-<section data-bs-version="5.1" class="slider4 mbr-embla cid-sXIu1Pxijn" id="slider4-u">
+<section data-bs-version="5.1" class="slider4 mbr-embla cid-sXIu1Pxijn" id="slider4">
 
 
     <div class="position-relative text-center">
@@ -92,8 +90,8 @@
             <h4 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2"><strong>Technical Events</strong></h4>
 
         </div>
-        <div class="embla mt-4" data-skip-snaps="true" data-align="center" data-contain-scroll="trimSnaps" data-loop="true" data-auto-play-interval="1"  data-draggable="true">
-            <div class="embla__viewport container">
+        <div class="embla mt-4" data-skip-snaps="true" data-align="center" data-contain-scroll="trimSnaps" data-loop="true" data-auto-play-interval="1" data-draggable="true">
+            <div class="embla__viewport container-fluid">
                 <div class="embla__container">
                     <div class="embla__slide slider-image item" style="margin-left: 1rem; margin-right: 1rem;">
                         <div class="slide-content">
@@ -103,11 +101,21 @@
                                 </div>
                             </div>
                             <div class="item-content">
-                                <h5 class="item-title mbr-fonts-style display-7"><strong>2</strong></h5>
-
-                                <p class="mbr-text mbr-fonts-style mt-3 display-7">abc</p>
+                                <h5 class="item-title mbr-fonts-style display-7"><strong style="font-size:30px">Thrusang Tank</strong></h5>
                             </div>
-                            <div class="mbr-section-btn item-footer mt-2"><a href="" class="btn btn-primary item-btn display-7" target="_blank">Details</a></div>
+                            <div class="mbr-section-btn item-footer mt-2" style="text-align:center">
+                                {% if user.is_authenticated  %}
+                                {% if  user.profile.payment == "No" %}
+                                <a href="{% url 'evpay_initiate' %}" class="btn btn-primary item-btn display-7"">Pay</a>
+                                {% elif user.profile.tt == "No" %}
+                                <a href="{% url 'tt' %}" class="btn btn-primary item-btn display-7">Register</a>
+                                {% else %}
+                                <p  class="item-title mbr-fonts-style display-7" style="color:green">Registerd</p>
+                                {% endif %}
+                                {% else %}
+                                    <a href="" class="btn btn-primary item-btn display-7" >Pay Now</a>
+                                {% endif %}
+                            </div>
                         </div>
                     </div>
                     <div class="embla__slide slider-image item" style="margin-left: 1rem; margin-right: 1rem;">
@@ -118,11 +126,21 @@
                                 </div>
                             </div>
                             <div class="item-content">
-                                <h5 class="item-title mbr-fonts-style display-7"><strong>3</strong></h5>
-
-                                <p class="mbr-text mbr-fonts-style mt-3 display-7">abc</p>
+                                <h5 class="item-title mbr-fonts-style display-7"><strong style="font-size:30px">Snake & Ladder Quiz</strong></h5>
                             </div>
-                            <div class="mbr-section-btn item-footer mt-2"><a href="" class="btn btn-primary item-btn display-7" target="_blank">Details</a></div>
+                            <div class="mbr-section-btn item-footer mt-2" style="text-align:center">
+                                {% if user.is_authenticated  %}
+                                {% if  user.profile.payment == "No" %}
+                                <a href="" class="btn btn-primary item-btn display-7" >Pay</a>
+                                {% elif user.profile.sl == "No" %}
+                                <a href="" class="btn btn-primary item-btn display-7" >Register</a>
+                                {% else %}
+                                <p  class="item-title mbr-fonts-style display-7" style="color:green">Registerd</p>
+                                {% endif %}
+                                {% else %}
+                                    <a href="" class="btn btn-primary item-btn display-7" >Pay Now</a>
+                                {% endif %}
+                            </div>
                         </div>
                     </div>
                     <div class="embla__slide slider-image item" style="margin-left: 1rem; margin-right: 1rem;">
@@ -133,13 +151,49 @@
                                 </div>
                             </div>
                             <div class="item-content">
-                                <h5 class="item-title mbr-fonts-style display-7"><strong>4</strong></h5>
-
-                                <p class="mbr-text mbr-fonts-style mt-3 display-7">abc<br></p>
+                                <h5 class="item-title mbr-fonts-style display-7"><strong style="font-size:30px">Select * From Brain</strong></h5>
                             </div>
-                            <div class="mbr-section-btn item-footer mt-2"><a href="" class="btn btn-primary item-btn display-7" target="_blank">Details</a></div>
+                            <div class="mbr-section-btn item-footer mt-2" style="text-align:center">
+                               {% if user.is_authenticated  %}
+                                {% if  user.profile.payment == "No" %}
+                                <a href="" class="btn btn-primary item-btn display-7" >Pay</a>
+                                {% elif user.profile.sb == "No" %}
+                                <a href="" class="btn btn-primary item-btn display-7" >Register</a>
+                                {% else %}
+                                <p  class="item-title mbr-fonts-style display-7" style="color:green">Registerd</p>
+                                {% endif %}
+                                {% else %}
+                                    <a href="" class="btn btn-primary item-btn display-7">Pay Now</a>
+                                {% endif %}
+                            </div>
                         </div>
                     </div>
+                    <div class="embla__slide slider-image item">
+                        <div class="slide-content">
+                            <div class="item-wrapper">
+                                <div class="item-img" style=" border: 1px solid #ddd;border-radius: 4px;padding: 5px;width: 350px;">
+                                    <img src="static/assets/images/tecktalk.jpg">
+                                </div>
+                            </div>
+                            <div class="item-content">
+                                <h5 class="item-title mbr-fonts-style display-7"><strong style="font-size:30px">Tech Talk</strong></h5>
+                            </div>
+                            <div class="mbr-section-btn item-footer mt-2" style="text-align:center">
+                                {% if user.is_authenticated  %}
+                                {% if  user.profile.payment == "No" %}
+                                <a href="" class="btn btn-primary item-btn display-7" >Pay</a>
+                                {% elif user.profile.tet == "No" %}
+                                <a href="" class="btn btn-primary item-btn display-7" >Register</a>
+                                {% else %}
+                                <p  class="item-title mbr-fonts-style display-7" style="color:green">Registerd</p>
+                                {% endif %}
+                                {% else %}
+                                    <a href="" class="btn btn-primary item-btn display-7" >Pay Now</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="embla__slide slider-image item" style="margin-left: 1rem; margin-right: 1rem;">
                         <div class="slide-content">
                             <div class="item-wrapper">
@@ -148,14 +202,49 @@
                                 </div>
                             </div>
                             <div class="item-content">
-                                <h5 class="item-title mbr-fonts-style display-7"><strong>1</strong></h5>
-
-                                <p class="mbr-text mbr-fonts-style mt-3 display-7">abc<br></p>
+                                <h5 class="item-title mbr-fonts-style display-7"><strong style="font-size:30px">Tricky Circuits</strong></h5>
                             </div>
-                            <div class="mbr-section-btn item-footer mt-2"><a href="" class="btn btn-primary item-btn display-7" target="_blank">Details</a></div>
+                            <div class="mbr-section-btn item-footer mt-2" style="text-align:center">
+                                {% if user.is_authenticated  %}
+                                {% if  user.profile.payment == "No" %}
+                                <a href="" class="btn btn-primary item-btn display-7" >Pay</a>
+                                {% elif user.profile.tc == "No" %}
+                                <a href="" class="btn btn-primary item-btn display-7" >Register</a>
+                                {% else %}
+                                <p  class="item-title mbr-fonts-style display-7" style="color:green">Registerd</p>
+                                {% endif %}
+                                {% else %}
+                                    <a href="" class="btn btn-primary item-btn display-7" >Pay Now</a>
+                                {% endif %}
+                            </div>
                         </div>
                     </div>
 
+                    <div class="embla__slide slider-image item" style="margin-left: 1rem; margin-right: 1rem;">
+                        <div class="slide-content">
+                            <div class="item-wrapper">
+                                <div class="item-img">
+                                    <img src="static/assets/images/Thrusang_Logo.png">
+                                </div>
+                            </div>
+                            <div class="item-content">
+                                <h5 class="item-title mbr-fonts-style display-7"><strong style="font-size:30px">De-Bugging</strong></h5>
+                            </div>
+                            <div class="mbr-section-btn item-footer mt-2" style="text-align:center">
+                                {% if user.is_authenticated  %}
+                                {% if  user.profile.payment == "No" %}
+                                <a href="" class="btn btn-primary item-btn display-7" >Pay</a>
+                                {% elif user.profile.deb == "No" %}
+                                <a href="" class="btn btn-primary item-btn display-7" >Register</a>
+                                {% else %}
+                                <p  class="item-title mbr-fonts-style display-7" style="color:green">Registerd</p>
+                                {% endif %}
+                                {% else %}
+                                    <a href="" class="btn btn-primary item-btn display-7" >Pay Now</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <button class="embla__button embla__button--prev">
@@ -168,11 +257,7 @@
             </button>
         </div>
     </div>
-    <script src="static/assets/embla/embla.min.js"></script>
-    <script src="static/assets/embla/script.js"></script>
 </section>
-
-
 
 <section data-bs-version="5.1" class="slider4 mbr-embla cid-sXIu2Jp3LC" id="slider4-v">
 
@@ -180,9 +265,10 @@
     <div class="position-relative text-center">
         <div class="mbr-section-head">
             <h4 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2"><strong>Non Technical Events</strong></h4>
+
         </div>
-        <div class="embla mt-4" data-skip-snaps="true" data-align="center" data-contain-scroll="trimSnaps" data-loop="true" data-auto-play-interval="1" data-draggable="true">
-            <div class="embla__viewport container">
+        <div class="embla mt-4" data-skip-snaps="true" data-align="center" data-contain-scroll="trimSnaps" data-loop="true" data-auto-play-interval="5" data-draggable="true">
+            <div class="embla__viewport container-fluid">
                 <div class="embla__container">
                     <div class="embla__slide slider-image item" style="margin-left: 1rem; margin-right: 1rem;">
                         <div class="slide-content">
@@ -192,11 +278,21 @@
                                 </div>
                             </div>
                             <div class="item-content">
-                                <h5 class="item-title mbr-fonts-style display-7"><strong>2</strong></h5>
-
-                                <p class="mbr-text mbr-fonts-style mt-3 display-7">abc</p>
+                                <h5 class="item-title mbr-fonts-style display-7"><strong style="font-size:30px">IPL AUCTION</strong></h5>
                             </div>
-                            <div class="mbr-section-btn item-footer mt-2"><a href="" class="btn btn-primary item-btn display-7" target="_blank">Details</a></div>
+                            <div class="mbr-section-btn item-footer mt-2" style="text-align:center">
+                                {% if user.is_authenticated  %}
+                                {% if  user.profile.payment == "No" %}
+                                <a href="" class="btn btn-primary item-btn display-7" >Pay</a>
+                                {% elif user.profile.ipl == "No" %}
+                                <a href="" class="btn btn-primary item-btn display-7" >Register</a>
+                                {% else %}
+                                <p  class="item-title mbr-fonts-style display-7" style="color:green">Registerd</p>
+                                {% endif %}
+                                {% else %}
+                                    <a href="" class="btn btn-primary item-btn display-7" >Pay Now</a>
+                                {% endif %}
+                            </div>
                         </div>
                     </div>
                     <div class="embla__slide slider-image item" style="margin-left: 1rem; margin-right: 1rem;">
@@ -207,11 +303,21 @@
                                 </div>
                             </div>
                             <div class="item-content">
-                                <h5 class="item-title mbr-fonts-style display-7"><strong>3</strong></h5>
-
-                                <p class="mbr-text mbr-fonts-style mt-3 display-7">abc</p>
+                                <h5 class="item-title mbr-fonts-style display-7"><strong style="font-size:30px">QUIZ</strong></h5>
                             </div>
-                            <div class="mbr-section-btn item-footer mt-2"><a href="" class="btn btn-primary item-btn display-7" target="_blank">Deatils</a></div>
+                            <div class="mbr-section-btn item-footer mt-2" style="text-align:center">
+                                {% if user.is_authenticated  %}
+                                {% if  user.profile.payment == "No" %}
+                                <a href="" class="btn btn-primary item-btn display-7" >Pay</a>
+                                {% elif user.profile.quiz == "No" %}
+                                <a href="" class="btn btn-primary item-btn display-7" >Register</a>
+                                {% else %}
+                                <p  class="item-title mbr-fonts-style display-7" style="color:green">Registerd</p>
+                                {% endif %}
+                                {% else %}
+                                    <a href="" class="btn btn-primary item-btn display-7" >Pay Now</a>
+                                {% endif %}
+                            </div>
                         </div>
                     </div>
                     <div class="embla__slide slider-image item" style="margin-left: 1rem; margin-right: 1rem;">
@@ -222,11 +328,21 @@
                                 </div>
                             </div>
                             <div class="item-content">
-                                <h5 class="item-title mbr-fonts-style display-7"><strong>4</strong></h5>
-
-                                <p class="mbr-text mbr-fonts-style mt-3 display-7">abc<br></p>
+                                <h5 class="item-title mbr-fonts-style display-7"><strong style="font-size:30px">MOCK PARLIAMENT</strong></h5>
                             </div>
-                            <div class="mbr-section-btn item-footer mt-2"><a href="" class="btn btn-primary item-btn display-7" target="_blank">Details</a></div>
+                            <div class="mbr-section-btn item-footer mt-2" style="text-align:center">
+                                {% if user.is_authenticated  %}
+                                {% if  user.profile.payment == "No" %}
+                                <a href="" class="btn btn-primary item-btn display-7" >Pay</a>
+                                {% elif user.profile.mp == "No" %}
+                                <a href="" class="btn btn-primary item-btn display-7" >Register</a>
+                                {% else %}
+                                <p  class="item-title mbr-fonts-style display-7" style="color:green">Registerd</p>
+                                {% endif %}
+                                {% else %}
+                                    <a href="" class="btn btn-primary item-btn display-7" >Pay Now</a>
+                                {% endif %}
+                            </div>
                         </div>
                     </div>
                     <div class="embla__slide slider-image item" style="margin-left: 1rem; margin-right: 1rem;">
@@ -237,11 +353,122 @@
                                 </div>
                             </div>
                             <div class="item-content">
-                                <h5 class="item-title mbr-fonts-style display-7"><strong>1</strong></h5>
-
-                                <p class="mbr-text mbr-fonts-style mt-3 display-7">abc<br></p>
+                                <h5 class="item-title mbr-fonts-style display-7"><strong style="font-size:30px">PET SHOW</strong></h5>
                             </div>
-                            <div class="mbr-section-btn item-footer mt-2"><a href="" class="btn btn-primary item-btn display-7" target="_blank">Details</a></div>
+                            <div class="mbr-section-btn item-footer mt-2" style="text-align:center">
+                                {% if user.is_authenticated  %}
+                                {% if  user.profile.payment == "No" %}
+                                <a href="" class="btn btn-primary item-btn display-7" >Pay</a>
+                                {% elif user.profile.ps == "No" %}
+                                <a href="" class="btn btn-primary item-btn display-7" >Register</a>
+                                {% else %}
+                                <p  class="item-title mbr-fonts-style display-7" style="color:green">Registerd</p>
+                                {% endif %}
+                                {% else %}
+                                    <a href="" class="btn btn-primary item-btn display-7" >Pay Now</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="embla__slide slider-image item" style="margin-left: 1rem; margin-right: 1rem;">
+                        <div class="slide-content">
+                            <div class="item-wrapper">
+                                <div class="item-img">
+                                    <img src="static/assets/images/Thrusang_Logo.png">
+                                </div>
+                            </div>
+                            <div class="item-content">
+                                <h5 class="item-title mbr-fonts-style display-7"><strong style="font-size:30px">Mr. & Ms. THRUSANG</strong></h5>
+                            </div>
+                            <div class="mbr-section-btn item-footer mt-2" style="text-align:center">
+                                {% if user.is_authenticated  %}
+                                {% if  user.profile.payment == "No" %}
+                                <a href="" class="btn btn-primary item-btn display-7" >Pay</a>
+                                {% elif user.profile.mmt == "No" %}
+                                <a href="" class="btn btn-primary item-btn display-7" >Register</a>
+                                {% else %}
+                                <p  class="item-title mbr-fonts-style display-7" style="color:green">Registerd</p>
+                                {% endif %}
+                                {% else %}
+                                    <a href="" class="btn btn-primary item-btn display-7" >Pay Now</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="embla__slide slider-image item" style="margin-left: 1rem; margin-right: 1rem;">
+                        <div class="slide-content">
+                            <div class="item-wrapper">
+                                <div class="item-img">
+                                    <img src="static/assets/images/Thrusang_Logo.png">
+                                </div>
+                            </div>
+                            <div class="item-content">
+                                <h5 class="item-title mbr-fonts-style display-7"><strong style="font-size:30px">SQUID GAME</strong></h5>
+                            </div>
+                            <div class="mbr-section-btn item-footer mt-2" style="text-align:center">
+                                {% if user.is_authenticated  %}
+                                {% if  user.profile.payment == "No" %}
+                                <a href="" class="btn btn-primary item-btn display-7" >Pay</a>
+                                {% elif user.profile.sg == "No" %}
+                                <a href="" class="btn btn-primary item-btn display-7" >Register</a>
+                                {% else %}
+                                <p  class="item-title mbr-fonts-style display-7" style="color:green">Registerd</p>
+                                {% endif %}
+                                {% else %}
+                                    <a href="" class="btn btn-primary item-btn display-7" >Pay Now</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="embla__slide slider-image item" style="margin-left: 1rem; margin-right: 1rem;">
+                        <div class="slide-content">
+                            <div class="item-wrapper">
+                                <div class="item-img">
+                                    <img src="static/assets/images/Thrusang_Logo.png">
+                                </div>
+                            </div>
+                            <div class="item-content">
+                                <h5 class="item-title mbr-fonts-style display-7"><strong style="font-size:30px">ROADIES</strong></h5>
+                            </div>
+                            <div class="mbr-section-btn item-footer mt-2" style="text-align:center">
+                                {% if user.is_authenticated  %}
+                                {% if  user.profile.payment == "No" %}
+                                <a href="" class="btn btn-primary item-btn display-7" >Pay</a>
+                                {% elif user.profile.rd == "No" %}
+                                <a href="" class="btn btn-primary item-btn display-7" >Register</a>
+                                {% else %}
+                                <p  class="item-title mbr-fonts-style display-7" style="color:green">Registerd</p>
+                                {% endif %}
+                                {% else %}
+                                    <a href="" class="btn btn-primary item-btn display-7" >Pay Now</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="embla__slide slider-image item" style="margin-left: 1rem; margin-right: 1rem;">
+                        <div class="slide-content">
+                            <div class="item-wrapper">
+                                <div class="item-img">
+                                    <img src="static/assets/images/sample.jpeg">
+                                </div>
+                            </div>
+                            <div class="item-content">
+                                <h5 class="item-title mbr-fonts-style display-7"><strong style="font-size:30px">BGMI</strong></h5>
+                            </div>
+                            <div class="mbr-section-btn item-footer mt-2" style="text-align:center">
+                                {% if user.is_authenticated  %}
+                                {% if  user.profile.payment == "No" %}
+                                <a href="" class="btn btn-primary item-btn display-7" >Pay</a>
+                                {% elif user.profile.bgmi == "No" %}
+                                <a href="" class="btn btn-primary item-btn display-7" >Register</a>
+                                {% else %}
+                                <p  class="item-title mbr-fonts-style display-7" style="color:green">Registerd</p>
+                                {% endif %}
+                                {% else %}
+                                    <a href="" class="btn btn-primary item-btn display-7" >Pay Now</a>
+                                {% endif %}
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -256,8 +483,161 @@
             </button>
         </div>
     </div>
-
 </section>
+
+  <section data-bs-version="5.1" class="slider4 mbr-embla cid-sXIu1Pxijn" id="slider4-u">
+
+
+    <div class="position-relative text-center">
+        <div class="mbr-section-head">
+            <h4 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2"><strong>Workshops</strong></h4>
+
+        </div>
+        <div class="embla mt-4" data-skip-snaps="true" data-align="center" data-contain-scroll="trimSnaps" data-loop="true" data-auto-play-interval="1" data-draggable="true">
+            <div class="embla__viewport container-fluid">
+                <div class="embla__container">
+                    <div class="embla__slide slider-image item" style="margin-left: 1rem; margin-right: 1rem;">
+                        <div class="slide-content" style=" border: 1px solid #ddd;border-radius: 4px;padding: 5px;width: 450px;height:750px">
+                            <div class="item-wrapper">
+                                <div class="item-img">
+                                    <img src="static/assets/images/Cyber Security_Workshop.jpg">
+                                </div>
+                            </div>
+                            <div class="item-content">
+                                <h5 class="item-title mbr-fonts-style display-7"><strong style="font-size:30px">CYBER SECURITY</strong></h5>
+                            </div>
+                            <div class="mbr-section-btn item-footer mt-2" style="text-align:center">
+                                {% if user.is_authenticated  %}
+                                {% if  user.workshop.payment == "No" %}
+                                <a href="{% url 'cws' %}" class="btn btn-primary item-btn display-7">Pay</a>
+                                {% elif user.workshop.tg == "cs" %}
+                                <<p  class="item-title mbr-fonts-style display-7" style="color:green">Registerd</p>
+                                {% else %}
+                                <p  class="item-title mbr-fonts-style display-7" style="color:red">Not Eligile</p>
+                                {% endif %}
+                                {% else %}
+                                    <a href="{% url 'log' %}" class="btn btn-primary item-btn display-7">Pay Now</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="embla__slide slider-image item" style="margin-left: 1rem; margin-right: 1rem;">
+                        <div class="slide-content" style=" border: 1px solid #ddd;border-radius: 4px;padding: 5px;width: 450px;height:750px">
+                            <div class="item-wrapper">
+                                <div class="item-img">
+                                    <img src="static/assets/images/IOT_Workshop.jpg">
+                                </div>
+                            </div>
+                            <div class="item-content">
+                                <h5 class="item-title mbr-fonts-style display-7"><strong style="font-size:30px">IOT & EMBEDDED</strong></h5>
+
+                            </div>
+                            <div class="mbr-section-btn item-footer mt-2" style="text-align:center">
+                                {% if user.is_authenticated  %}
+                                {% if  user.workshop.payment == "No" %}
+                                <a href="{% url 'iot' %}" class="btn btn-primary item-btn display-7" >Pay</a>
+                                {% elif user.workshop.tg == "iot" %}
+                                <<p  class="item-title mbr-fonts-style display-7" style="color:green">Registerd</p>
+                                {% else %}
+                                <p  class="item-title mbr-fonts-style display-7" style="color:red">Not Eligile</p>
+                                {% endif %}
+                                {% else %}
+                                    <a href="{% url 'log' %}" class="btn btn-primary item-btn display-7" >Pay Now</a>
+                                {% endif %}
+                                </div>
+                        </div>
+                    </div>
+                    <div class="embla__slide slider-image item" style="margin-left: 1rem; margin-right: 1rem;">
+                        <div class="slide-content" style=" border: 1px solid #ddd;border-radius: 4px;padding: 5px;width: 450px;height:750px">
+                            <div class="item-wrapper">
+                                <div class="item-img">
+                                    <img src="static/assets/images/Arduino_Workshop.jpg">
+                                </div>
+                            </div>
+                            <div class="item-content">
+                                <h5 class="item-title mbr-fonts-style display-7"><strong style="font-size:30px">ARDUINO FOR SCHOOLS</strong></h5>
+
+                            </div>
+                            <div class="mbr-section-btn item-footer mt-2" style="text-align:center">
+                               {% if user.is_authenticated  %}
+                                {% if  user.workshop.payment == "No" %}
+                                <a href="{% url 'afs' %}" class="btn btn-primary item-btn display-7" >Pay</a>
+                                {% elif user.workshop.tg == "afs" %}
+                                <<p  class="item-title mbr-fonts-style display-7" style="color:green">Registerd</p>
+                                {% else %}
+                                <p  class="item-title mbr-fonts-style display-7" style="color:red">Not Eligile</p>
+                                {% endif %}
+                                {% else %}
+                                    <a href="{% url 'log' %}" class="btn btn-primary item-btn display-7" >Pay Now</a>
+                                {% endif %}
+                        </div>
+                        </div>
+                    </div>
+                    <div class="embla__slide slider-image item" style="margin-left: 1rem; margin-right: 1rem;">
+                        <div class="slide-content">
+                            <div class="item-wrapper">
+                                <div class="item-img">
+                                    <img src="static/assets/images/Thrusang_Logo.png">
+                                </div>
+                            </div>
+                            <div class="item-content">
+                                <h5 class="item-title mbr-fonts-style display-7"><strong style="font-size:30px">BLOCKCHAIN & CRYPTO MINING</strong></h5>
+                            </div>
+                            <div class="mbr-section-btn item-footer mt-2" style="text-align:center">
+                                {% if user.is_authenticated  %}
+                                {% if  user.workshop.payment == "No" %}
+                                <a href="{% url 'bcm' %}" class="btn btn-primary item-btn display-7" >Pay</a>
+                                {% elif user.workshop.tg == "bcm" %}
+                                <<p  class="item-title mbr-fonts-style display-7" style="color:green">Registerd</p>
+                                {% else %}
+                                <p  class="item-title mbr-fonts-style display-7" style="color:red">Not Eligile</p>
+                                {% endif %}
+                                {% else %}
+                                    <a href="{% url 'log' %}" class="btn btn-primary item-btn display-7" >Pay Now</a>
+                                {% endif %}
+                        </div>
+                    </div>
+                    </div>
+                    <div class="embla__slide slider-image item" style="margin-left: 1rem; margin-right: 1rem;">
+                        <div class="slide-content">
+                            <div class="item-wrapper">
+                                <div class="item-img">
+                                    <img src="static/assets/images/Thrusang_Logo.png">
+                                </div>
+                            </div>
+                            <div class="item-content">
+                                <h5 class="item-title mbr-fonts-style display-7"><strong style="font-size:30px">3-D Printing</strong></h5>
+                            </div>
+                            <div class="mbr-section-btn item-footer mt-2" style="text-align:center">
+                                {% if user.is_authenticated  %}
+                                {% if  user.workshop.payment == "No" %}
+                                <a href="{% url 'prt' %}" class="btn btn-primary item-btn display-7" >Pay</a>
+                                {% elif user.workshop.tg == "3d" %}
+                                <<p  class="item-title mbr-fonts-style display-7" style="color:green">Registerd</p>
+                                {% else %}
+                                <p  class="item-title mbr-fonts-style display-7" style="color:red">Not Eligile</p>
+                                {% endif %}
+                                {% else %}
+                                    <a href="{% url 'log' %}" class="btn btn-primary item-btn display-7" >Pay Now</a>
+                                {% endif %}
+
+                    </div>
+                </div>
+            </div>
+                     </div>
+            </div>
+            <button class="embla__button embla__button--prev">
+                <span class="mobi-mbri mobi-mbri-arrow-prev mbr-iconfont" aria-hidden="true"></span>
+                <span class="sr-only visually-hidden visually-hidden">Previous</span>
+            </button>
+            <button class="embla__button embla__button--next">
+                <span class="mobi-mbri mobi-mbri-arrow-next mbr-iconfont" aria-hidden="true"></span>
+                <span class="sr-only visually-hidden visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+</section>
+
 <!-- Footer start -->
 <section data-bs-version="5.1" class="footer3 cid-sXIDR5mIlp" once="footers" id="footer3-1g">
 
@@ -287,13 +667,7 @@
                         <a href="" target="_blank">
                             <span class="mbr-iconfont mbr-iconfont-social socicon-youtube socicon"></span>
                         </a>
-                    </div>
-                <div class="soc-item">
-                        <a href="" target="_blank">
-                            <span class="mbr-iconfont mbr-iconfont-social socicon-facebook socicon"></span>
-                        </a>
-                    </div>
-                </div>
+                    </div></div>
             </div>
             <div class="row row-copirayt">
                 <p class="mbr-text mb-0 mbr-fonts-style mbr-white align-center display-7">
@@ -309,8 +683,8 @@
 <script src="static/assets/ytplayer/index.js"></script>
 <script src="static/assets/vimeoplayer/player.js"></script>
 <script src="static/assets/dropdown/js/navbar-dropdown.js"></script>
-    <script src="static/assets/embla/embla.min.js"></script>
-  <script src="static/assets/embla/script.js"></script>
+  <script src="static/assets/embla/embla.min.js"></script>
+<script src="static/assets/embla/script.js"></script>
  <!-- Footer end -->
 </body>
 </html>
