@@ -89,6 +89,7 @@ def pay_initiate(request):
         return render(request, 'index.html')
 
 def success(request):
+        try:
             pay_id= request.GET.get('payment_request_id')
             response = api.payment_request_status(pay_id)
             if response['payment_request']['status'] =="Completed":
@@ -98,7 +99,9 @@ def success(request):
                 messages.error(request, 'Payment Successfully Completed.', extra_tags='paid')
                 return render(request, 'profile.html')
             messages.error(request, 'Payment Failed.', extra_tags='fail')
-            return  render(request,'profile.html')
+        except:
+            return render(request,'profile.html')
+        return  render(request,'profile.html')
 def logout_user(request):
     logout(request)
     return render(request, 'index.html')
