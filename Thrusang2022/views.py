@@ -57,7 +57,12 @@ def register_user(request):
             return render(request, 'signup.html')
 
         user = User.objects.create_user(username=email, first_name=name, email=email, password=passw)
-        prof = profile(id_no=id_no, college_name=coll, branch=branch, year_of_study=year_of_study,gender=gender, mobile=phn_no,payment='No',pay_id='', user=user)
+        prof = profile(id_no=id_no, college_name=coll, branch=branch, year_of_study=year_of_study,
+                       gender=gender, mobile=phn_no, payment='No', pay_id='', tt='No', sl='No', sb="No", tet="No"
+                       , tc="No", deb="No", ipl="No", quiz="No", mp="No", ps="No", mmt="No", sg="No", rd="No"
+                       , bgmi="No", user=user)
+        work = workshop(name='', payment='No', pay_id='', tg='x', user=user)
+        work.save()
         prof.save()
         messages.error(request, 'Account created successfully.', extra_tags='signup')
         return render(request, 'login.html')
@@ -80,7 +85,7 @@ def login_user(request):
 def pay_initiate(request):
     if request.user.is_authenticated and request.user.profile.payment=="No":
 
-        response = api.payment_request_create(buyer_name=request.user.first_name,email=request.user.email,phone=request.user.profile.mobile,amount='10', purpose='Test', send_email=False,redirect_url="https://thrusang2022.herokuapp.com/success")
+        response = api.payment_request_create(buyer_name=request.user.first_name,email=request.user.email,phone=request.user.profile.mobile,amount='20', purpose='Test', send_email=False,redirect_url="https://klthrusang.herokuapp.com/success")
         pro = profile.objects.get(id_no=request.user.profile.id_no)
         pro.pay_id=response['payment_request']['id']
         pro.save()
@@ -112,7 +117,7 @@ def cws(request):
 
         response = api.payment_request_create(buyer_name=request.user.first_name, email=request.user.email,
                                               phone=request.user.profile.mobile, amount='20', purpose='Test',
-                                              send_email=False, redirect_url="http://127.0.0.1:8000/cwssuccess")
+                                              send_email=False, redirect_url="https://klthrusang.herokuapp.com/cwssuccess")
         ws = workshop.objects.get(user=request.user)
         ws.pay_id = response['payment_request']['id']
         ws.save()
@@ -123,7 +128,7 @@ def cws(request):
     elif request.user.is_authenticated and request.user.profile.payment == "Yes":
         response = api.payment_request_create(buyer_name=request.user.first_name, email=request.user.email,
                                               phone=request.user.profile.mobile, amount='10', purpose='Test',
-                                              send_email=False, redirect_url="http://127.0.0.1:8000/cwssuccess")
+                                              send_email=False, redirect_url="https://klthrusang.herokuapp.com/cwssuccess")
         ws = workshop.objects.get(user=request.user)
         ws.pay_id = response['payment_request']['id']
         ws.save()
@@ -161,7 +166,7 @@ def iot(request):
 
         response = api.payment_request_create(buyer_name=request.user.first_name, email=request.user.email,
                                               phone=request.user.profile.mobile, amount='20', purpose='Test',
-                                              send_email=False, redirect_url="http://127.0.0.1:8000/iotsuccess")
+                                              send_email=False, redirect_url="https://klthrusang.herokuapp.com/iotsuccess")
         ws = workshop.objects.get(user=request.user)
         ws.pay_id = response['payment_request']['id']
         ws.save()
@@ -172,7 +177,7 @@ def iot(request):
     elif request.user.is_authenticated and request.user.profile.payment == "Yes":
         response = api.payment_request_create(buyer_name=request.user.first_name, email=request.user.email,
                                               phone=request.user.profile.mobile, amount='10', purpose='Test',
-                                              send_email=False, redirect_url="http://127.0.0.1:8000/iotsuccess")
+                                              send_email=False, redirect_url="https://klthrusang.herokuapp.com/iotsuccess")
         ws = workshop.objects.get(user=request.user)
         ws.pay_id = response['payment_request']['id']
         ws.save()
@@ -210,7 +215,7 @@ def afs(request):
 
         response = api.payment_request_create(buyer_name=request.user.first_name, email=request.user.email,
                                               phone=request.user.profile.mobile, amount='20', purpose='Test',
-                                              send_email=False, redirect_url="http://127.0.0.1:8000/afssuccess")
+                                              send_email=False, redirect_url="https://klthrusang.herokuapp.com/afssuccess")
         ws = workshop.objects.get(user=request.user)
         ws.pay_id = response['payment_request']['id']
         ws.save()
@@ -221,7 +226,7 @@ def afs(request):
     elif request.user.is_authenticated and request.user.profile.payment == "Yes":
         response = api.payment_request_create(buyer_name=request.user.first_name, email=request.user.email,
                                               phone=request.user.profile.mobile, amount='10', purpose='Test',
-                                              send_email=False, redirect_url="http://127.0.0.1:8000/afssuccess")
+                                              send_email=False, redirect_url="https://klthrusang.herokuapp.com/afssuccess")
         ws = workshop.objects.get(user=request.user)
         ws.pay_id = response['payment_request']['id']
         ws.save()
@@ -259,7 +264,7 @@ def bcm(request):
 
         response = api.payment_request_create(buyer_name=request.user.first_name, email=request.user.email,
                                               phone=request.user.profile.mobile, amount='20', purpose='Test',
-                                              send_email=False, redirect_url="http://127.0.0.1:8000/bcmsuccess")
+                                              send_email=False, redirect_url="https://klthrusang.herokuapp.com/bcmsuccess")
         ws = workshop.objects.get(user=request.user)
         ws.pay_id = response['payment_request']['id']
         ws.save()
@@ -270,7 +275,7 @@ def bcm(request):
     elif request.user.is_authenticated and request.user.profile.payment == "Yes":
         response = api.payment_request_create(buyer_name=request.user.first_name, email=request.user.email,
                                               phone=request.user.profile.mobile, amount='10', purpose='Test',
-                                              send_email=False, redirect_url="http://127.0.0.1:8000/bcmsuccess")
+                                              send_email=False, redirect_url="https://klthrusang.herokuapp.com/bcmsuccess")
         ws = workshop.objects.get(user=request.user)
         ws.pay_id = response['payment_request']['id']
         ws.save()
@@ -308,7 +313,7 @@ def prt(request):
 
         response = api.payment_request_create(buyer_name=request.user.first_name, email=request.user.email,
                                               phone=request.user.profile.mobile, amount='20', purpose='Test',
-                                              send_email=False, redirect_url="http://127.0.0.1:8000/prtsuccess")
+                                              send_email=False, redirect_url="https://klthrusang.herokuapp.com/prtsuccess")
         ws = workshop.objects.get(user=request.user)
         ws.pay_id = response['payment_request']['id']
         ws.save()
@@ -319,7 +324,7 @@ def prt(request):
     elif request.user.is_authenticated and request.user.profile.payment == "Yes":
         response = api.payment_request_create(buyer_name=request.user.first_name, email=request.user.email,
                                               phone=request.user.profile.mobile, amount='10', purpose='Test',
-                                              send_email=False, redirect_url="http://127.0.0.1:8000/prtsuccess")
+                                              send_email=False, redirect_url="https://klthrusang.herokuapp.com/prtsuccess")
         ws = workshop.objects.get(user=request.user)
         ws.pay_id = response['payment_request']['id']
         ws.save()
@@ -356,7 +361,7 @@ def evpay_initiate(request):
 
         response = api.payment_request_create(buyer_name=request.user.first_name, email=request.user.email,
                                               phone=request.user.profile.mobile, amount='10', purpose='Test',
-                                              send_email=False, redirect_url="http://127.0.0.1:8000/success")
+                                              send_email=False, redirect_url="https://klthrusang.herokuapp.com/success")
         pro = profile.objects.get(id_no=request.user.profile.id_no)
         pro.pay_id = response['payment_request']['id']
         pro.save()
