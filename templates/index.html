@@ -15,7 +15,7 @@
   <meta name="description" content="">
 
 
-
+  
   <title>Home</title>
   <link rel="stylesheet" href="static/assets/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="static/assets/bootstrap/css/bootstrap-grid.min.css">
@@ -64,7 +64,7 @@ margin: 40px 0px 20px;
 }
 #clockdiv{
 	font-family: sans-serif;
-	color: black;
+	color:white;
 	display: inline-block;
 	font-weight: 100;
 	text-align: center;
@@ -73,17 +73,18 @@ margin: 40px 0px 20px;
 #clockdiv > div{
 	padding: 30px;
 	border-radius: 15px;
-	background:#353935;
+	background:black;
 	display: inline-block;
 	opacity: 0.9;
 }
 #clockdiv div > span{
 	padding: 30px;
 	border-radius: 10px;
-	background: white;
+	background: black;
 	display: inline-block;
 	font-size: 90px;
 	font-weight: 100;
+	font-family: system-ui;
 
 }
 smalltext{
@@ -93,23 +94,23 @@ smalltext{
 }
 
 </style>
-
-
+  
+  
 </head>
 <!--style="background-image:url('static/assets/images/back2.jpg');background-attachment:fixed"-->
 <body style="background-color:#B6D0E2">
   <!-- Header start -->
   <section data-bs-version="5.1" class="menu menu2 cid-sXInXOg5Bn" once="menu" id="menu2-k" style="background-color:black">
-
-    <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg" >
-        <div class="container-fluid">
+    
+    <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg" style="background-color:white; " >
+        <div class="container-fluid"  style="background-color:white;">
             <div class="navbar-brand">
                 <span class="navbar-logo">
                     <a href="#">
                         <img  src="static/assets/images/Thrusang_Logo.png" alt="" style="height: 3.4rem;">
                     </a>
                 </span>
-
+                
             </div>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbarSupportedContent" data-bs-target="#navbarSupportedContent" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <div class="hamburger">
@@ -119,26 +120,26 @@ smalltext{
                     <span></span>
                 </div>
             </button>
-            <div  class="collapse navbar-collapse" id="navbarSupportedContent">
-<ul class="navbar-nav nav-dropdown" data-app-modern-menu="true" >
-    <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'index' %}">Home</a></li>
-    <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'aboutus' %}">About us</a></li>
-    <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'events' %}">Events</a></li>
-    <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'gallery' %}">Gallery</a></li>
-    <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'sponsers' %}">Sponsors</a></li>
-     <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'team' %}">Team</a></li>
+            <div  class="collapse navbar-collapse" id="navbarSupportedContent" >
+<ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
+    <li class="nav-item" ><a class="nav-link link text-danger text-primary display-4" href="{% url 'index' %}" ><strong style="color:#2c344e ">Home</strong></a></li>
+    <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'aboutus' %}"><strong style="color:#2c344e ">About us</strong></a></li>
+    <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'events' %}"><strong style="color:#2c344e ">Events</strong></a></li>
+    <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'gallery' %}"><strong style="color:#2c344e ">Gallery</strong></a></li>
+    <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'sponsers' %}"><strong style="color:#2c344e ">Sponsors</strong></a></li>
+     <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'team' %}"><strong style="color:#2c344e ">Team</strong></a></li>
     {% if  user.is_authenticated %}
-     <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'user_profile' %}">Profile</a></li>
+     <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'user_profile' %}"><strong style="color:#2c344e ">Profile</strong></a></li>
          {% endif %}
 </ul>
-
+                
      <div class="navbar-buttons mbr-section-btn" >
       {% if not user.is_authenticated %}
      <a class="btn btn-primary display-4" href="{% url 'log' %}">Login</a>
      <a class="btn btn-primary display-4" href="{% url 'register' %}">Register</a>
       {% endif %}
          {% if  user.profile.payment == "No" %}
-     <a class="btn btn-primary display-4" href="{% url 'pay_initiate' %}">Pay Now</a>
+     <a class="btn btn-primary display-4" href="{% url 'events' %}">Pay Now</a>
          {% endif %}
      {% if  user.is_authenticated %}
      <a class="btn btn-primary display-4" href="{% url 'logout_user' %}">Logout</a>
@@ -149,7 +150,7 @@ smalltext{
     </nav>
 </section>
      <!-- Header End -->
-<div id="large-header" class="large-header" >
+<div id="large-header" class="large-header" style="background-size: 80% 90%;background-image: url('static/assets/images/Thrusang_main.png');">
   <canvas id="demo-canvas"></canvas>
 </div>
   <script src='https://www.marcoguglie.it/Codepen/AnimatedHeaderBg/demo-1/js/EasePack.min.js'></script>
@@ -162,18 +163,19 @@ smalltext{
 
 
 
-    <div class="container" style="background:black">
-        <div class="row align-items-center">
+    <div class="container" style="background:black; border: 2px solid black;border-radius: 15px 15px;">
+        <div class="row align-items-center" >
             <div class="col-12 col-lg-5">
                 <div class="image-wrapper" id="mov">
-                    <img src="static/assets/images/logo1.png" alt="thrusang_log0">
-
+                    <img src="static/assets/images/Thrusang_white.png" alt="thrusang_logo">
+                    
                 </div>
             </div>
             <div class="col-12 col-lg">
                 <div class="text-wrapper">
-                    <h3 class="mbr-section-title mbr-fonts-style mb-3 display-5"><strong style="color:#0047AB">Thrusang 2022</strong></h3>
-                    <p class="mbr-text mbr-fonts-style display-7" style="color:grey;text-align:justify">THRUSANG’22 is a two-day national level fest with the theme TECHNOVATION. The theme was jointly decided by the team ESSENCE, the student body of the electronics and computer engineering department, after a lot of contemplation.The fest had to be true to its name and theme i.e., it should have an equal proportion of the activities in this two-day event. As a technical event, the activities are focused mainly on technical workshops and other activities. The activities were spread across a wide variety which includes basic and simple lessons on Arduino for school children to mastering ethical hacking. </p>
+                    <h3 class="mbr-section-title mbr-fonts-style mb-3 display-5"><strong style="color:#0047AB; font-family:DancingScript" >Thrusang 2022</strong></h3>
+                    <p class="mbr-text mbr-fonts-style display-7" style="color:grey;text-align:justify;font-family:DancingScript">THRUSANG'22 is a two-day national festival with the subject TECHNOVATION. The fest had to live up to its name and ethos, which meant that all the events in this two-day event had to be equally distributed. The activities of this technical event are mostly centered on technical workshops and other activities. The activities ranged from fundamental and easy Arduino instruction for school children to mastering ethical hacking. It has grown into a Science and Technology Festival, attracting people from all walks of life, including students, academia, professionals, and the general public. So, call your friends, mark your calendars, and gear up for Thrusang’22: Technovation!
+</p>
                 </div>
             </div>
         </div>
@@ -188,73 +190,22 @@ smalltext{
 
     <div class="container-fluid" style="background:transparent" >
         <div class="row justify-content-center" style="background:transparent">
-            <div class="col-12 col-lg-8" style="width: 900px;height:1200px;margin-left:10%;margin-right:10%;text-align:right">
+            <div class="col-12 col-lg-8">
                 <div class="image-wrapper">
                     <img src="static/assets/images/poster.jpg" alt="thrusang">
-
+                    
                 </div>
             </div>
         </div>
     </div><br><br>
 </section>
 
-
-
-
-<section data-bs-version="5.1" class="content2 cid-sXMYGcPtQW" id="content2-1i" style="background:transparent">
-
-
-    <div class="container" >
-        <div class="mbr-section-head">
-            <h4 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2"><strong style="color:black">Events</strong></h4>
-
-        </div>
-        <div class="row mt-4">
-            <div class="item features-image сol-12 col-md-6 col-lg-4">
-                <div class="item-wrapper">
-                    <div class="item-img">
-                        <img src="static/assets/images/technical_events_copy.jpg" alt="" title="">
-                    </div>
-                    <div class="item-content">
-                        <h5 class="item-title mbr-fonts-style display-5">Technical</h5>
-                    </div>
-                    <div class="mbr-section-btn item-footer mt-2" style="text-align:center"><a href="{% url 'events' %}" class="btn item-btn btn-primary display-7" >Explore</a></div>
-                </div>
-            </div>
-            <div class="item features-image сol-12 col-md-6 col-lg-4">
-                <div class="item-wrapper">
-                    <div class="item-img">
-                        <img src="static/assets/images/nontechincal.jpg" alt="" title="">
-                    </div>
-                    <div class="item-content">
-                        <h5 class="item-title mbr-fonts-style display-5">Non-Technical</h5>
-                        </p>
-                    </div>
-                    <div class="mbr-section-btn item-footer mt-2" style="text-align:center"><a href="{% url 'events' %}" class="btn btn-primary item-btn display-7" >Explore</a></div>
-                </div>
-            </div>
-            <div class="item features-image сol-12 col-md-6 col-lg-4">
-                <div class="item-wrapper">
-                    <div class="item-img">
-                        <img src="static/assets/images/Workshops.png" alt="" title="">
-                    </div>
-                    <div class="item-content">
-                        <h5 class="item-title mbr-fonts-style display-5">Workshops</h5>
-                    </div>
-                    <div class="mbr-section-btn item-footer mt-2" style="text-align:center"><a href="{% url 'events' %}" class="btn btn-primary item-btn display-7" >Explore</a></div>
-                </div>
-            </div>
-
-        </div>
-    </div><br><br>
-</section>
-  <div style="background:transparent"></div>
   <section  style="background:transparent">
       <div class="mbr-section-head" style="background:transparent">
             <h4 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2"><strong style="color:black">Countdown Start</strong></h4>
 
         </div><br>
-<div id="clockdiv" style="background:transparent">
+<div id="clockdiv">
 <div>
 	<span class="days" id="day"></span>
 	<div class="smalltext">Days</div>
@@ -275,18 +226,71 @@ smalltext{
 
 
   </section>
+
+
+
+
+<section data-bs-version="5.1" class="content2 cid-sXMYGcPtQW" id="content2-1i" style="background:transparent">
+    
+    
+    <div class="container" >
+        <div class="mbr-section-head">
+            <h4 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2"><strong style="color:black">Events</strong></h4>
+            
+        </div>
+        <div class="row mt-4">
+            <div class="item features-image сol-12 col-md-6 col-lg-4" >
+                <div class="item-wrapper"style=" border: 2px solid white;padding: 10px;border-radius: 50px 20px;">
+                    <div class="item-img">
+                        <img src="static/assets/images/technical events copy.jpg" alt="" title=""style=" border: 2px solid white;border-radius: 50px 20px;max-width:100%;max-height:100%;">
+                    </div>
+                    <div class="item-content">
+                        <h5 class="item-title mbr-fonts-style display-5">Technical</h5>
+                    </div>
+                    <div class="mbr-section-btn item-footer mt-2" style="text-align:center"><a href="{% url 'events' %}" class="btn item-btn btn-primary display-7" >Explore</a></div>
+                </div>
+            </div>
+            <div class="item features-image сol-12 col-md-6 col-lg-4">
+                <div class="item-wrapper"style=" border: 2px solid white;padding: 10px;border-radius: 50px 20px;">
+                    <div class="item-img">
+                        <img src="static/assets/images/non tech copy.jpg" alt="" title=""style=" border: 2px solid white;border-radius: 50px 20px;max-width:100%;max-height:100%;">
+                    </div>
+                    <div class="item-content">
+                        <h5 class="item-title mbr-fonts-style display-5">Non-Technical</h5>
+                        </p>
+                    </div>
+                    <div class="mbr-section-btn item-footer mt-2" style="text-align:center"><a href="{% url 'events' %}" class="btn btn-primary item-btn display-7" >Explore</a></div>
+                </div>
+            </div>
+            <div class="item features-image сol-12 col-md-6 col-lg-4">
+                <div class="item-wrapper"style=" border: 2px solid white;padding: 10px;border-radius: 50px 20px;">
+                    <div class="item-img" style="height:auto">
+                        <img src="static/assets/images/WORKSHOPS copy.jpg" alt="" title=""style=" border: 2px solid white;border-radius: 50px 20px;max-width:100%;max-height:100%;">
+                    </div>
+                    <div class="item-content">
+                        <h5 class="item-title mbr-fonts-style display-5">Workshops</h5>
+                    </div>
+                    <div class="mbr-section-btn item-footer mt-2" style="text-align:center"><a href="{% url 'events' %}" class="btn btn-primary item-btn display-7" >Explore</a></div>
+                </div>
+            </div>
+
+        </div>
+    </div><br><br>
+</section>
+
+
  <!-- Footer start -->
 <section data-bs-version="5.1" class="footer3 cid-sXIDR5mIlp" once="footers" id="footer3-1g">
 
+    
 
-
-
+    
 
     <div class="container">
         <div class="media-container-row align-center mbr-white">
             <div class="row row-links">
                 <ul class="foot-menu">
-
+                    
 <li class="foot-menu-item mbr-fonts-style display-7"><a href="{% url 'index' %}" class="text-primary">Home</a></li>
 <li class="foot-menu-item mbr-fonts-style display-7"><a href="{% url 'aboutus' %}" class="text-primary">About Us</a></li>
 <li class="foot-menu-item mbr-fonts-style display-7"><a href="{% url 'team' %}" class="text-primary">Team</a></li>

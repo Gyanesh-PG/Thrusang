@@ -13,7 +13,7 @@
   background-size:50%;
   background-repeat: no-repeat;
   background-position: 50%;
-  background-image: url('/static/assets/images/Thrusang_Logo.png');
+  background-image: url('static/assets/images/main_logo.png');
 }
 .main-title {
   position: absolute;

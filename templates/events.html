@@ -26,16 +26,38 @@
   <link rel="preload" as="style" href="static/assets/mobirise/css/mbr-additional.css"><link rel="stylesheet" href="static/assets/mobirise/css/mbr-additional.css" type="text/css">
   
   
-  
+ <style>
+
+      .alert {
+  padding: 20px;
+  background-color: red;
+  color: white;
+}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}
+ </style>
   
 </head>
 <body>
   
   <!-- Header start -->
-  <section data-bs-version="5.1" class="menu menu2 cid-sXInXOg5Bn" once="menu" id="menu2-k" style="padding: 0%;">
+  <section data-bs-version="5.1" class="menu menu2 cid-sXInXOg5Bn" once="menu" id="menu2-k" style="background-color:black">
 
-    <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg" >
-        <div class="container-fluid">
+    <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg" style="background-color:white; " >
+        <div class="container-fluid"  style="background-color:white;">
             <div class="navbar-brand">
                 <span class="navbar-logo">
                     <a href="#">
@@ -52,16 +74,16 @@
                     <span></span>
                 </div>
             </button>
-            <div  class="collapse navbar-collapse" id="navbarSupportedContent">
-<ul class="navbar-nav nav-dropdown" data-app-modern-menu="true" >
-    <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'index' %}">Home</a></li>
-    <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'aboutus' %}">About us</a></li>
-    <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'events' %}">Events</a></li>
-    <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'gallery' %}">Gallery</a></li>
-    <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'sponsers' %}">Sponsors</a></li>
-     <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'team' %}">Team</a></li>
+            <div  class="collapse navbar-collapse" id="navbarSupportedContent" >
+<ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
+    <li class="nav-item" ><a class="nav-link link text-danger text-primary display-4" href="{% url 'index' %}" ><strong style="color:#2c344e ">Home</strong></a></li>
+    <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'aboutus' %}"><strong style="color:#2c344e ">About us</strong></a></li>
+    <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'events' %}"><strong style="color:#2c344e ">Events</strong></a></li>
+    <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'gallery' %}"><strong style="color:#2c344e ">Gallery</strong></a></li>
+    <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'sponsers' %}"><strong style="color:#2c344e ">Sponsors</strong></a></li>
+     <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'team' %}"><strong style="color:#2c344e ">Team</strong></a></li>
     {% if  user.is_authenticated %}
-     <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'user_profile' %}">Profile</a></li>
+     <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'user_profile' %}"><strong style="color:#2c344e ">Profile</strong></a></li>
          {% endif %}
 </ul>
 
@@ -71,7 +93,7 @@
      <a class="btn btn-primary display-4" href="{% url 'register' %}">Register</a>
       {% endif %}
          {% if  user.profile.payment == "No" %}
-     <a class="btn btn-primary display-4" href="{% url 'register' %}">Pay Now</a>
+     <a class="btn btn-primary display-4" href="{% url 'events' %}">Pay Now</a>
          {% endif %}
      {% if  user.is_authenticated %}
      <a class="btn btn-primary display-4" href="{% url 'logout_user' %}">Logout</a>
@@ -82,13 +104,32 @@
     </nav>
 </section>
      <!-- Header End -->
+  {% if messages %}
+
+    {% for message in messages %}
+        {%if "fail" in message.tags %}
+<div class="alert">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+  <strong>Warning! </strong>{{ message }}
+</div>
+        {%endif%}
+    {% endfor %}
+    {% for message in messages %}
+        {%if "paid" in message.tags %}
+<div class="alert" style="background-color: green;">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+  <strong>Success! </strong>{{ message }}
+</div>
+        {%endif%}
+    {% endfor %}
+{% endif %}
 <section data-bs-version="5.1" class="slider4 mbr-embla cid-sXIu1Pxijn" id="slider4">
-
-
+    
+    
     <div class="position-relative text-center">
         <div class="mbr-section-head">
             <h4 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2"><strong>Technical Events</strong></h4>
-
+            
         </div>
         <div class="embla mt-4" data-skip-snaps="true" data-align="center" data-contain-scroll="trimSnaps" data-loop="true" data-auto-play-interval="1" data-draggable="true">
             <div class="embla__viewport container-fluid">
@@ -103,17 +144,18 @@
                             <div class="item-content">
                                 <h5 class="item-title mbr-fonts-style display-7"><strong style="font-size:30px">Thrusang Tank</strong></h5>
                             </div>
+                            <a href="#">DETAILS</a>
                             <div class="mbr-section-btn item-footer mt-2" style="text-align:center">
                                 {% if user.is_authenticated  %}
-                                {% if  user.profile.payment == "No" %}
-                                <a href="{% url 'evpay_initiate' %}" class="btn btn-primary item-btn display-7"">Pay</a>
+                                {% if  user.profile.ttpay == "No" %}
+                                <a href="{% url 'ttdetails' %}" class="btn btn-primary item-btn display-7">Pay Now</a>
                                 {% elif user.profile.tt == "No" %}
                                 <a href="{% url 'tt' %}" class="btn btn-primary item-btn display-7">Register</a>
                                 {% else %}
                                 <p  class="item-title mbr-fonts-style display-7" style="color:green">Registerd</p>
                                 {% endif %}
                                 {% else %}
-                                    <a href="" class="btn btn-primary item-btn display-7" >Pay Now</a>
+                                    <a href="{% url 'log' %}" class="btn btn-primary item-btn display-7" >Pay Now</a>
                                 {% endif %}
                             </div>
                         </div>
@@ -128,17 +170,20 @@
                             <div class="item-content">
                                 <h5 class="item-title mbr-fonts-style display-7"><strong style="font-size:30px">Snake & Ladder Quiz</strong></h5>
                             </div>
+                             <a href="#">DETAILS</a>
                             <div class="mbr-section-btn item-footer mt-2" style="text-align:center">
                                 {% if user.is_authenticated  %}
-                                {% if  user.profile.payment == "No" %}
-                                <a href="" class="btn btn-primary item-btn display-7" >Pay</a>
-                                {% elif user.profile.sl == "No" %}
-                                <a href="" class="btn btn-primary item-btn display-7" >Register</a>
-                                {% else %}
+                                {% if  user.profile.evpay == "No" %}
+                                <a href="{% url 'pay_initiate' %}" class="btn btn-primary item-btn display-7" >Pay Now</a>
+                                {% elif user.profile.sl == "No" and user.profile.evcount < 3 %}
+                                <a href="{% url 'sl' %}" class="btn btn-primary item-btn display-7" >Register</a>
+                                {% elif user.profile.sl == "Yes" %}
                                 <p  class="item-title mbr-fonts-style display-7" style="color:green">Registerd</p>
+                                {% else%}
+                                <p  class="item-title mbr-fonts-style display-7" style="color:red">Not Eligile</p>
                                 {% endif %}
                                 {% else %}
-                                    <a href="" class="btn btn-primary item-btn display-7" >Pay Now</a>
+                                    <a href="{% url 'log' %}" class="btn btn-primary item-btn display-7" >Pay Now</a>
                                 {% endif %}
                             </div>
                         </div>
@@ -153,17 +198,20 @@
                             <div class="item-content">
                                 <h5 class="item-title mbr-fonts-style display-7"><strong style="font-size:30px">Select * From Brain</strong></h5>
                             </div>
+                             <a href="#">DETAILS</a>
                             <div class="mbr-section-btn item-footer mt-2" style="text-align:center">
                                {% if user.is_authenticated  %}
-                                {% if  user.profile.payment == "No" %}
-                                <a href="" class="btn btn-primary item-btn display-7" >Pay</a>
-                                {% elif user.profile.sb == "No" %}
-                                <a href="" class="btn btn-primary item-btn display-7" >Register</a>
-                                {% else %}
+                                {% if  user.profile.evpay == "No" %}
+                                <a href="{% url 'pay_initiate' %}" class="btn btn-primary item-btn display-7" >Pay Now</a>
+                                {% elif user.profile.sb == "No" and user.profile.evcount < 3 %}
+                                <a href="{% url 'sb' %}" class="btn btn-primary item-btn display-7" >Register</a>
+                                {% elif user.profile.sb == "Yes" %}
                                 <p  class="item-title mbr-fonts-style display-7" style="color:green">Registerd</p>
+                                {% else %}
+                                <p  class="item-title mbr-fonts-style display-7" style="color:red">Not Eligile</p>
                                 {% endif %}
                                 {% else %}
-                                    <a href="" class="btn btn-primary item-btn display-7">Pay Now</a>
+                                    <a href="{% url 'log' %}" class="btn btn-primary item-btn display-7" >Pay Now</a>
                                 {% endif %}
                             </div>
                         </div>
@@ -178,17 +226,20 @@
                             <div class="item-content">
                                 <h5 class="item-title mbr-fonts-style display-7"><strong style="font-size:30px">Tech Talk</strong></h5>
                             </div>
+                             <a href="#">DETAILS</a>
                             <div class="mbr-section-btn item-footer mt-2" style="text-align:center">
                                 {% if user.is_authenticated  %}
-                                {% if  user.profile.payment == "No" %}
-                                <a href="" class="btn btn-primary item-btn display-7" >Pay</a>
-                                {% elif user.profile.tet == "No" %}
-                                <a href="" class="btn btn-primary item-btn display-7" >Register</a>
-                                {% else %}
+                                {% if  user.profile.evpay == "No" %}
+                                <a href="{% url 'pay_initiate' %}" class="btn btn-primary item-btn display-7" >Pay</a>
+                                {% elif user.profile.tet == "No" and user.profile.evcount < 3 %}
+                                <a href="{% url 'tet' %}" class="btn btn-primary item-btn display-7" >Register</a>
+                                {% elif user.profile.tet == "Yes" %}
                                 <p  class="item-title mbr-fonts-style display-7" style="color:green">Registerd</p>
+                                {% else%}
+                                <p  class="item-title mbr-fonts-style display-7" style="color:red">Not Eligile</p>
                                 {% endif %}
                                 {% else %}
-                                    <a href="" class="btn btn-primary item-btn display-7" >Pay Now</a>
+                                    <a href="{% url 'log' %}" class="btn btn-primary item-btn display-7" >Pay Now</a>
                                 {% endif %}
                             </div>
                         </div>
@@ -204,17 +255,20 @@
                             <div class="item-content">
                                 <h5 class="item-title mbr-fonts-style display-7"><strong style="font-size:30px">Tricky Circuits</strong></h5>
                             </div>
+                             <a href="#">DETAILS</a>
                             <div class="mbr-section-btn item-footer mt-2" style="text-align:center">
                                 {% if user.is_authenticated  %}
-                                {% if  user.profile.payment == "No" %}
-                                <a href="" class="btn btn-primary item-btn display-7" >Pay</a>
-                                {% elif user.profile.tc == "No" %}
-                                <a href="" class="btn btn-primary item-btn display-7" >Register</a>
-                                {% else %}
+                                {% if  user.profile.evpay == "No" %}
+                                <a href="{% url 'pay_initiate' %}" class="btn btn-primary item-btn display-7" >Pay Now</a>
+                                {% elif user.profile.tc == "No" and user.profile.evcount < 3 %}
+                                <a href="{% url 'tc' %}" class="btn btn-primary item-btn display-7" >Register</a>
+                                {% elif user.profile.tc == "Yes" %}
                                 <p  class="item-title mbr-fonts-style display-7" style="color:green">Registerd</p>
+                                {% else %}
+                                <p  class="item-title mbr-fonts-style display-7" style="color:red">Not Eligile</p>
                                 {% endif %}
                                 {% else %}
-                                    <a href="" class="btn btn-primary item-btn display-7" >Pay Now</a>
+                                    <a href="{% url 'log' %}" class="btn btn-primary item-btn display-7" >Pay Now</a>
                                 {% endif %}
                             </div>
                         </div>
@@ -230,17 +284,78 @@
                             <div class="item-content">
                                 <h5 class="item-title mbr-fonts-style display-7"><strong style="font-size:30px">De-Bugging</strong></h5>
                             </div>
+                             <a href="#">DETAILS</a>
                             <div class="mbr-section-btn item-footer mt-2" style="text-align:center">
                                 {% if user.is_authenticated  %}
-                                {% if  user.profile.payment == "No" %}
-                                <a href="" class="btn btn-primary item-btn display-7" >Pay</a>
-                                {% elif user.profile.deb == "No" %}
-                                <a href="" class="btn btn-primary item-btn display-7" >Register</a>
-                                {% else %}
+                                {% if  user.profile.evpay == "No" %}
+                                <a href="{% url 'pay_initiate' %}" class="btn btn-primary item-btn display-7" >Pay Now</a>
+                                {% elif user.profile.deb == "No" and user.profile.evcount < 3 %}
+                                <a href="{% url 'deb' %}" class="btn btn-primary item-btn display-7" >Register</a>
+                                {% elif user.profile.deb == "Yes" %}
                                 <p  class="item-title mbr-fonts-style display-7" style="color:green">Registerd</p>
+                                {% else %}
+                                <p  class="item-title mbr-fonts-style display-7" style="color:red">Not Eligile</p>
                                 {% endif %}
                                 {% else %}
-                                    <a href="" class="btn btn-primary item-btn display-7" >Pay Now</a>
+                                    <a href="{% url 'log' %}" class="btn btn-primary item-btn display-7" >Pay Now</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="embla__slide slider-image item">
+                        <div class="slide-content">
+                            <div class="item-wrapper">
+                                <div class="item-img" style=" border: 1px solid #ddd;border-radius: 4px;padding: 5px;width: 350px;">
+                                    <img src="static/assets/images/tecktalk.jpg">
+                                </div>
+                            </div>
+                            <div class="item-content">
+                                <h5 class="item-title mbr-fonts-style display-7"><strong style="font-size:30px">Spin-A-Web</strong></h5>
+                            </div>
+                             <a href="#">DETAILS</a>
+                            <div class="mbr-section-btn item-footer mt-2" style="text-align:center">
+                                {% if user.is_authenticated  %}
+                                {% if  user.profile.evpay == "No" %}
+                                <a href="{% url 'pay_initiate' %}" class="btn btn-primary item-btn display-7" >Pay Now</a>
+                                {% elif user.profile.saw == "No" and user.profile.evcount < 3 %}
+                                <a href="{% url 'saw' %}" class="btn btn-primary item-btn display-7" >Register</a>
+                                {% elif user.profile.saw == "Yes" %}
+                                <p  class="item-title mbr-fonts-style display-7" style="color:green">Registerd</p>
+                                {% else%}
+                                <p  class="item-title mbr-fonts-style display-7" style="color:red">Not Eligile</p>
+                                {% endif %}
+                                {% else %}
+                                    <a href="{% url 'log' %}" class="btn btn-primary item-btn display-7" >Pay Now</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="embla__slide slider-image item">
+                        <div class="slide-content">
+                            <div class="item-wrapper">
+                                <div class="item-img" style=" border: 1px solid #ddd;border-radius: 4px;padding: 5px;width: 350px;">
+                                    <img src="static/assets/images/tecktalk.jpg">
+                                </div>
+                            </div>
+                            <div class="item-content">
+                                <h5 class="item-title mbr-fonts-style display-7"><strong style="font-size:30px">Code Golf</strong></h5>
+                            </div>
+                             <a href="#">DETAILS</a>
+                            <div class="mbr-section-btn item-footer mt-2" style="text-align:center">
+                                {% if user.is_authenticated  %}
+                                {% if  user.profile.evpay == "No" %}
+                                <a href="{% url 'pay_initiate' %}" class="btn btn-primary item-btn display-7" >Pay Now</a>
+                                {% elif user.profile.cg == "No" and user.profile.evcount < 3 %}
+                                <a href="{% url 'cg' %}" class="btn btn-primary item-btn display-7" >Register</a>
+                                {% elif user.profile.cg == "Yes" %}
+                                <p  class="item-title mbr-fonts-style display-7" style="color:green">Registerd</p>
+                                {% else%}
+                                <p  class="item-title mbr-fonts-style display-7" style="color:red">Not Eligile</p>
+                                {% endif %}
+                                {% else %}
+                                    <a href="{% url 'log' %}" class="btn btn-primary item-btn display-7" >Pay Now</a>
                                 {% endif %}
                             </div>
                         </div>
@@ -260,12 +375,12 @@
 </section>
 
 <section data-bs-version="5.1" class="slider4 mbr-embla cid-sXIu2Jp3LC" id="slider4-v">
-
-
+    
+    
     <div class="position-relative text-center">
         <div class="mbr-section-head">
             <h4 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2"><strong>Non Technical Events</strong></h4>
-
+            
         </div>
         <div class="embla mt-4" data-skip-snaps="true" data-align="center" data-contain-scroll="trimSnaps" data-loop="true" data-auto-play-interval="5" data-draggable="true">
             <div class="embla__viewport container-fluid">
@@ -280,17 +395,21 @@
                             <div class="item-content">
                                 <h5 class="item-title mbr-fonts-style display-7"><strong style="font-size:30px">IPL AUCTION</strong></h5>
                             </div>
+                             <a href="#">DETAILS</a>
                             <div class="mbr-section-btn item-footer mt-2" style="text-align:center">
                                 {% if user.is_authenticated  %}
-                                {% if  user.profile.payment == "No" %}
-                                <a href="" class="btn btn-primary item-btn display-7" >Pay</a>
-                                {% elif user.profile.ipl == "No" %}
-                                <a href="" class="btn btn-primary item-btn display-7" >Register</a>
-                                {% else %}
+                                {% if  user.profile.iplpay == "No" and user.profile.ipcount < 50 %}
+                                <a href="{% url 'iplpay_initiate' %}" class="btn btn-primary item-btn display-7">Pay Now</a>
+                                {% elif user.profile.ipl == "No" and user.profile.ipcount < 50 %}
+                                <a href="{% url 'tt' %}" class="btn btn-primary item-btn display-7">Register</a>
+                                {% elif user.profile.ipl == "Yes" %}
                                 <p  class="item-title mbr-fonts-style display-7" style="color:green">Registerd</p>
-                                {% endif %}
                                 {% else %}
-                                    <a href="" class="btn btn-primary item-btn display-7" >Pay Now</a>
+                                <p  class="item-title mbr-fonts-style display-7" style="color:red">Closed</p>
+                                {% endif %}
+
+                                {% else %}
+                                    <a href="{% url 'log' %}" class="btn btn-primary item-btn display-7" >Pay Now</a>
                                 {% endif %}
                             </div>
                         </div>
@@ -305,17 +424,20 @@
                             <div class="item-content">
                                 <h5 class="item-title mbr-fonts-style display-7"><strong style="font-size:30px">QUIZ</strong></h5>
                             </div>
+                             <a href="#">DETAILS</a>
                             <div class="mbr-section-btn item-footer mt-2" style="text-align:center">
                                 {% if user.is_authenticated  %}
-                                {% if  user.profile.payment == "No" %}
-                                <a href="" class="btn btn-primary item-btn display-7" >Pay</a>
-                                {% elif user.profile.quiz == "No" %}
-                                <a href="" class="btn btn-primary item-btn display-7" >Register</a>
-                                {% else %}
+                                {% if  user.profile.evpay == "No" %}
+                                <a href="{% url 'pay_initiate' %}" class="btn btn-primary item-btn display-7" >Pay Now</a>
+                                {% elif user.profile.quiz == "No" and user.profile.evcount < 3 %}
+                                <a href="{% url 'quiz' %}" class="btn btn-primary item-btn display-7" >Register</a>
+                                {% elif user.profile.quiz == "Yes" %}
                                 <p  class="item-title mbr-fonts-style display-7" style="color:green">Registerd</p>
+                                {% else%}
+                                <p  class="item-title mbr-fonts-style display-7" style="color:red">Not Eligile</p>
                                 {% endif %}
                                 {% else %}
-                                    <a href="" class="btn btn-primary item-btn display-7" >Pay Now</a>
+                                    <a href="{% url 'log' %}" class="btn btn-primary item-btn display-7" >Pay Now</a>
                                 {% endif %}
                             </div>
                         </div>
@@ -330,17 +452,20 @@
                             <div class="item-content">
                                 <h5 class="item-title mbr-fonts-style display-7"><strong style="font-size:30px">MOCK PARLIAMENT</strong></h5>
                             </div>
+                             <a href="#">DETAILS</a>
                             <div class="mbr-section-btn item-footer mt-2" style="text-align:center">
                                 {% if user.is_authenticated  %}
-                                {% if  user.profile.payment == "No" %}
-                                <a href="" class="btn btn-primary item-btn display-7" >Pay</a>
-                                {% elif user.profile.mp == "No" %}
-                                <a href="" class="btn btn-primary item-btn display-7" >Register</a>
-                                {% else %}
+                                {% if  user.profile.evpay == "No" %}
+                                <a href="{% url 'pay_initiate' %}" class="btn btn-primary item-btn display-7" >Pay Now</a>
+                                {% elif user.profile.mp == "No" and user.profile.evcount < 3 %}
+                                <a href="{% url 'mp' %}" class="btn btn-primary item-btn display-7" >Register</a>
+                                {% elif user.profile.mp == "Yes" %}
                                 <p  class="item-title mbr-fonts-style display-7" style="color:green">Registerd</p>
+                                {% else%}
+                                <p  class="item-title mbr-fonts-style display-7" style="color:red">Not Eligile</p>
                                 {% endif %}
                                 {% else %}
-                                    <a href="" class="btn btn-primary item-btn display-7" >Pay Now</a>
+                                    <a href="{% url 'log' %}" class="btn btn-primary item-btn display-7" >Pay Now</a>
                                 {% endif %}
                             </div>
                         </div>
@@ -357,15 +482,17 @@
                             </div>
                             <div class="mbr-section-btn item-footer mt-2" style="text-align:center">
                                 {% if user.is_authenticated  %}
-                                {% if  user.profile.payment == "No" %}
-                                <a href="" class="btn btn-primary item-btn display-7" >Pay</a>
-                                {% elif user.profile.ps == "No" %}
-                                <a href="" class="btn btn-primary item-btn display-7" >Register</a>
-                                {% else %}
+                                {% if  user.profile.evpay == "No" %}
+                                <a href="{% url 'pay_initiate' %}" class="btn btn-primary item-btn display-7" >Pay Now</a>
+                                {% elif user.profile.ps == "No" and user.profile.evcount < 3 %}
+                                <a href="{% url 'ps' %}" class="btn btn-primary item-btn display-7" >Register</a>
+                                {% elif user.profile.ps == "Yes" %}
                                 <p  class="item-title mbr-fonts-style display-7" style="color:green">Registerd</p>
+                                {% else%}
+                                <p  class="item-title mbr-fonts-style display-7" style="color:red">Not Eligile</p>
                                 {% endif %}
                                 {% else %}
-                                    <a href="" class="btn btn-primary item-btn display-7" >Pay Now</a>
+                                    <a href="{% url 'log' %}" class="btn btn-primary item-btn display-7" >Pay Now</a>
                                 {% endif %}
                             </div>
                         </div>
@@ -381,17 +508,20 @@
                             <div class="item-content">
                                 <h5 class="item-title mbr-fonts-style display-7"><strong style="font-size:30px">Mr. & Ms. THRUSANG</strong></h5>
                             </div>
+                             <a href="#">DETAILS</a>
                             <div class="mbr-section-btn item-footer mt-2" style="text-align:center">
                                 {% if user.is_authenticated  %}
-                                {% if  user.profile.payment == "No" %}
-                                <a href="" class="btn btn-primary item-btn display-7" >Pay</a>
-                                {% elif user.profile.mmt == "No" %}
-                                <a href="" class="btn btn-primary item-btn display-7" >Register</a>
-                                {% else %}
+                                {% if  user.profile.evpay == "No" %}
+                                <a href="{% url 'pay_initiate' %}" class="btn btn-primary item-btn display-7" >Pay Now</a>
+                                {% elif user.profile.mmt == "No" and user.profile.evcount < 3 %}
+                                <a href="{% url 'mmt' %}" class="btn btn-primary item-btn display-7" >Register</a>
+                                {% elif user.profile.mmt == "Yes" %}
                                 <p  class="item-title mbr-fonts-style display-7" style="color:green">Registerd</p>
+                                {% else%}
+                                <p  class="item-title mbr-fonts-style display-7" style="color:red">Not Eligile</p>
                                 {% endif %}
                                 {% else %}
-                                    <a href="" class="btn btn-primary item-btn display-7" >Pay Now</a>
+                                    <a href="{% url 'log' %}" class="btn btn-primary item-btn display-7" >Pay Now</a>
                                 {% endif %}
                             </div>
                         </div>
@@ -406,17 +536,20 @@
                             <div class="item-content">
                                 <h5 class="item-title mbr-fonts-style display-7"><strong style="font-size:30px">SQUID GAME</strong></h5>
                             </div>
+                             <a href="#">DETAILS</a>
                             <div class="mbr-section-btn item-footer mt-2" style="text-align:center">
                                 {% if user.is_authenticated  %}
-                                {% if  user.profile.payment == "No" %}
-                                <a href="" class="btn btn-primary item-btn display-7" >Pay</a>
-                                {% elif user.profile.sg == "No" %}
-                                <a href="" class="btn btn-primary item-btn display-7" >Register</a>
-                                {% else %}
+                                {% if  user.profile.evpay == "No" %}
+                                <a href="{% url 'pay_initiate' %}" class="btn btn-primary item-btn display-7" >Pay Now</a>
+                                {% elif user.profile.sg == "No" and user.profile.evcount < 3 %}
+                                <a href="{% url 'sg' %}" class="btn btn-primary item-btn display-7" >Register</a>
+                                {% elif user.profile.sg == "Yes" %}
                                 <p  class="item-title mbr-fonts-style display-7" style="color:green">Registerd</p>
+                                {% else%}
+                                <p  class="item-title mbr-fonts-style display-7" style="color:red">Not Eligile</p>
                                 {% endif %}
                                 {% else %}
-                                    <a href="" class="btn btn-primary item-btn display-7" >Pay Now</a>
+                                    <a href="{% url 'log' %}" class="btn btn-primary item-btn display-7" >Pay Now</a>
                                 {% endif %}
                             </div>
                         </div>
@@ -431,17 +564,20 @@
                             <div class="item-content">
                                 <h5 class="item-title mbr-fonts-style display-7"><strong style="font-size:30px">ROADIES</strong></h5>
                             </div>
+                             <a href="#">DETAILS</a>
                             <div class="mbr-section-btn item-footer mt-2" style="text-align:center">
                                 {% if user.is_authenticated  %}
-                                {% if  user.profile.payment == "No" %}
-                                <a href="" class="btn btn-primary item-btn display-7" >Pay</a>
-                                {% elif user.profile.rd == "No" %}
-                                <a href="" class="btn btn-primary item-btn display-7" >Register</a>
-                                {% else %}
+                                {% if  user.profile.evpay == "No" %}
+                                <a href="{% url 'pay_initiate' %}" class="btn btn-primary item-btn display-7" >Pay Now</a>
+                                {% elif user.profile.rd == "No" and user.profile.evcount < 3 %}
+                                <a href="{% url 'rd' %}" class="btn btn-primary item-btn display-7" >Register</a>
+                                {% elif user.profile.rd == "Yes" %}
                                 <p  class="item-title mbr-fonts-style display-7" style="color:green">Registerd</p>
+                                {% else%}
+                                <p  class="item-title mbr-fonts-style display-7" style="color:red">Not Eligile</p>
                                 {% endif %}
                                 {% else %}
-                                    <a href="" class="btn btn-primary item-btn display-7" >Pay Now</a>
+                                    <a href="{% url 'log' %}" class="btn btn-primary item-btn display-7" >Pay Now</a>
                                 {% endif %}
                             </div>
                         </div>
@@ -456,17 +592,20 @@
                             <div class="item-content">
                                 <h5 class="item-title mbr-fonts-style display-7"><strong style="font-size:30px">BGMI</strong></h5>
                             </div>
+                             <a href="#">DETAILS</a>
                             <div class="mbr-section-btn item-footer mt-2" style="text-align:center">
                                 {% if user.is_authenticated  %}
-                                {% if  user.profile.payment == "No" %}
-                                <a href="" class="btn btn-primary item-btn display-7" >Pay</a>
-                                {% elif user.profile.bgmi == "No" %}
-                                <a href="" class="btn btn-primary item-btn display-7" >Register</a>
-                                {% else %}
+                                {% if  user.profile.evpay == "No" %}
+                                <a href="{% url 'pay_initiate' %}" class="btn btn-primary item-btn display-7" >Pay Now</a>
+                                {% elif user.profile.bgmi == "No" and user.profile.evcount < 3 %}
+                                <a href="{% url 'bgmi' %}" class="btn btn-primary item-btn display-7" >Register</a>
+                                {% elif user.profile.bgmi == "Yes" %}
                                 <p  class="item-title mbr-fonts-style display-7" style="color:green">Registerd</p>
+                                {% else%}
+                                <p  class="item-title mbr-fonts-style display-7" style="color:red">Not Eligile</p>
                                 {% endif %}
                                 {% else %}
-                                    <a href="" class="btn btn-primary item-btn display-7" >Pay Now</a>
+                                    <a href="{% url 'log' %}" class="btn btn-primary item-btn display-7" >Pay Now</a>
                                 {% endif %}
                             </div>
                         </div>
@@ -503,9 +642,11 @@
                                     <img src="static/assets/images/Cyber Security_Workshop.jpg">
                                 </div>
                             </div>
+
                             <div class="item-content">
                                 <h5 class="item-title mbr-fonts-style display-7"><strong style="font-size:30px">CYBER SECURITY</strong></h5>
                             </div>
+                            <a href="#">DETAILS</a>
                             <div class="mbr-section-btn item-footer mt-2" style="text-align:center">
                                 {% if user.is_authenticated  %}
                                 {% if  user.workshop.payment == "No" %}
@@ -532,6 +673,7 @@
                                 <h5 class="item-title mbr-fonts-style display-7"><strong style="font-size:30px">IOT & EMBEDDED</strong></h5>
 
                             </div>
+                             <a href="#">DETAILS</a>
                             <div class="mbr-section-btn item-footer mt-2" style="text-align:center">
                                 {% if user.is_authenticated  %}
                                 {% if  user.workshop.payment == "No" %}
@@ -551,13 +693,14 @@
                         <div class="slide-content" style=" border: 1px solid #ddd;border-radius: 4px;padding: 5px;width: 450px;height:750px">
                             <div class="item-wrapper">
                                 <div class="item-img">
-                                    <img src="static/assets/images/Arduino_Workshop.jpg">
+                                    <img src="static/assets/images/Arduino_Workshop1.jpg">
                                 </div>
                             </div>
                             <div class="item-content">
-                                <h5 class="item-title mbr-fonts-style display-7"><strong style="font-size:30px">ARDUINO FOR SCHOOLS</strong></h5>
+                                <h5 class="item-title mbr-fonts-style display-7"><strong style="font-size:30px">ARDUINO WORKSHOP</strong></h5>
 
                             </div>
+                             <a href="#">DETAILS</a>
                             <div class="mbr-section-btn item-footer mt-2" style="text-align:center">
                                {% if user.is_authenticated  %}
                                 {% if  user.workshop.payment == "No" %}
@@ -577,12 +720,13 @@
                         <div class="slide-content">
                             <div class="item-wrapper">
                                 <div class="item-img">
-                                    <img src="static/assets/images/Thrusang_Logo.png">
+                                    <img src="static/assets/images/BLOCKCHAIN.jpg">
                                 </div>
                             </div>
                             <div class="item-content">
-                                <h5 class="item-title mbr-fonts-style display-7"><strong style="font-size:30px">BLOCKCHAIN & CRYPTO MINING</strong></h5>
+                                <h5 class="item-title mbr-fonts-style display-7"><strong style="font-size:21px">BLOCKCHAIN & CRYPTO MINING</strong></h5>
                             </div>
+                             <a href="#" sty>DETAILS</a>
                             <div class="mbr-section-btn item-footer mt-2" style="text-align:center">
                                 {% if user.is_authenticated  %}
                                 {% if  user.workshop.payment == "No" %}
@@ -602,17 +746,18 @@
                         <div class="slide-content">
                             <div class="item-wrapper">
                                 <div class="item-img">
-                                    <img src="static/assets/images/Thrusang_Logo.png">
+                                    <img src="static/assets/images/3dprintingposter.jpg">
                                 </div>
                             </div>
                             <div class="item-content">
                                 <h5 class="item-title mbr-fonts-style display-7"><strong style="font-size:30px">3-D Printing</strong></h5>
                             </div>
+                             <a href="#">DETAILS</a>
                             <div class="mbr-section-btn item-footer mt-2" style="text-align:center">
                                 {% if user.is_authenticated  %}
                                 {% if  user.workshop.payment == "No" %}
                                 <a href="{% url 'prt' %}" class="btn btn-primary item-btn display-7" >Pay</a>
-                                {% elif user.workshop.tg == "3d" %}
+                                {% elif user.workshop.tg == "prt" %}
                                 <<p  class="item-title mbr-fonts-style display-7" style="color:green">Registerd</p>
                                 {% else %}
                                 <p  class="item-title mbr-fonts-style display-7" style="color:red">Not Eligile</p>

@@ -30,11 +30,11 @@
 </head>
 <body>
   
-   <!-- Header start -->
-  <section data-bs-version="5.1" class="menu menu2 cid-sXInXOg5Bn" once="menu" id="menu2-k" style="padding: 0%;">
+  <!-- Header start -->
+  <section data-bs-version="5.1" class="menu menu2 cid-sXInXOg5Bn" once="menu" id="menu2-k" style="background-color:black">
 
-    <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg" >
-        <div class="container-fluid">
+    <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg" style="background-color:white; " >
+        <div class="container-fluid"  style="background-color:white;">
             <div class="navbar-brand">
                 <span class="navbar-logo">
                     <a href="#">
@@ -51,16 +51,16 @@
                     <span></span>
                 </div>
             </button>
-            <div  class="collapse navbar-collapse" id="navbarSupportedContent">
-<ul class="navbar-nav nav-dropdown" data-app-modern-menu="true" >
-    <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'index' %}">Home</a></li>
-    <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'aboutus' %}">About us</a></li>
-    <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'events' %}">Events</a></li>
-    <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'gallery' %}">Gallery</a></li>
-    <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'sponsers' %}">Sponsors</a></li>
-     <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'team' %}">Team</a></li>
+            <div  class="collapse navbar-collapse" id="navbarSupportedContent" >
+<ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
+    <li class="nav-item" ><a class="nav-link link text-danger text-primary display-4" href="{% url 'index' %}" ><strong style="color:#2c344e ">Home</strong></a></li>
+    <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'aboutus' %}"><strong style="color:#2c344e ">About us</strong></a></li>
+    <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'events' %}"><strong style="color:#2c344e ">Events</strong></a></li>
+    <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'gallery' %}"><strong style="color:#2c344e ">Gallery</strong></a></li>
+    <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'sponsers' %}"><strong style="color:#2c344e ">Sponsors</strong></a></li>
+     <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'team' %}"><strong style="color:#2c344e ">Team</strong></a></li>
     {% if  user.is_authenticated %}
-     <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'user_profile' %}">Profile</a></li>
+     <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'user_profile' %}"><strong style="color:#2c344e ">Profile</strong></a></li>
          {% endif %}
 </ul>
 
@@ -70,7 +70,7 @@
      <a class="btn btn-primary display-4" href="{% url 'register' %}">Register</a>
       {% endif %}
          {% if  user.profile.payment == "No" %}
-     <a class="btn btn-primary display-4" href="{% url 'pay_initiate' %}">Pay Now</a>
+     <a class="btn btn-primary display-4" href="{% url 'events' %}">Pay Now</a>
          {% endif %}
      {% if  user.is_authenticated %}
      <a class="btn btn-primary display-4" href="{% url 'logout_user' %}">Logout</a>
@@ -86,7 +86,7 @@
     
 
     
-    <div class="container">
+    <div class="container" >
         <div class="row justify-content-center">
             <div class="col-12">
                 <h3 class="mbr-section-title mbr-fonts-style align-center mb-4 display-2">
@@ -95,9 +95,9 @@
                 
             </div>
             <div class="col-sm-6 col-lg-4">
-                <div class="card-wrap">
+                <div class="card-wrap"style=" border: 2px solid white;padding: 10px;border-radius: 20px 20px;">
                     <div class="image-wrap">
-                        <img src="static/assets/images/team1.jpg" >
+                        <img src="static/assets/images/team1.jpg" style=" border: 2px solid white;border-radius: 20px 20px;">
                     </div>
                     <div class="content-wrap">
                         <h5 class="mbr-section-title card-title mbr-fonts-style align-center m-0 display-5">
@@ -106,35 +106,17 @@
                         <h6 class="mbr-role mbr-fonts-style align-center mb-3 display-4">
                             <strong>Programmer</strong>
                         </h6>
+                        
 
-                        <div class="social-row display-7">
-                            <div class="soc-item">
-                                <a href="#">
-                                    <span class="mbr-iconfont socicon socicon-facebook"></span>
-                                </a>
-                            </div>
-                            <div class="soc-item">
-                                <a href="#">
-                                    <span class="mbr-iconfont socicon socicon-twitter"></span>
-                                </a>
-                            </div>
-                            <div class="soc-item">
-                                <a href="#">
-                                    <span class="mbr-iconfont socicon socicon-instagram"></span>
-                                </a>
-                            </div>
-
-
-                        </div>
-
+                        
                     </div>
                 </div>
             </div>
 
             <div class="col-sm-6 col-lg-4">
-                <div class="card-wrap">
+                <div class="card-wrap"style=" border: 2px solid white;padding: 10px;border-radius: 20px 20px;">
                     <div class="image-wrap">
-                        <img src="static/assets/images/team2.jpg">
+                        <img src="static/assets/images/team2.jpg"style=" border: 2px solid white;border-radius: 20px 20px;">
                     </div>
                     <div class="content-wrap">
                         <h5 class="mbr-section-title card-title mbr-fonts-style align-center m-0 display-5">
@@ -143,35 +125,17 @@
                         <h6 class="mbr-role mbr-fonts-style align-center mb-3 display-4">
                             <strong>Manager</strong>
                         </h6>
+                        
 
-                        <div class="social-row display-7">
-                            <div class="soc-item">
-                                <a href="https://www.facebook.com/Mobirise/" target="_blank">
-                                    <span class="mbr-iconfont socicon socicon-facebook"></span>
-                                </a>
-                            </div>
-                            <div class="soc-item">
-                                <a href="https://twitter.com/mobirise" target="_blank">
-                                    <span class="mbr-iconfont socicon socicon-twitter"></span>
-                                </a>
-                            </div>
-                            <div class="soc-item">
-                                <a href="https://instagram.com/mobirise" target="_blank">
-                                    <span class="mbr-iconfont socicon socicon-instagram"></span>
-                                </a>
-                            </div>
-
-
-                        </div>
-
+                        
                     </div>
                 </div>
             </div>
 
             <div class="col-sm-6 col-lg-4">
-                <div class="card-wrap">
+                <div class="card-wrap"style=" border: 2px solid white;padding: 10px;border-radius: 20px 20px;">
                     <div class="image-wrap">
-                        <img src="static/assets/images/team3.jpg">
+                        <img src="static/assets/images/team3.jpg"style=" border: 2px solid white;border-radius: 20px 20px;">
                     </div>
                     <div class="content-wrap">
                         <h5 class="mbr-section-title card-title mbr-fonts-style align-center m-0 display-5">
@@ -180,27 +144,9 @@
                         <h6 class="mbr-role mbr-fonts-style align-center mb-3 display-4">
                             <strong>Analyst</strong>
                         </h6>
+                        
 
-                        <div class="social-row display-7">
-                            <div class="soc-item">
-                                <a href="https://www.facebook.com/Mobirise/" target="_blank">
-                                    <span class="mbr-iconfont socicon socicon-facebook"></span>
-                                </a>
-                            </div>
-                            <div class="soc-item">
-                                <a href="https://twitter.com/mobirise" target="_blank">
-                                    <span class="mbr-iconfont socicon socicon-twitter"></span>
-                                </a>
-                            </div>
-                            <div class="soc-item">
-                                <a href="https://instagram.com/mobirise" target="_blank">
-                                    <span class="mbr-iconfont socicon socicon-instagram"></span>
-                                </a>
-                            </div>
-
-
-                        </div>
-
+                        
                     </div>
                 </div>
             </div>
@@ -208,9 +154,9 @@
             <div class="row justify-content-center">
 
             <div class="col-sm-6 col-lg-4">
-                <div class="card-wrap">
+                <div class="card-wrap"style=" border: 2px solid white;padding: 10px;border-radius: 20px 20px;">
                     <div class="image-wrap">
-                        <img src="static/assets/images/team1.jpg" >
+                        <img src="static/assets/images/team1.jpg" style=" border: 2px solid white;border-radius: 20px 20px;">
                     </div>
                     <div class="content-wrap">
                         <h5 class="mbr-section-title card-title mbr-fonts-style align-center m-0 display-5">
@@ -220,34 +166,16 @@
                             <strong>Programmer</strong>
                         </h6>
 
-                        <div class="social-row display-7">
-                            <div class="soc-item">
-                                <a href="#">
-                                    <span class="mbr-iconfont socicon socicon-facebook"></span>
-                                </a>
-                            </div>
-                            <div class="soc-item">
-                                <a href="#">
-                                    <span class="mbr-iconfont socicon socicon-twitter"></span>
-                                </a>
-                            </div>
-                            <div class="soc-item">
-                                <a href="#">
-                                    <span class="mbr-iconfont socicon socicon-instagram"></span>
-                                </a>
-                            </div>
 
-
-                        </div>
 
                     </div>
                 </div>
             </div>
 
             <div class="col-sm-6 col-lg-4">
-                <div class="card-wrap">
+                <div class="card-wrap"style=" border: 2px solid white;padding: 10px;border-radius: 20px 20px;">
                     <div class="image-wrap">
-                        <img src="static/assets/images/team1.jpg" >
+                        <img src="static/assets/images/team1.jpg" style=" border: 2px solid white;border-radius: 20px 20px;">
                     </div>
                     <div class="content-wrap">
                         <h5 class="mbr-section-title card-title mbr-fonts-style align-center m-0 display-5">
@@ -257,34 +185,16 @@
                             <strong>Programmer</strong>
                         </h6>
 
-                        <div class="social-row display-7">
-                            <div class="soc-item">
-                                <a href="#">
-                                    <span class="mbr-iconfont socicon socicon-facebook"></span>
-                                </a>
-                            </div>
-                            <div class="soc-item">
-                                <a href="#">
-                                    <span class="mbr-iconfont socicon socicon-twitter"></span>
-                                </a>
-                            </div>
-                            <div class="soc-item">
-                                <a href="#">
-                                    <span class="mbr-iconfont socicon socicon-instagram"></span>
-                                </a>
-                            </div>
 
-
-                        </div>
 
                     </div>
                 </div>
             </div>
 
             <div class="col-sm-6 col-lg-4">
-                <div class="card-wrap">
+                <div class="card-wrap"style=" border: 2px solid white;padding: 10px;border-radius: 20px 20px;">
                     <div class="image-wrap">
-                        <img src="static/assets/images/team1.jpg" >
+                        <img src="static/assets/images/team1.jpg" style=" border: 2px solid white;border-radius: 20px 20px;">
                     </div>
                     <div class="content-wrap">
                         <h5 class="mbr-section-title card-title mbr-fonts-style align-center m-0 display-5">
@@ -294,25 +204,7 @@
                             <strong>Programmer</strong>
                         </h6>
 
-                        <div class="social-row display-7">
-                            <div class="soc-item">
-                                <a href="#">
-                                    <span class="mbr-iconfont socicon socicon-facebook"></span>
-                                </a>
-                            </div>
-                            <div class="soc-item">
-                                <a href="#">
-                                    <span class="mbr-iconfont socicon socicon-twitter"></span>
-                                </a>
-                            </div>
-                            <div class="soc-item">
-                                <a href="#">
-                                    <span class="mbr-iconfont socicon socicon-instagram"></span>
-                                </a>
-                            </div>
 
-
-                        </div>
 
                     </div>
                 </div>
@@ -322,9 +214,9 @@
 
             <div class="row justify-content-center">
             <div class="col-sm-6 col-lg-4">
-                <div class="card-wrap">
+                <div class="card-wrap"style=" border: 2px solid white;padding: 10px;border-radius: 20px 20px;">
                     <div class="image-wrap">
-                        <img src="static/assets/images/team1.jpg" >
+                        <img src="static/assets/images/team1.jpg" style=" border: 2px solid white;border-radius: 20px 20px;">
                     </div>
                     <div class="content-wrap">
                         <h5 class="mbr-section-title card-title mbr-fonts-style align-center m-0 display-5">
@@ -334,34 +226,16 @@
                             <strong>Programmer</strong>
                         </h6>
 
-                        <div class="social-row display-7">
-                            <div class="soc-item">
-                                <a href="#">
-                                    <span class="mbr-iconfont socicon socicon-facebook"></span>
-                                </a>
-                            </div>
-                            <div class="soc-item">
-                                <a href="#">
-                                    <span class="mbr-iconfont socicon socicon-twitter"></span>
-                                </a>
-                            </div>
-                            <div class="soc-item">
-                                <a href="#">
-                                    <span class="mbr-iconfont socicon socicon-instagram"></span>
-                                </a>
-                            </div>
 
-
-                        </div>
 
                     </div>
                 </div>
             </div>
 
             <div class="col-sm-6 col-lg-4">
-                <div class="card-wrap">
+                <div class="card-wrap"style=" border: 2px solid white;padding: 10px;border-radius: 20px 20px;">
                     <div class="image-wrap">
-                        <img src="static/assets/images/team1.jpg" >
+                        <img src="static/assets/images/team1.jpg" style=" border: 2px solid white;border-radius: 20px 20px;">
                     </div>
                     <div class="content-wrap">
                         <h5 class="mbr-section-title card-title mbr-fonts-style align-center m-0 display-5">
@@ -371,34 +245,16 @@
                             <strong>Programmer</strong>
                         </h6>
 
-                        <div class="social-row display-7">
-                            <div class="soc-item">
-                                <a href="#">
-                                    <span class="mbr-iconfont socicon socicon-facebook"></span>
-                                </a>
-                            </div>
-                            <div class="soc-item">
-                                <a href="#">
-                                    <span class="mbr-iconfont socicon socicon-twitter"></span>
-                                </a>
-                            </div>
-                            <div class="soc-item">
-                                <a href="#">
-                                    <span class="mbr-iconfont socicon socicon-instagram"></span>
-                                </a>
-                            </div>
 
-
-                        </div>
 
                     </div>
                 </div>
             </div>
 
             <div class="col-sm-6 col-lg-4">
-                <div class="card-wrap">
+                <div class="card-wrap"style=" border: 2px solid white;padding: 10px;border-radius: 20px 20px;">
                     <div class="image-wrap">
-                        <img src="static/assets/images/team1.jpg" >
+                        <img src="static/assets/images/team1.jpg" style=" border: 2px solid white;border-radius: 20px 20px;">
                     </div>
                     <div class="content-wrap">
                         <h5 class="mbr-section-title card-title mbr-fonts-style align-center m-0 display-5">
@@ -408,25 +264,7 @@
                             <strong>Programmer</strong>
                         </h6>
 
-                        <div class="social-row display-7">
-                            <div class="soc-item">
-                                <a href="#">
-                                    <span class="mbr-iconfont socicon socicon-facebook"></span>
-                                </a>
-                            </div>
-                            <div class="soc-item">
-                                <a href="#">
-                                    <span class="mbr-iconfont socicon socicon-twitter"></span>
-                                </a>
-                            </div>
-                            <div class="soc-item">
-                                <a href="#">
-                                    <span class="mbr-iconfont socicon socicon-instagram"></span>
-                                </a>
-                            </div>
 
-
-                        </div>
 
                     </div>
                 </div>
@@ -434,9 +272,9 @@
             </div><br><br>
         <div class="row justify-content-center">
             <div class="col-sm-6 col-lg-4">
-                <div class="card-wrap">
+                <div class="card-wrap"style=" border: 2px solid white;padding: 10px;border-radius: 20px 20px;">
                     <div class="image-wrap">
-                        <img src="static/assets/images/team1.jpg" >
+                        <img src="static/assets/images/team1.jpg" style=" border: 2px solid white;border-radius: 20px 20px;">
                     </div>
                     <div class="content-wrap">
                         <h5 class="mbr-section-title card-title mbr-fonts-style align-center m-0 display-5">
@@ -446,34 +284,15 @@
                             <strong>Programmer</strong>
                         </h6>
 
-                        <div class="social-row display-7">
-                            <div class="soc-item">
-                                <a href="#">
-                                    <span class="mbr-iconfont socicon socicon-facebook"></span>
-                                </a>
-                            </div>
-                            <div class="soc-item">
-                                <a href="#">
-                                    <span class="mbr-iconfont socicon socicon-twitter"></span>
-                                </a>
-                            </div>
-                            <div class="soc-item">
-                                <a href="#">
-                                    <span class="mbr-iconfont socicon socicon-instagram"></span>
-                                </a>
-                            </div>
-
-
-                        </div>
 
                     </div>
                 </div>
             </div>
 
             <div class="col-sm-6 col-lg-4">
-                <div class="card-wrap">
+                <div class="card-wrap"style=" border: 2px solid white;padding: 10px;border-radius: 20px 20px;">
                     <div class="image-wrap">
-                        <img src="static/assets/images/team1.jpg" >
+                        <img src="static/assets/images/team1.jpg" style=" border: 2px solid white;border-radius: 20px 20px;">
                     </div>
                     <div class="content-wrap">
                         <h5 class="mbr-section-title card-title mbr-fonts-style align-center m-0 display-5">
@@ -483,34 +302,16 @@
                             <strong>Programmer</strong>
                         </h6>
 
-                        <div class="social-row display-7">
-                            <div class="soc-item">
-                                <a href="#">
-                                    <span class="mbr-iconfont socicon socicon-facebook"></span>
-                                </a>
-                            </div>
-                            <div class="soc-item">
-                                <a href="#">
-                                    <span class="mbr-iconfont socicon socicon-twitter"></span>
-                                </a>
-                            </div>
-                            <div class="soc-item">
-                                <a href="#">
-                                    <span class="mbr-iconfont socicon socicon-instagram"></span>
-                                </a>
-                            </div>
 
-
-                        </div>
 
                     </div>
                 </div>
             </div>
 
             <div class="col-sm-6 col-lg-4">
-                <div class="card-wrap">
+                <div class="card-wrap"style=" border: 2px solid white;padding: 10px;border-radius: 20px 20px;">
                     <div class="image-wrap">
-                        <img src="static/assets/images/team1.jpg" >
+                        <img src="static/assets/images/team1.jpg" style=" border: 2px solid white;border-radius: 20px 20px;">
                     </div>
                     <div class="content-wrap">
                         <h5 class="mbr-section-title card-title mbr-fonts-style align-center m-0 display-5">
@@ -520,31 +321,13 @@
                             <strong>Programmer</strong>
                         </h6>
 
-                        <div class="social-row display-7">
-                            <div class="soc-item">
-                                <a href="#">
-                                    <span class="mbr-iconfont socicon socicon-facebook"></span>
-                                </a>
-                            </div>
-                            <div class="soc-item">
-                                <a href="#">
-                                    <span class="mbr-iconfont socicon socicon-twitter"></span>
-                                </a>
-                            </div>
-                            <div class="soc-item">
-                                <a href="#">
-                                    <span class="mbr-iconfont socicon socicon-instagram"></span>
-                                </a>
-                            </div>
 
-
-                        </div>
 
                     </div>
                 </div>
             </div></div>
 
-
+            
         </div>
     </div>
 </section>

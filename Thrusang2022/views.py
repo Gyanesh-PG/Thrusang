@@ -1,32 +1,52 @@
-from django.shortcuts import render,redirect
-from .models import profile,workshop
+from django.shortcuts import render, redirect
+from .models import profile, workshop,iplcount,thrusangtank
 from django.contrib import messages
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate,login,logout
+from django.contrib.auth import authenticate, login, logout
 from instamojo_wrapper import Instamojo
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
+
 # api = Instamojo(api_key='test_a0ea97bffacc77a18394a713038',auth_token='test_57850829a42be8360521ac63509',endpoint='https://test.instamojo.com/api/1.1/')
-api = Instamojo(api_key='8a970ccd0f7c91c021f14e5e6cf00bf8',auth_token='79a868b1a57640a7abe4a4f4d74d7d36')
+api = Instamojo(api_key='8a970ccd0f7c91c021f14e5e6cf00bf8', auth_token='79a868b1a57640a7abe4a4f4d74d7d36')
 def index(request):
-    return render(request,'index.html')
+    return render(request, 'index.html')
+
 
 def aboutus(request):
-    return render(request,'aboutus.html')
+    return render(request, 'aboutus.html')
+
+
 def events(request):
-    return render(request,'events.html')
+    iplcc = iplcount.objects.all()
+    ipl_count = iplcc.count()
+    return render(request, 'events.html',{'iplcount':ipl_count})
+
+
 def gallery(request):
-    return render(request,'gallery.html')
+    return render(request, 'gallery.html')
+
+
 def sponsers(request):
-    return render(request,'sponsers.html')
+    return render(request, 'sponsers.html')
+
+
 def team(request):
-    return render(request,'team.html')
+    return render(request, 'team.html')
+
+
 def contact(request):
-    return render(request,'contact.html')
+    return render(request, 'contact.html')
+
+
 def user_profile(request):
     return render(request, 'profile.html')
+
+
 def register(request):
-    return render(request,'signup.html')
+    return render(request, 'signup.html')
+
+
 def register_user(request):
     if request.method == 'POST':
         name = request.POST.get('fname')
@@ -57,10 +77,12 @@ def register_user(request):
             return render(request, 'signup.html')
 
         user = User.objects.create_user(username=email, first_name=name, email=email, password=passw)
+        iplcc = iplcount.objects.all()
+        ipl_count = iplcc.count()
         prof = profile(id_no=id_no, college_name=coll, branch=branch, year_of_study=year_of_study,
                        gender=gender, mobile=phn_no, payment='No', pay_id='', tt='No', sl='No', sb="No", tet="No"
                        , tc="No", deb="No", ipl="No", quiz="No", mp="No", ps="No", mmt="No", sg="No", rd="No"
-                       , bgmi="No", user=user)
+                       ,evpay="No",ipcount=ipl_count, evpay_id='', bgmi="No",ttpay="No", ttpay_id='',iplpay="No", iplpay_id='',cg="No",saw="No",evcount=0, user=user)
         work = workshop(name='', payment='No', pay_id='', tg='x', user=user)
         work.save()
         prof.save()
@@ -68,8 +90,12 @@ def register_user(request):
         return render(request, 'login.html')
     else:
         return render(request, 'signup.html')
+
+
 def log(request):
-    return render(request,'login.html')
+    return render(request, 'login.html')
+
+
 def login_user(request):
     if request.method == 'POST':
         uname = request.POST.get('email')
@@ -77,43 +103,51 @@ def login_user(request):
         user = authenticate(username=uname, password=passw)
         if user is not None:
             login(request, user)
-            return render(request,'index.html')
+            return render(request, 'index.html')
         else:
             messages.error(request, 'username or password wrong.', extra_tags='login')
             return render(request, 'login.html')
 
-def pay_initiate(request):
-    if request.user.is_authenticated and request.user.profile.payment=="No":
 
-        response = api.payment_request_create(buyer_name=request.user.first_name,email=request.user.email,phone=request.user.profile.mobile,amount='20', purpose='Test', send_email=False,redirect_url="https://klthrusang.herokuapp.com/success")
+def pay_initiate(request):
+    if request.user.is_authenticated :
+
+        response = api.payment_request_create(buyer_name=request.user.first_name, email=request.user.email,
+                                              phone=request.user.profile.mobile, amount='10', purpose='Thrusang-(do not refresh or go back!)',
+                                              send_email=False, redirect_url="https://klthrusang.herokuapp.com/success")
         pro = profile.objects.get(id_no=request.user.profile.id_no)
-        pro.pay_id=response['payment_request']['id']
+        pro.pay_id = response['payment_request']['id']
+        pro.evpay_id = response['payment_request']['id']
         pro.save()
         return redirect(response['payment_request']['longurl'])
     else:
         return render(request, 'index.html')
 
+
 def success(request):
-        try:
-            pay_id= request.GET.get('payment_request_id')
-            response = api.payment_request_status(pay_id)
-            if response['payment_request']['status'] =="Completed":
-                pro=profile.objects.get(pay_id=pay_id)
-                pro.payment = "Yes"
-                pro.save()
-                messages.error(request, 'Payment Successfully Completed.', extra_tags='paid')
-                return render(request, 'profile.html')
-            messages.error(request, 'Payment Failed.', extra_tags='fail')
-        except:
-            return render(request,'profile.html')
-        return  render(request,'profile.html')
+    try:
+        pay_id = request.GET.get('payment_request_id')
+        response = api.payment_request_status(pay_id)
+        if response['payment_request']['status'] == "Completed":
+            pro = profile.objects.get(pay_id=pay_id)
+            pro.evpay = "Yes"
+            pro.payment = "Yes"
+            pro.save()
+            messages.error(request, 'Payment Successfully Completed.Now you can register to the events.', extra_tags='paid')
+            return render(request, 'events.html')
+        messages.error(request, 'Payment Failed.', extra_tags='fail')
+    except:
+        return render(request, 'index.html')
+    return render(request, 'events.html')
+
+
 def logout_user(request):
     logout(request)
     return render(request, 'index.html')
 
 
 def cws(request):
-    if request.user.is_authenticated and request.user.profile.payment == "No":
+    if request.user.is_authenticated:
 
         response = api.payment_request_create(buyer_name=request.user.first_name, email=request.user.email,
                                               phone=request.user.profile.mobile, amount='20', purpose='Test',
@@ -123,15 +157,8 @@ def cws(request):
         ws.save()
         pro = profile.objects.get(id_no=request.user.profile.id_no)
         pro.pay_id = response['payment_request']['id']
+        pro.evpay_id = response['payment_request']['id']
         pro.save()
-        return redirect(response['payment_request']['longurl'])
-    elif request.user.is_authenticated and request.user.profile.payment == "Yes":
-        response = api.payment_request_create(buyer_name=request.user.first_name, email=request.user.email,
-                                              phone=request.user.profile.mobile, amount='10', purpose='Test',
-                                              send_email=False, redirect_url="https://klthrusang.herokuapp.com/cwssuccess")
-        ws = workshop.objects.get(user=request.user)
-        ws.pay_id = response['payment_request']['id']
-        ws.save()
         return redirect(response['payment_request']['longurl'])
     else:
         return render(request, 'index.html')
@@ -142,27 +169,23 @@ def cwssuccess(request):
     response = api.payment_request_status(pay_id)
     if response['payment_request']['status'] == "Completed":
         ws = workshop.objects.get(pay_id=pay_id)
-        pro = profile.objects.filter(pay_id=pay_id)
-        if not pro:
-            ws.payment = "Yes"
-            ws.tg = "cs"
-            ws.save()
-        else:
-            pro1 = profile.objects.get(pay_id=pay_id)
-            pro1.payment = "Yes"
-            pro1.save()
-            ws.payment = "Yes"
-            ws.tg = "cs"
-            ws.save()
+        pro = profile.objects.get(pay_id=pay_id)
+        pro.payment = "Yes"
+        pro.evpay = "Yes"
+        pro.evcount += 1
+        ws.payment = "Yes"
+        ws.tg = "cs"
+        ws.save()
+        pro.save()
         messages.error(request, 'Payment Successfully Completed.', extra_tags='paid')
-        return render(request, 'index.html')
+        return render(request, 'events.html')
     messages.error(request, 'Payment Failed.', extra_tags='fail')
 
     return render(request, 'events.html')
 
 
 def iot(request):
-    if request.user.is_authenticated and request.user.profile.payment == "No":
+    if request.user.is_authenticated:
 
         response = api.payment_request_create(buyer_name=request.user.first_name, email=request.user.email,
                                               phone=request.user.profile.mobile, amount='20', purpose='Test',
@@ -172,15 +195,8 @@ def iot(request):
         ws.save()
         pro = profile.objects.get(id_no=request.user.profile.id_no)
         pro.pay_id = response['payment_request']['id']
+        pro.evpay_id = response['payment_request']['id']
         pro.save()
-        return redirect(response['payment_request']['longurl'])
-    elif request.user.is_authenticated and request.user.profile.payment == "Yes":
-        response = api.payment_request_create(buyer_name=request.user.first_name, email=request.user.email,
-                                              phone=request.user.profile.mobile, amount='10', purpose='Test',
-                                              send_email=False, redirect_url="https://klthrusang.herokuapp.com/iotsuccess")
-        ws = workshop.objects.get(user=request.user)
-        ws.pay_id = response['payment_request']['id']
-        ws.save()
         return redirect(response['payment_request']['longurl'])
     else:
         return render(request, 'index.html')
@@ -191,27 +207,23 @@ def iotsuccess(request):
     response = api.payment_request_status(pay_id)
     if response['payment_request']['status'] == "Completed":
         ws = workshop.objects.get(pay_id=pay_id)
-        pro = profile.objects.filter(pay_id=pay_id)
-        if not pro:
-            ws.payment = "Yes"
-            ws.tg = "iot"
-            ws.save()
-        else:
-            pro1 = profile.objects.get(pay_id=pay_id)
-            pro1.payment = "Yes"
-            pro1.save()
-            ws.payment = "Yes"
-            ws.tg = "iot"
-            ws.save()
+        pro = profile.objects.get(pay_id=pay_id)
+        pro.payment = "Yes"
+        pro.evpay = "Yes"
+        pro.evcount += 1
+        ws.payment = "Yes"
+        ws.tg = "iot"
+        ws.save()
+        pro.save()
         messages.error(request, 'Payment Successfully Completed.', extra_tags='paid')
-        return render(request, 'index.html')
+        return render(request, 'events.html')
     messages.error(request, 'Payment Failed.', extra_tags='fail')
 
     return render(request, 'events.html')
 
 
 def afs(request):
-    if request.user.is_authenticated and request.user.profile.payment == "No":
+    if request.user.is_authenticated:
 
         response = api.payment_request_create(buyer_name=request.user.first_name, email=request.user.email,
                                               phone=request.user.profile.mobile, amount='20', purpose='Test',
@@ -221,16 +233,9 @@ def afs(request):
         ws.save()
         pro = profile.objects.get(id_no=request.user.profile.id_no)
         pro.pay_id = response['payment_request']['id']
+        pro.evpay_id = response['payment_request']['id']
         pro.save()
-        return redirect(response['payment_request']['longurl'])
-    elif request.user.is_authenticated and request.user.profile.payment == "Yes":
-        response = api.payment_request_create(buyer_name=request.user.first_name, email=request.user.email,
-                                              phone=request.user.profile.mobile, amount='10', purpose='Test',
-                                              send_email=False, redirect_url="https://klthrusang.herokuapp.com/afssuccess")
-        ws = workshop.objects.get(user=request.user)
-        ws.pay_id = response['payment_request']['id']
-        ws.save()
-        return redirect(response['payment_request']['longurl'])
+
     else:
         return render(request, 'index.html')
 
@@ -240,27 +245,23 @@ def afssuccess(request):
     response = api.payment_request_status(pay_id)
     if response['payment_request']['status'] == "Completed":
         ws = workshop.objects.get(pay_id=pay_id)
-        pro = profile.objects.filter(pay_id=pay_id)
-        if not pro:
-            ws.payment = "Yes"
-            ws.tg = "afs"
-            ws.save()
-        else:
-            pro1 = profile.objects.get(pay_id=pay_id)
-            pro1.payment = "Yes"
-            pro1.save()
-            ws.payment = "Yes"
-            ws.tg = "afs"
-            ws.save()
+        pro = profile.objects.get(pay_id=pay_id)
+        pro.payment = "Yes"
+        pro.evpay = "Yes"
+        pro.evcount += 1
+        ws.payment = "Yes"
+        ws.tg = "afs"
+        ws.save()
+        pro.save()
         messages.error(request, 'Payment Successfully Completed.', extra_tags='paid')
-        return render(request, 'index.html')
+        return render(request, 'events.html')
     messages.error(request, 'Payment Failed.', extra_tags='fail')
 
     return render(request, 'events.html')
 
 
 def bcm(request):
-    if request.user.is_authenticated and request.user.profile.payment == "No":
+    if request.user.is_authenticated:
 
         response = api.payment_request_create(buyer_name=request.user.first_name, email=request.user.email,
                                               phone=request.user.profile.mobile, amount='20', purpose='Test',
@@ -270,15 +271,8 @@ def bcm(request):
         ws.save()
         pro = profile.objects.get(id_no=request.user.profile.id_no)
         pro.pay_id = response['payment_request']['id']
+        pro.evpay_id = response['payment_request']['id']
         pro.save()
-        return redirect(response['payment_request']['longurl'])
-    elif request.user.is_authenticated and request.user.profile.payment == "Yes":
-        response = api.payment_request_create(buyer_name=request.user.first_name, email=request.user.email,
-                                              phone=request.user.profile.mobile, amount='10', purpose='Test',
-                                              send_email=False, redirect_url="https://klthrusang.herokuapp.com/bcmsuccess")
-        ws = workshop.objects.get(user=request.user)
-        ws.pay_id = response['payment_request']['id']
-        ws.save()
         return redirect(response['payment_request']['longurl'])
     else:
         return render(request, 'index.html')
@@ -289,27 +283,23 @@ def bcmsuccess(request):
     response = api.payment_request_status(pay_id)
     if response['payment_request']['status'] == "Completed":
         ws = workshop.objects.get(pay_id=pay_id)
-        pro = profile.objects.filter(pay_id=pay_id)
-        if not pro:
-            ws.payment = "Yes"
-            ws.tg = "bcm"
-            ws.save()
-        else:
-            pro1 = profile.objects.get(pay_id=pay_id)
-            pro1.payment = "Yes"
-            pro1.save()
-            ws.payment = "Yes"
-            ws.tg = "bcm"
-            ws.save()
+        pro = profile.objects.get(pay_id=pay_id)
+        pro.payment = "Yes"
+        pro.evpay = "Yes"
+        pro.evcount += 1
+        ws.payment = "Yes"
+        ws.tg = "bcm"
+        ws.save()
+        pro.save()
         messages.error(request, 'Payment Successfully Completed.', extra_tags='paid')
-        return render(request, 'index.html')
+        return render(request, 'events.html')
     messages.error(request, 'Payment Failed.', extra_tags='fail')
 
     return render(request, 'events.html')
 
 
 def prt(request):
-    if request.user.is_authenticated and request.user.profile.payment == "No":
+    if request.user.is_authenticated:
 
         response = api.payment_request_create(buyer_name=request.user.first_name, email=request.user.email,
                                               phone=request.user.profile.mobile, amount='20', purpose='Test',
@@ -319,15 +309,8 @@ def prt(request):
         ws.save()
         pro = profile.objects.get(id_no=request.user.profile.id_no)
         pro.pay_id = response['payment_request']['id']
+        pro.evpay_id = response['payment_request']['id']
         pro.save()
-        return redirect(response['payment_request']['longurl'])
-    elif request.user.is_authenticated and request.user.profile.payment == "Yes":
-        response = api.payment_request_create(buyer_name=request.user.first_name, email=request.user.email,
-                                              phone=request.user.profile.mobile, amount='10', purpose='Test',
-                                              send_email=False, redirect_url="https://klthrusang.herokuapp.com/prtsuccess")
-        ws = workshop.objects.get(user=request.user)
-        ws.pay_id = response['payment_request']['id']
-        ws.save()
         return redirect(response['payment_request']['longurl'])
     else:
         return render(request, 'index.html')
@@ -338,55 +321,25 @@ def prtsuccess(request):
     response = api.payment_request_status(pay_id)
     if response['payment_request']['status'] == "Completed":
         ws = workshop.objects.get(pay_id=pay_id)
-        pro = profile.objects.filter(pay_id=pay_id)
-        if not pro:
-            ws.payment = "Yes"
-            ws.tg = "3d"
-            ws.save()
-        else:
-            pro1 = profile.objects.get(pay_id=pay_id)
-            pro1.payment = "Yes"
-            pro1.save()
-            ws.payment = "Yes"
-            ws.tg = "3d"
-            ws.save()
+        pro = profile.objects.get(pay_id=pay_id)
+        pro.payment = "Yes"
+        pro.evpay = "Yes"
+        pro.evcount += 1
+        ws.payment = "Yes"
+        ws.tg = "prt"
+        ws.save()
+        pro.save()
         messages.error(request, 'Payment Successfully Completed.', extra_tags='paid')
-        return render(request, 'index.html')
+        return render(request, 'events.html')
     messages.error(request, 'Payment Failed.', extra_tags='fail')
 
     return render(request, 'events.html')
 
-def evpay_initiate(request):
-    if request.user.is_authenticated and request.user.profile.payment == "No":
-
-        response = api.payment_request_create(buyer_name=request.user.first_name, email=request.user.email,
-                                              phone=request.user.profile.mobile, amount='10', purpose='Test',
-                                              send_email=False, redirect_url="https://klthrusang.herokuapp.com/success")
-        pro = profile.objects.get(id_no=request.user.profile.id_no)
-        pro.pay_id = response['payment_request']['id']
-        pro.save()
-        return redirect(response['payment_request']['longurl'])
-    else:
-        return render(request, 'index.html')
-
-
-def evsuccess(request):
-
-    pay_id = request.GET.get('payment_request_id')
-    response = api.payment_request_status(pay_id)
-    if response['payment_request']['status'] == "Completed":
-        pro = profile.objects.get(pay_id=pay_id)
-        pro.payment = "Yes"
-        pro.save()
-        messages.error(request, 'Payment Successfully Completed.', extra_tags='paid')
-        return render(request, 'profile.html')
-    messages.error(request, 'Payment Failed.', extra_tags='fail')
-
-    return render(request, 'profile.html')
 def tt(request):
     if request.user.is_authenticated:
         pro=profile.objects.get(user=request.user)
         pro.tt="Yes"
+        pro.evcount += 1
         pro.save()
         return render(request, 'events.html')
     else:
@@ -395,9 +348,230 @@ def sl(request):
     if request.user.is_authenticated:
         pro=profile.objects.get(user=request.user)
         pro.sl="Yes"
+        pro.evcount += 1
         pro.save()
-        return render(request, 'index.html')
+        return render(request, 'events.html')
+    else:
+        return render(request, 'login.html')
+def sb(request):
+    if request.user.is_authenticated:
+        pro=profile.objects.get(user=request.user)
+        pro.sb="Yes"
+        pro.evcount += 1
+        pro.save()
+        return render(request, 'events.html')
     else:
         return render(request, 'login.html')
 
+def tet(request):
+    if request.user.is_authenticated:
+        pro=profile.objects.get(user=request.user)
+        pro.tet="Yes"
+        pro.evcount += 1
+        pro.save()
+        return render(request, 'events.html')
+    else:
+        return render(request, 'login.html')
 
+def tc(request):
+    if request.user.is_authenticated:
+        pro=profile.objects.get(user=request.user)
+        pro.tc="Yes"
+        pro.evcount += 1
+        pro.save()
+        return render(request, 'events.html')
+    else:
+        return render(request, 'login.html')
+
+def deb(request):
+    if request.user.is_authenticated:
+        pro=profile.objects.get(user=request.user)
+        pro.deb="Yes"
+        pro.evcount += 1
+        pro.save()
+        return render(request, 'events.html')
+    else:
+        return render(request, 'login.html')
+
+def saw(request):
+    if request.user.is_authenticated:
+        pro=profile.objects.get(user=request.user)
+        pro.saw="Yes"
+        pro.evcount += 1
+        pro.save()
+        return render(request, 'events.html')
+    else:
+        return render(request, 'login.html')
+
+def cg(request):
+    if request.user.is_authenticated:
+        pro=profile.objects.get(user=request.user)
+        pro.cg="Yes"
+        pro.evcount += 1
+        pro.save()
+        return render(request, 'events.html')
+    else:
+        return render(request, 'login.html')
+
+def ipl(request):
+    if request.user.is_authenticated:
+        pro=profile.objects.get(user=request.user)
+        pro.ipl="Yes"
+        pro.evcount += 1
+        pro.save()
+        return render(request, 'events.html')
+    else:
+        return render(request, 'login.html')
+
+def quiz(request):
+    if request.user.is_authenticated:
+        pro=profile.objects.get(user=request.user)
+        pro.quiz="Yes"
+        pro.evcount += 1
+        pro.save()
+        return render(request, 'events.html')
+    else:
+        return render(request, 'login.html')
+
+def mp(request):
+    if request.user.is_authenticated:
+        pro=profile.objects.get(user=request.user)
+        pro.mp="Yes"
+        pro.evcount += 1
+        pro.save()
+        return render(request, 'events.html')
+    else:
+        return render(request, 'login.html')
+
+def ps(request):
+    if request.user.is_authenticated:
+        pro=profile.objects.get(user=request.user)
+        pro.ps="Yes"
+        pro.evcount += 1
+        pro.save()
+        return render(request, 'events.html')
+    else:
+        return render(request, 'login.html')
+
+def mmt(request):
+    if request.user.is_authenticated:
+        pro=profile.objects.get(user=request.user)
+        pro.mmt="Yes"
+        pro.evcount += 1
+        pro.save()
+        return render(request, 'events.html')
+    else:
+        return render(request, 'login.html')
+
+def sg(request):
+    if request.user.is_authenticated:
+        pro=profile.objects.get(user=request.user)
+        pro.sg="Yes"
+        pro.evcount += 1
+        pro.save()
+        return render(request, 'events.html')
+    else:
+        return render(request, 'login.html')
+
+def rd(request):
+    if request.user.is_authenticated:
+        pro=profile.objects.get(user=request.user)
+        pro.rd="Yes"
+        pro.evcount += 1
+        pro.save()
+        return render(request, 'events.html')
+    else:
+        return render(request, 'login.html')
+
+def bgmi(request):
+    if request.user.is_authenticated:
+        pro=profile.objects.get(user=request.user)
+        pro.bgmi="Yes"
+        pro.evcount += 1
+        pro.save()
+        return render(request, 'events.html')
+    else:
+        return render(request, 'login.html')
+def ttpay_initiate(request):
+    if request.user.is_authenticated:
+        if request.method == 'POST':
+            name = request.POST.get('name')
+            mob = request.POST.get('mobile')
+            user = User.objects.get(username=request.user.username)
+            if user is not None:
+                tr = thrusangtank(name=name, mobile=mob, user=user)
+                tr.save()
+            else:
+                messages.error(request, 'Something went wrong.', extra_tags='login')
+                return render(request, 'login.html')
+        response = api.payment_request_create(buyer_name=request.user.first_name, email=request.user.email,
+                                              phone=request.user.profile.mobile, amount='15', purpose='Test',
+                                              send_email=False, redirect_url="https://klthrusang.herokuapp.com/ttsuccess")
+        pro = profile.objects.get(id_no=request.user.profile.id_no)
+        pro.pay_id = response['payment_request']['id']
+        pro.ttpay_id = response['payment_request']['id']
+        pro.save()
+        return redirect(response['payment_request']['longurl'])
+    else:
+        return render(request, 'index.html')
+
+
+def ttsuccess(request):
+    pay_id = request.GET.get('payment_request_id')
+    response = api.payment_request_status(pay_id)
+    if response['payment_request']['status'] == "Completed":
+        pro = profile.objects.get(ttpay_id=pay_id)
+        pro.ttpay = "Yes"
+        pro.payment = "Yes"
+        pro.tt = "Yes"
+        pro.evcount += 1
+        pro.save()
+        messages.error(request, 'Payment Successfully Completed.', extra_tags='paid')
+        return render(request, 'events.html')
+    messages.error(request, 'Payment Failed.', extra_tags='fail')
+
+    return render(request, 'events.html')
+
+def iplpay_initiate(request):
+    if request.user.is_authenticated:
+
+        response = api.payment_request_create(buyer_name=request.user.first_name, email=request.user.email,
+                                              phone=request.user.profile.mobile, amount='15', purpose='Test',
+                                              send_email=False, redirect_url="https://klthrusang.herokuapp.com/iplsuccess")
+        pro = profile.objects.get(id_no=request.user.profile.id_no)
+        pro.pay_id = response['payment_request']['id']
+        pro.iplpay_id = response['payment_request']['id']
+        pro.save()
+        return redirect(response['payment_request']['longurl'])
+    else:
+        return render(request, 'index.html')
+
+
+def iplsuccess(request):
+    pay_id = request.GET.get('payment_request_id')
+    response = api.payment_request_status(pay_id)
+    if response['payment_request']['status'] == "Completed":
+        pro = profile.objects.get(iplpay_id=pay_id)
+        iplc=iplcount(name=pro.id_no,count=1)
+        iplc.save()
+        iplcc=iplcount.objects.all()
+        ipl_count=iplcc.count()
+        prof=profile.objects.all()
+        for k in prof:
+            k.ipcount = ipl_count
+            k.save()
+        pro.payment = "Yes"
+        pro.iplpay = "Yes"
+        pro.ipl = "Yes"
+        pro.evcount += 1
+        pro.save()
+        messages.error(request, 'Payment Successfully Completed.', extra_tags='paid')
+        return render(request, 'events.html')
+    iplcc = iplcount.objects.all()
+    ipl_count = iplcc.count()
+    messages.error(request, 'Payment Failed.', extra_tags='fail')
+
+    return render(request, 'events.html')
+
+def ttdetails(request):
+    return render(request,'Thrusang_Tank.html')
