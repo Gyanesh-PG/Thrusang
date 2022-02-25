@@ -499,8 +499,15 @@ def ttpay_initiate(request):
             mob = request.POST.get('mobile')
             user = User.objects.get(username=request.user.username)
             if user is not None:
-                tr = thrusangtank(name=name, mobile=mob, user=user)
-                tr.save()
+                tr1=thrusangtank.objects.filter(user=user)
+                if not tr1:
+                    tr = thrusangtank(name=name, mobile=mob, user=user)
+                    tr.save()
+                else:
+                    tr=thrusangtank.objects.get(user=user)
+                    tr.name=name
+                    tr.mobile=mob
+                    tr.save()
             else:
                 messages.error(request, 'Something went wrong.', extra_tags='login')
                 return render(request, 'login.html')
