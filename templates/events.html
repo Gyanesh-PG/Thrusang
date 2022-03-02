@@ -58,18 +58,18 @@
     overflow: hidden;
     background-color: #25d366;
     color: #FFF;
-    border-radius: 4px 0 0 4px;
+    border-radius: 50px 50px 50px 50px;
     z-index: 10;
     transition: all 0.5s ease-in-out;
     vertical-align: middle
 }
 .whats-float a span {
     color: white;
-    font-size: 15px;
+    font-size: 20px;
     padding-top: 8px;
     padding-bottom: 20px;
     position: absolute;
-    line-height: 16px;
+    line-height: 12px;
     font-weight: bolder;
 }
 
@@ -77,7 +77,7 @@
     font-size: 30px;
     color: white;
     line-height: 30px;
-    padding: 20px;
+    padding: 10px;
     transform:rotate(0deg);
     transition: all 0.5s ease-in-out;
     text-align:center;
@@ -92,14 +92,6 @@
 .whats-float:hover i  {
     transform:rotate(360deg);
 }
-
-    *
-    {
-        -webkit-box-sizing: border-box;
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-    }
 .alert {
   padding: 20px;
   background-color: red;
@@ -747,7 +739,7 @@
       <div class="whats-float">
     <a href="whatsapp://send?text=Mark your calendars, and gear up for Thrusang’22: Technovation!  www.klthrusang.in"
        target="_blank">
-        <i class="fa fa-whatsapp"></i><span>WhatsApp<br><small>Share to your Friends</small></span>
+        <i class="fa fa-whatsapp"><br></i><span style="text-align:center"><br><small>SHARE</small></span>
     </a>
 </div>
   {% if messages %}
@@ -771,7 +763,7 @@
 {% endif %}
 
 
-      <br><br><br><br> <marquee direction = "left"><p style="color:white;font-family:gotham;font-size:16px;">You can compete in any three Technical and Non-Technical activities for just Rs. 300/-, with the exception of the Thrusang Tank event.&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Each workshop has its own Registration fee.</p></marquee>
+      <br><br><br><br> <marquee direction = "left"><p style="color:white;font-family:gotham;font-size:16px;">You can compete in any three Technical and Non-Technical activities for just Rs. 300/-, with the exception of the Thrusang Tank event.&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Each workshop has its own Registration fee.&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Workshop registered students can participate in any two events except Thrusang Tank</p></marquee>
 
       <section class="container"  style="background:transparent;">
            <h1 id="technical" class="text-white text-center our" style="font-family:euro;padding:0px">Technical Events</h1>
@@ -796,7 +788,7 @@
                                 {% elif user.profile.tt == "No" %}
                                 <a href="{% url 'tt' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 5px 0px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Register</a>
                                 {% else %}
-                                <p   style="padding:10px;color:green; margin:0px;width:100%;border-radius: 0px 0px 5px 0px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Registerd</p>
+                                <p   style="padding:10px;color:green; margin:0px;width:100%;border-radius: 0px 0px 5px 0px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Registered</p>
                                 {% endif %}
                                 {% else %}
                                     <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 5px 0px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
@@ -829,9 +821,9 @@
                                 {% elif user.profile.sl == "No" and user.profile.evcount < 3 %}
                                 <a href="{% url 'sl' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 5px 0px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Register</a>
                                 {% elif user.profile.sl == "Yes" %}
-                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:green;font-family:euro;font-size:16px;">Registerd</p>
+                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:green;font-family:euro;font-size:16px;">Registered</p>
                                 {% else%}
-                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:red;font-family:euro;font-size:16px;">Not Eligile</p>
+                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:red;font-family:euro;font-size:16px;">Not Eligible</p>
                                 {% endif %}
                                 {% else %}
                                     <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 5px 0px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
@@ -863,9 +855,9 @@
                                 {% elif user.profile.sb == "No" and user.profile.evcount < 3 %}
                                 <a href="{% url 'sb' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Register</a>
                                 {% elif user.profile.sb == "Yes" %}
-                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:green;font-family:euro;font-size:16px;">Registerd</p>
+                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:green;font-family:euro;font-size:16px;">Registered</p>
                                 {% else %}
-                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:red;font-family:euro;font-size:16px;">Not Eligile</p>
+                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:red;font-family:euro;font-size:16px;">Not Eligible</p>
                                 {% endif %}
                                 {% else %}
                                     <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
@@ -896,9 +888,9 @@
                                 {% elif user.profile.tet == "No" and user.profile.evcount < 3 %}
                                 <a href="{% url 'tet' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Register</a>
                                 {% elif user.profile.tet == "Yes" %}
-                                <p style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:green" style="font-family:euro;font-size:16px;">Registerd</p>
+                                <p style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:green" style="font-family:euro;font-size:16px;">Registered</p>
                                 {% else%}
-                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:red;font-family:euro;font-size:16px;">Not Eligile</p>
+                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:red;font-family:euro;font-size:16px;">Not Eligible</p>
                                 {% endif %}
                                 {% else %}
                                     <a href="{% url 'log' %}"style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
@@ -933,9 +925,9 @@
                                 {% elif user.profile.tc == "No" and user.profile.evcount < 3 %}
                                 <a href="{% url 'tc' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Register</a>
                                 {% elif user.profile.tc == "Yes" %}
-                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"style="color:green;font-family:euro;font-size:16px;">Registerd</p>
+                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"style="color:green;font-family:euro;font-size:16px;">Registered</p>
                                 {% else %}
-                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"style="color:red;font-family:euro;font-size:16px;">Not Eligile</p>
+                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"style="color:red;font-family:euro;font-size:16px;">Not Eligible</p>
                                 {% endif %}
                                 {% else %}
                                     <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
@@ -967,9 +959,9 @@
                                 {% elif user.profile.deb == "No" and user.profile.evcount < 3 %}
                                 <a href="{% url 'deb' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Register</a>
                                 {% elif user.profile.deb == "Yes" %}
-                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:green;font-family:euro;font-size:16px;">Registerd</p>
+                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:green;font-family:euro;font-size:16px;">Registered</p>
                                 {% else %}
-                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:red;font-family:euro;font-size:16px;">Not Eligile</p>
+                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:red;font-family:euro;font-size:16px;">Not Eligible</p>
                                 {% endif %}
                                 {% else %}
                                     <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"  style="font-family:euro;font-size:16px;">Pay Now</a>
@@ -1000,9 +992,9 @@
                                 {% elif user.profile.saw == "No" and user.profile.evcount < 3 %}
                                 <a href="{% url 'saw' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Register</a>
                                 {% elif user.profile.saw == "Yes" %}
-                                <p style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:green;font-family:euro;font-size:16px;">Registerd</p>
+                                <p style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:green;font-family:euro;font-size:16px;">Registered</p>
                                 {% else%}
-                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"style="color:red;font-family:euro;font-size:16px;">Not Eligile</p>
+                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"style="color:red;font-family:euro;font-size:16px;">Not Eligible</p>
                                 {% endif %}
                                 {% else %}
                                     <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
@@ -1033,9 +1025,9 @@
                                 {% elif user.profile.cg == "No" and user.profile.evcount < 3 %}
                                 <a href="{% url 'cg' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"  style="font-family:euro;font-size:16px;">Register</a>
                                 {% elif user.profile.cg == "Yes" %}
-                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"  style="color:green;font-family:euro;font-size:16px;">Registerd</p>
+                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"  style="color:green;font-family:euro;font-size:16px;">Registered</p>
                                 {% else%}
-                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"  style="color:red;font-family:euro;font-size:16px;">Not Eligile</p>
+                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"  style="color:red;font-family:euro;font-size:16px;">Not Eligible</p>
                                 {% endif %}
                                 {% else %}
                                     <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"  style="font-family:euro;font-size:16px;">Pay Now</a>
@@ -1074,7 +1066,7 @@
                                 {% elif user.profile.ipl == "No" and user.profile.ipcount < 2 %}
                                 <a href="{% url 'ipl' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Register</a>
                                 {% elif user.profile.ipl == "Yes" %}
-                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:green;font-family:euro;font-size:16px;">Registerd</p>
+                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:green;font-family:euro;font-size:16px;">Registered</p>
                                 {% else %}
                                 <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:red">Closed</p>
                                 {% endif %}
@@ -1109,9 +1101,9 @@
                                 {% elif user.profile.bgmi == "No" and user.profile.evcount < 3 %}
                                 <a href="{% url 'bgmi' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Register</a>
                                 {% elif user.profile.bgmi == "Yes" %}
-                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:green;font-family:euro;font-size:16px;">Registerd</p>
+                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:green;font-family:euro;font-size:16px;">Registered</p>
                                 {% else%}
-                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:red;font-family:euro;font-size:16px;">Not Eligile</p>
+                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:red;font-family:euro;font-size:16px;">Not Eligible</p>
                                 {% endif %}
                                 {% else %}
                                     <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
@@ -1142,9 +1134,9 @@
                                 {% elif user.profile.sg == "No" and user.profile.evcount < 3 %}
                                 <a href="{% url 'sg' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Register</a>
                                 {% elif user.profile.sg == "Yes" %}
-                                <p style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:green;font-family:euro;font-size:16px;">Registerd</p>
+                                <p style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:green;font-family:euro;font-size:16px;">Registered</p>
                                 {% else%}
-                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:red;font-family:euro;font-size:16px;">Not Eligile</p>
+                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:red;font-family:euro;font-size:16px;">Not Eligible</p>
                                 {% endif %}
                                 {% else %}
                                     <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
@@ -1175,9 +1167,9 @@
                                 {% elif user.profile.ld == "No" and user.profile.evcount < 3 %}
                                 <a href="{% url 'ld' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"  style="font-family:euro;font-size:16px;">Register</a>
                                 {% elif user.profile.ld == "Yes" %}
-                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"  style="color:green;font-family:euro;font-size:16px;">Registerd</p>
+                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"  style="color:green;font-family:euro;font-size:16px;">Registered</p>
                                 {% else%}
-                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"  style="color:red;font-family:euro;font-size:16px;">Not Eligile</p>
+                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"  style="color:red;font-family:euro;font-size:16px;">Not Eligible</p>
                                 {% endif %}
                                 {% else %}
                                     <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"  style="font-family:euro;font-size:16px;">Pay Now</a>
@@ -1213,9 +1205,9 @@
                                 {% elif user.profile.rd == "No" and user.profile.evcount < 3 %}
                                 <a href="{% url 'rd' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"  style="font-family:euro;font-size:16px;">Register</a>
                                 {% elif user.profile.rd == "Yes" %}
-                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"  style="color:green;font-family:euro;font-size:16px;">Registerd</p>
+                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"  style="color:green;font-family:euro;font-size:16px;">Registered</p>
                                 {% else%}
-                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"  style="color:red;font-family:euro;font-size:16px;">Not Eligile</p>
+                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"  style="color:red;font-family:euro;font-size:16px;">Not Eligible</p>
                                 {% endif %}
                                 {% else %}
                                     <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;" >Pay Now</a>
@@ -1248,9 +1240,9 @@
                                 {% elif user.profile.mp == "No" and user.profile.evcount < 3 %}
                                 <a href="{% url 'mp' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Register</a>
                                 {% elif user.profile.mp == "Yes" %}
-                                <p style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:green;font-family:euro;font-size:16px;">Registerd</p>
+                                <p style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:green;font-family:euro;font-size:16px;">Registered</p>
                                 {% else%}
-                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:red;font-family:euro;font-size:16px;">Not Eligile</p>
+                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:red;font-family:euro;font-size:16px;">Not Eligible</p>
                                 {% endif %}
                                 {% else %}
                                     <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
@@ -1282,9 +1274,9 @@
                                 {% elif user.profile.quiz == "No" and user.profile.evcount < 3 %}
                                 <a href="{% url 'quiz' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"  style="font-family:euro;font-size:16px;">Register</a>
                                 {% elif user.profile.quiz == "Yes" %}
-                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"  style="color:green;font-family:euro;font-size:16px;">Registerd</p>
+                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"  style="color:green;font-family:euro;font-size:16px;">Registered</p>
                                 {% else%}
-                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"  style="color:red;font-family:euro;font-size:16px;">Not Eligile</p>
+                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"  style="color:red;font-family:euro;font-size:16px;">Not Eligible</p>
                                 {% endif %}
                                 {% else %}
                                     <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;" >Pay Now</a>
@@ -1315,9 +1307,9 @@
                                 {% elif user.profile.wb == "No" and user.profile.evcount < 3 %}
                                 <a href="{% url 'wb' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"  style="font-family:euro;font-size:16px;">Register</a>
                                 {% elif user.profile.wb == "Yes" %}
-                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"  style="color:green;font-family:euro;font-size:16px;">Registerd</p>
+                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"  style="color:green;font-family:euro;font-size:16px;">Registered</p>
                                 {% else%}
-                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"  style="color:red;font-family:euro;font-size:16px;">Not Eligile</p>
+                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"  style="color:red;font-family:euro;font-size:16px;">Not Eligible</p>
                                 {% endif %}
                                 {% else %}
                                     <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"  style="font-family:euro;font-size:16px;">Pay Now</a>
@@ -1355,9 +1347,9 @@
                                 {% if  user.workshop.payment == "No" %}
                                 <a href="{% url 'iot' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
                                 {% elif user.workshop.tg == "iot" %}
-                                <p style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"style="color:green;font-family:euro;font-size:16px;">Registerd</p>
+                                <p style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"style="color:green;font-family:euro;font-size:16px;">Registered</p>
                                 {% else %}
-                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"style="color:red;font-family:euro;font-size:16px;">Not Eligile</p>
+                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"style="color:red;font-family:euro;font-size:16px;">Not Eligible</p>
                                 {% endif %}
                                 {% else %}
                                     <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
@@ -1389,9 +1381,9 @@
                                 {% if  user.workshop.payment == "No" %}
                                 <a href="{% url 'cws' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
                                 {% elif user.workshop.tg == "cs" %}
-                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"style="color:green;font-family:euro;font-size:16px;">Registerd</p>
+                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"style="color:green;font-family:euro;font-size:16px;">Registered</p>
                                 {% else %}
-                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:red;font-family:euro;font-size:16px;">Not Eligile</p>
+                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:red;font-family:euro;font-size:16px;">Not Eligible</p>
                                 {% endif %}
                                 {% else %}
                                     <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
@@ -1422,9 +1414,9 @@
                                 {% if  user.workshop.payment == "No" %}
                                 <a href="{% url 'afs' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
                                 {% elif user.workshop.tg == "afs" %}
-                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;color:green" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Registerd</p>
+                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;color:green" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Registered</p>
                                 {% else %}
-                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:red;font-family:euro;font-size:16px;">Not Eligile</p>
+                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:red;font-family:euro;font-size:16px;">Not Eligible</p>
                                 {% endif %}
                                 {% else %}
                                     <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
@@ -1455,9 +1447,9 @@
                                 {% if  user.workshop.payment == "No" %}
                                 <a href="{% url 'bcm' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
                                 {% elif user.workshop.tg == "bcm" %}
-                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:green;font-family:euro;font-size:16px;">Registerd</p>
+                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:green;font-family:euro;font-size:16px;">Registered</p>
                                 {% else %}
-                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:red;font-family:euro;font-size:16px;">Not Eligile</p>
+                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:red;font-family:euro;font-size:16px;">Not Eligible</p>
                                 {% endif %}
                                 {% else %}
                                     <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
@@ -1492,9 +1484,9 @@
                                 {% if  user.workshop.payment == "No" %}
                                 <a href="{% url 'prt' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay</a>
                                 {% elif user.workshop.tg == "prt" %}
-                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:green;font-family:euro;font-size:16px;">Registerd</p>
+                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:green;font-family:euro;font-size:16px;">Registered</p>
                                 {% else %}
-                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:red;font-family:euro;font-size:16px;">Not Eligile</p>
+                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:red;font-family:euro;font-size:16px;">Not Eligible</p>
                                 {% endif %}
                                 {% else %}
                                     <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
@@ -1526,9 +1518,9 @@
                                 {% if  user.workshop.payment == "No" %}
                                 <a href="{% url 'ai' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay</a>
                                 {% elif user.workshop.tg == "ai" %}
-                                <p style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"style="color:green;font-family:euro;font-size:16px;">Registerd</p>
+                                <p style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"style="color:green;font-family:euro;font-size:16px;">Registered</p>
                                 {% else %}
-                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"style="color:red;font-family:euro;font-size:16px;">Not Eligile</p>
+                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"style="color:red;font-family:euro;font-size:16px;">Not Eligible</p>
                                 {% endif %}
                                 {% else %}
                                     <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>

@@ -8,7 +8,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 import datetime
 # api = Instamojo(api_key='test_a0ea97bffacc77a18394a713038',auth_token='test_57850829a42be8360521ac63509',endpoint='https://test.instamojo.com/api/1.1/')
-api = Instamojo(api_key='8a970ccd0f7c91c021f14e5e6cf00bf8', auth_token='79a868b1a57640a7abe4a4f4d74d7d36')
+api = Instamojo(api_key='4ce90ef17e4717a3decb1bf06e15356e', auth_token='3fb44e10ea7ecd64ab60d92c09bc779')
 def index(request):
     return render(request, 'index.html')
 
@@ -116,7 +116,7 @@ def pay_initiate(request):
     if request.user.is_authenticated :
 
         response = api.payment_request_create(buyer_name=request.user.first_name, email=request.user.email,
-                                              phone=request.user.profile.mobile, amount='10', purpose='Thrusang-(do not refresh or go back!)',
+                                              phone=request.user.profile.mobile, amount='300', purpose='Thrusang-(do not refresh or go back!)',
                                               send_email=False, redirect_url="https://klthrusang.herokuapp.com/success")
         pro = profile.objects.get(id_no=request.user.profile.id_no)
         pro.pay_id = response['payment_request']['id']
@@ -172,7 +172,7 @@ def cws(request):
     if request.user.is_authenticated:
 
         response = api.payment_request_create(buyer_name=request.user.first_name, email=request.user.email,
-                                              phone=request.user.profile.mobile, amount='20', purpose='Test',
+                                              phone=request.user.profile.mobile, amount='600', purpose='Thrusang-(do not refresh or go back!)',
                                               send_email=False, redirect_url="https://klthrusang.herokuapp.com/cwssuccess")
         ws = workshop.objects.get(user=request.user)
         ws.pay_id = response['payment_request']['id']
@@ -231,7 +231,7 @@ def iot(request):
     if request.user.is_authenticated:
 
         response = api.payment_request_create(buyer_name=request.user.first_name, email=request.user.email,
-                                              phone=request.user.profile.mobile, amount='20', purpose='Test',
+                                              phone=request.user.profile.mobile, amount='400', purpose='Thrusang-(do not refresh or go back!)',
                                               send_email=False, redirect_url="https://klthrusang.herokuapp.com/iotsuccess")
         ws = workshop.objects.get(user=request.user)
         ws.pay_id = response['payment_request']['id']
@@ -292,7 +292,7 @@ def afs(request):
     if request.user.is_authenticated:
 
         response = api.payment_request_create(buyer_name=request.user.first_name, email=request.user.email,
-                                              phone=request.user.profile.mobile, amount='20', purpose='Test',
+                                              phone=request.user.profile.mobile, amount='300', purpose='Thrusang-(do not refresh or go back!)',
                                               send_email=False, redirect_url="https://klthrusang.herokuapp.com/afssuccess")
         ws = workshop.objects.get(user=request.user)
         ws.pay_id = response['payment_request']['id']
@@ -352,7 +352,7 @@ def bcm(request):
     if request.user.is_authenticated:
 
         response = api.payment_request_create(buyer_name=request.user.first_name, email=request.user.email,
-                                              phone=request.user.profile.mobile, amount='20', purpose='Test',
+                                              phone=request.user.profile.mobile, amount='600', purpose='Thrusang-(do not refresh or go back!)',
                                               send_email=False, redirect_url="https://klthrusang.herokuapp.com/bcmsuccess")
         ws = workshop.objects.get(user=request.user)
         ws.pay_id = response['payment_request']['id']
@@ -412,7 +412,7 @@ def prt(request):
     if request.user.is_authenticated:
 
         response = api.payment_request_create(buyer_name=request.user.first_name, email=request.user.email,
-                                              phone=request.user.profile.mobile, amount='20', purpose='Test',
+                                              phone=request.user.profile.mobile, amount='300', purpose='Thrusang-(do not refresh or go back!)',
                                               send_email=False, redirect_url="https://klthrusang.herokuapp.com/prtsuccess")
         ws = workshop.objects.get(user=request.user)
         ws.pay_id = response['payment_request']['id']
@@ -471,7 +471,7 @@ def ai(request):
     if request.user.is_authenticated:
 
         response = api.payment_request_create(buyer_name=request.user.first_name, email=request.user.email,
-                                              phone=request.user.profile.mobile, amount='20', purpose='Test',
+                                              phone=request.user.profile.mobile, amount='500', purpose='Thrusang-(do not refresh or go back!)',
                                               send_email=False, redirect_url="https://klthrusang.herokuapp.com/aisuccess")
         ws = workshop.objects.get(user=request.user)
         ws.pay_id = response['payment_request']['id']
@@ -711,7 +711,7 @@ def ttpay_initiate(request):
                 messages.error(request, 'Something went wrong.', extra_tags='login')
                 return render(request, 'login.html')
         response = api.payment_request_create(buyer_name=request.user.first_name, email=request.user.email,
-                                              phone=request.user.profile.mobile, amount='15', purpose='Test',
+                                              phone=request.user.profile.mobile, amount='500', purpose='Thrusang-(do not refresh or go back!)',
                                               send_email=False, redirect_url="https://klthrusang.herokuapp.com/ttsuccess")
         pro = profile.objects.get(id_no=request.user.profile.id_no)
         pro.pay_id = response['payment_request']['id']
