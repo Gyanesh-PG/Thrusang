@@ -142,17 +142,17 @@ def success(request):
                 for k in pr:
                     if k.th_id != "0":
                         c += 1
-                if c < 10:
-                    ss=s[0:10]+str(c)
+                if c < 9:
+                    ss=s[0:11]+str(c+1)
                     pro.th_id=ss
-                elif c>=10 and c<=99:
-                    ss = s[0:9] + str(c+1)
+                elif c>=10 and c<=98:
+                    ss = s[0:10] + str(c+1)
                     pro.th_id = ss
-                elif c>=1000 and c<=999:
-                    ss = s[0:8] + str(c)
+                elif c>=1000 and c<=998:
+                    ss = s[0:9] + str(c)
                     pro.th_id = ss
                 else:
-                    ss = s[0:7] + str(c)
+                    ss = s[0:8] + str(c+1)
                     pro.th_id = ss
             pro.save()
             messages.error(request, 'Payment Successfully Completed.Now you can register to the events.', extra_tags='paid')
@@ -205,17 +205,17 @@ def cwssuccess(request):
                 for k in pr:
                     if k.th_id != "0":
                         c += 1
-                if c < 10:
-                    ss = s[0:10] + str(c)
+                if c < 9:
+                    ss = s[0:11] + str(c + 1)
                     pro.th_id = ss
-                elif c >= 10 and c <= 99:
+                elif c >= 10 and c <= 98:
+                    ss = s[0:10] + str(c + 1)
+                    pro.th_id = ss
+                elif c >= 1000 and c <= 998:
                     ss = s[0:9] + str(c)
                     pro.th_id = ss
-                elif c >= 1000 and c <= 999:
-                    ss = s[0:8] + str(c)
-                    pro.th_id = ss
                 else:
-                    ss = s[0:7] + str(c)
+                    ss = s[0:8] + str(c + 1)
                     pro.th_id = ss
             ws.save()
             pro.save()
@@ -264,18 +264,19 @@ def iotsuccess(request):
                 for k in pr:
                     if k.th_id != "0":
                         c += 1
-                if c < 10:
-                    ss = s[0:10] + str(c)
+                if c < 9:
+                    ss = s[0:11] + str(c + 1)
                     pro.th_id = ss
-                elif c >= 10 and c <= 99:
+                elif c >= 10 and c <= 98:
+                    ss = s[0:10] + str(c + 1)
+                    pro.th_id = ss
+                elif c >= 1000 and c <= 998:
                     ss = s[0:9] + str(c)
                     pro.th_id = ss
-                elif c >= 1000 and c <= 999:
-                    ss = s[0:8] + str(c)
-                    pro.th_id = ss
                 else:
-                    ss = s[0:7] + str(c)
+                    ss = s[0:8] + str(c + 1)
                     pro.th_id = ss
+
             ws.save()
             pro.save()
             messages.error(request, 'Payment Successfully Completed.Yor have registered for IOT Workshop', extra_tags='paid')
@@ -324,17 +325,17 @@ def afssuccess(request):
                 for k in pr:
                     if k.th_id != "0":
                         c += 1
-                if c < 10:
-                    ss = s[0:10] + str(c)
+                if c < 9:
+                    ss = s[0:11] + str(c + 1)
                     pro.th_id = ss
-                elif c >= 10 and c <= 99:
+                elif c >= 10 and c <= 98:
+                    ss = s[0:10] + str(c + 1)
+                    pro.th_id = ss
+                elif c >= 1000 and c <= 998:
                     ss = s[0:9] + str(c)
                     pro.th_id = ss
-                elif c >= 1000 and c <= 999:
-                    ss = s[0:8] + str(c)
-                    pro.th_id = ss
                 else:
-                    ss = s[0:7] + str(c)
+                    ss = s[0:8] + str(c + 1)
                     pro.th_id = ss
             ws.save()
             pro.save()
@@ -384,17 +385,17 @@ def bcmsuccess(request):
                 for k in pr:
                     if k.th_id != "0":
                         c += 1
-                if c < 10:
-                    ss = s[0:10] + str(c)
+                if c < 9:
+                    ss = s[0:11] + str(c + 1)
                     pro.th_id = ss
-                elif c >= 10 and c <= 99:
+                elif c >= 10 and c <= 98:
+                    ss = s[0:10] + str(c + 1)
+                    pro.th_id = ss
+                elif c >= 1000 and c <= 998:
                     ss = s[0:9] + str(c)
                     pro.th_id = ss
-                elif c >= 1000 and c <= 999:
-                    ss = s[0:8] + str(c)
-                    pro.th_id = ss
                 else:
-                    ss = s[0:7] + str(c)
+                    ss = s[0:8] + str(c + 1)
                     pro.th_id = ss
             ws.save()
             pro.save()
@@ -444,17 +445,17 @@ def prtsuccess(request):
                 for k in pr:
                     if k.th_id != "0":
                         c += 1
-                if c < 10:
-                    ss = s[0:10] + str(c)
+                if c < 9:
+                    ss = s[0:11] + str(c + 1)
                     pro.th_id = ss
-                elif c >= 10 and c <= 99:
+                elif c >= 10 and c <= 98:
+                    ss = s[0:10] + str(c + 1)
+                    pro.th_id = ss
+                elif c >= 1000 and c <= 998:
                     ss = s[0:9] + str(c)
                     pro.th_id = ss
-                elif c >= 1000 and c <= 999:
-                    ss = s[0:8] + str(c)
-                    pro.th_id = ss
                 else:
-                    ss = s[0:7] + str(c)
+                    ss = s[0:8] + str(c + 1)
                     pro.th_id = ss
             ws.save()
             pro.save()
@@ -503,17 +504,17 @@ def aisuccess(request):
                 for k in pr:
                     if k.th_id != "0":
                         c += 1
-                if c < 10:
-                    ss = s[0:10] + str(c)
+                if c < 9:
+                    ss = s[0:11] + str(c + 1)
                     pro.th_id = ss
-                elif c >= 10 and c <= 99:
+                elif c >= 10 and c <= 98:
+                    ss = s[0:10] + str(c + 1)
+                    pro.th_id = ss
+                elif c >= 1000 and c <= 998:
                     ss = s[0:9] + str(c)
                     pro.th_id = ss
-                elif c >= 1000 and c <= 999:
-                    ss = s[0:8] + str(c)
-                    pro.th_id = ss
                 else:
-                    ss = s[0:7] + str(c)
+                    ss = s[0:8] + str(c + 1)
                     pro.th_id = ss
             ws.save()
             pro.save()
@@ -738,17 +739,17 @@ def ttsuccess(request):
                 for k in pr:
                     if k.th_id != "0":
                         c += 1
-                if c < 10:
-                    ss = s[0:10] + str(c)
+                if c < 9:
+                    ss = s[0:11] + str(c + 1)
                     pro.th_id = ss
-                elif c >= 10 and c <= 99:
+                elif c >= 10 and c <= 98:
+                    ss = s[0:10] + str(c + 1)
+                    pro.th_id = ss
+                elif c >= 1000 and c <= 998:
                     ss = s[0:9] + str(c)
                     pro.th_id = ss
-                elif c >= 1000 and c <= 999:
-                    ss = s[0:8] + str(c)
-                    pro.th_id = ss
                 else:
-                    ss = s[0:7] + str(c)
+                    ss = s[0:8] + str(c + 1)
                     pro.th_id = ss
             pro.save()
             messages.error(request, 'Payment Successfully Completed.', extra_tags='paid')
