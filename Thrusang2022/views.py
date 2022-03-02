@@ -128,7 +128,7 @@ def pay_initiate(request):
 
 
 def success(request):
-    # try:
+    try:
         pay_id = request.GET.get('payment_request_id')
         response = api.payment_request_status(pay_id)
         if response['payment_request']['status'] == "Completed":
@@ -159,8 +159,8 @@ def success(request):
             return render(request, 'thankyou.html')
         messages.error(request, 'Payment Failed.', extra_tags='fail')
         return render(request, 'index.html')
-    # except:
-    #     return render(request, 'index.html')
+    except:
+        return render(request, 'index.html')
 
 
 def logout_user(request):
@@ -198,7 +198,7 @@ def cwssuccess(request):
             pro.evcount += 1
             ws.payment = "Yes"
             ws.tg = "cs"
-            if request.user.th_id == "0":
+            if request.user.profile.th_id == "0":
                 c = 0
                 s = "TRG-WEB-0000"
                 pr = profile.objects.all();
@@ -246,7 +246,7 @@ def iot(request):
 
 
 def iotsuccess(request):
-    # try:
+    try:
         pay_id = request.GET.get('payment_request_id')
         response = api.payment_request_status(pay_id)
         if response['payment_request']['status'] == "Completed":
@@ -257,7 +257,7 @@ def iotsuccess(request):
             pro.evcount += 1
             ws.payment = "Yes"
             ws.tg = "iot"
-            if request.user.th_id == "0":
+            if request.user.profile.th_id == "0":
                 c = 0
                 s = "TRG-WEB-0000"
                 pr = profile.objects.all();
@@ -283,8 +283,8 @@ def iotsuccess(request):
         messages.error(request, 'Payment Failed.', extra_tags='fail')
 
         return render(request, 'index.html')
-    # except:
-    #     return render(request, 'index.html')
+    except:
+        return render(request, 'index.html')
 
 
 def afs(request):
@@ -317,7 +317,7 @@ def afssuccess(request):
             pro.evcount += 1
             ws.payment = "Yes"
             ws.tg = "afs"
-            if request.user.th_id == "0":
+            if request.user.profile.th_id == "0":
                 c = 0
                 s = "TRG-WEB-0000"
                 pr = profile.objects.all();
@@ -377,7 +377,7 @@ def bcmsuccess(request):
             pro.evcount += 1
             ws.payment = "Yes"
             ws.tg = "bcm"
-            if request.user.th_id == "0":
+            if request.user.profile.th_id == "0":
                 c = 0
                 s = "TRG-WEB-0000"
                 pr = profile.objects.all();
@@ -437,7 +437,7 @@ def prtsuccess(request):
             pro.evcount += 1
             ws.payment = "Yes"
             ws.tg = "prt"
-            if request.user.th_id == "0":
+            if request.user.profile.th_id == "0":
                 c = 0
                 s = "TRG-WEB-0000"
                 pr = profile.objects.all();
@@ -496,7 +496,7 @@ def aisuccess(request):
             pro.evcount += 1
             ws.payment = "Yes"
             ws.tg = "ai"
-            if request.user.th_id == "0":
+            if request.user.profile.th_id == "0":
                 c = 0
                 s = "TRG-WEB-0000"
                 pr = profile.objects.all();
@@ -731,7 +731,7 @@ def ttsuccess(request):
             pro.payment = "Yes"
             pro.tt = "Yes"
             pro.evcount += 1
-            if request.user.th_id == "0":
+            if request.user.profile.th_id == "0":
                 c = 0
                 s = "TRG-WEB-0000"
                 pr = profile.objects.all();
