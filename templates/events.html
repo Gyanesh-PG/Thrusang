@@ -1069,9 +1069,9 @@
                                     {% if user.is_authenticated  %}
                                  {% if user.profile.ipl == "No" and user.profile.evcount >= 3 %}
                                 <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:red;font-family:euro;font-size:16px;">Not Eligible</p>
-                                {% elif  user.profile.evpay == "No" and user.profile.ipcount < 50 %}
+                                {% elif  user.profile.evpay == "No" and user.profile.ipcount < 2 %}
                                 <a href="{% url 'pay_initiate' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
-                                {% elif user.profile.ipl == "No" and user.profile.ipcount < 50%}
+                                {% elif user.profile.ipl == "No" and user.profile.ipcount < 2 %}
                                 <a href="{% url 'ipl' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Register</a>
                                 {% elif user.profile.ipl == "Yes" %}
                                 <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:green;font-family:euro;font-size:16px;">Registerd</p>
