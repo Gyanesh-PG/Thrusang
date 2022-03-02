@@ -246,7 +246,7 @@ def iot(request):
 
 
 def iotsuccess(request):
-    try:
+    # try:
         pay_id = request.GET.get('payment_request_id')
         response = api.payment_request_status(pay_id)
         if response['payment_request']['status'] == "Completed":
@@ -283,8 +283,8 @@ def iotsuccess(request):
         messages.error(request, 'Payment Failed.', extra_tags='fail')
 
         return render(request, 'index.html')
-    except:
-        return render(request, 'index.html')
+    # except:
+    #     return render(request, 'index.html')
 
 
 def afs(request):
