@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Signup</title>
+    <title>klthrusang | Signup</title>
     <link rel="shortcut icon" href="static/assets/images/Thrusang_Logo.png" type="image/x-icon">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -10,10 +10,8 @@
 
 <style>
  body{
-        background-position: center;
-         background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: 100% 100%;
+       height: auto;
+  background-image: url('static/assets/images/SignBG.jpg');
 
     }
 .input-container {
@@ -61,9 +59,13 @@ font-size:18px;
 }
 
 .signup-form {
-	width: 780px;
+	width: auto;
 	margin: 0 auto;
 	padding: 20px 0;
+	margin-left:auto;
+	margin-right:auto;
+	margin-bottom:auto;
+
 }
 .signup-form form {
 	border-radius: 5px;
@@ -72,7 +74,8 @@ font-size:18px;
 	background: #fff;
 	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
 	padding: 40px;
-background-color:none; 
+height: auto;
+    background:lightgrey;
 }
 
 
@@ -115,7 +118,7 @@ background-color:none;
 <div class="signup-form">
 <form method="POST" action="{% url 'register_user' %}" style="max-width:500px;margin:auto" name="myform" onsubmit="return validation()">
  {% csrf_token %}
-  <h2 style="text-align:center">Register Form</h2>
+  <h2 style="text-align:center">Create an account</h2><br>
   <div class="input-container">
     <i class="fa fa-user icon"></i>
     <input class="input-field" type="text" placeholder="Full Name" name="fname" required>
@@ -200,6 +203,7 @@ background-color:none;
     <option value=" ">Select Gender</option>
     <option value="MALE">MALE</option>
     <option value="FEMALE">FEMALE</option>
+        <option value="OTHERS">OTHERS</option>
     </select>
     </div>
 
@@ -214,7 +218,7 @@ background-color:none;
     <input class="input-field" type="email" placeholder="Email" name="email" required>
 
   </div>
-   <p style="color:red">*Please provide your personal gmail</p>
+   <p style="color:gray;font-size:13px;">*Please provide your personal gmail</p>
   <div class="input-container">
     <i class="fa fa-key icon"></i>
     <input class="input-field" type="password" placeholder="Password" name="psw" required>
@@ -226,12 +230,12 @@ background-color:none;
   </div>
   
 
-  <button type="submit" class="btn">Register</button>
+  <button type="submit" class="btn">Submit</button><br><br>
 
     <div class="bottom-action clearfix">
 
 
-    <p style="text-align:center;">Already have an account! <a href="{% url 'log' %}">Login</a>.</p>
+    <p style="text-align:center;">Already have an account! <a href="{% url 'log' %}">Sign In</a>.</p>
         <p style="text-align:center;">Go <a href="{% url 'index' %}">Home</a>.</p>
         </div>
 </form></div>

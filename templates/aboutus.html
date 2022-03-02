@@ -5,13 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Mobirise v5.6.0, mobirise.com">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
   <link rel="shortcut icon" href="static/assets/images/Thrusang_Logo.png" type="image/x-icon">
-  <meta name="description" content="">
-  
-  
-  <title>About Us</title>
+  <link rel="stylesheet" href="static/about.css">
+  <title>klthrusang|About Us</title>
+    <link rel="stylesheet" href="static/footer/footer.css">
   <link rel="stylesheet" href="static/assets/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="static/assets/bootstrap/css/bootstrap-grid.min.css">
   <link rel="stylesheet" href="static/assets/bootstrap/css/bootstrap-reboot.min.css">
@@ -21,23 +19,75 @@
   <link rel="preload" href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i,700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i,700&display=swap"></noscript>
   <link rel="preload" href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap"></noscript>
-  <link rel="preload" as="style" href="static/assets/mobirise/css/mbr-additional.css"><link rel="stylesheet" href="static/assets/mobirise/css/mbr-additional.css" type="text/css">
-  
-  
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap">
+  </noscript>
+  <link rel="preload" as="style" href="static/assets/mobirise/css/mbr-additional.css">
+    <link rel="stylesheet" href="static/assets/mobirise/css/mbr-additional.css" type="text/css">
+   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.1/tailwind.min.css'>
+      <link rel="stylesheet" href="static/font.css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   
   
 </head>
-<body>
-  <!-- Header start -->
-  <section data-bs-version="5.1" class="menu menu2 cid-sXInXOg5Bn" once="menu" id="menu2-k" style="background-color:black">
+<style>
+    .whats-float {
+    position: fixed;
+    transform:translate(108px,0px);
+    top:80%;
+    right:0;
+    width:150px;
+    overflow: hidden;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 4px 0 0 4px;
+    z-index: 10;
+    transition: all 0.5s ease-in-out;
+    vertical-align: middle
+}
+.whats-float a span {
+    color: white;
+    font-size: 15px;
+    padding-top: 8px;
+    padding-bottom: 20px;
+    position: absolute;
+    line-height: 16px;
+    font-weight: bolder;
+}
 
-    <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg" style="background-color:white; " >
+.whats-float i {
+    font-size: 30px;
+    color: white;
+    line-height: 30px;
+    padding: 20px;
+    transform:rotate(0deg);
+    transition: all 0.5s ease-in-out;
+    text-align:center;
+
+}
+
+.whats-float:hover {
+    color: #FFFFFF;
+    transform:translate(0px,0px);
+}
+
+.whats-float:hover i  {
+    transform:rotate(360deg);
+}
+</style>
+<body>
+  <div style="background-image:url('static/assets/images/BGM.jpg');background-attachment:fixed;width:auto;background-repeat:no-repeat;background-size:cover;">
+
+  <!-- Header start -->
+    <section data-bs-version="5.1" class="menu menu2 cid-sXInXOg5Bn" once="menu" id="menu2-k" style="background-color:black; padding:0px;margin:0px;border:0px">
+
+    <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg" style="background-color:white;border-radius:0 0 20px 20px" >
         <div class="container-fluid"  style="background-color:white;">
             <div class="navbar-brand">
                 <span class="navbar-logo">
-                    <a href="#">
-                        <img  src="static/assets/images/Thrusang_Logo.png" alt="" style="height: 3.4rem;">
+                    <a href="{% url 'index' %}">
+                        <img  src="static/assets/images/navlogo.png" alt="" style="max-height:2.2rem;width:230px;position:relative">
                     </a>
                 </span>
 
@@ -52,158 +102,55 @@
             </button>
             <div  class="collapse navbar-collapse" id="navbarSupportedContent" >
 <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
-    <li class="nav-item" ><a class="nav-link link text-danger text-primary display-4" href="{% url 'index' %}" ><strong style="color:#2c344e ">Home</strong></a></li>
-    <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'aboutus' %}"><strong style="color:#2c344e ">About us</strong></a></li>
-    <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'events' %}"><strong style="color:#2c344e ">Events</strong></a></li>
-    <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'gallery' %}"><strong style="color:#2c344e ">Gallery</strong></a></li>
-    <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'sponsers' %}"><strong style="color:#2c344e ">Sponsors</strong></a></li>
-     <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'team' %}"><strong style="color:#2c344e ">Team</strong></a></li>
+    <li class="nav-item" ><a class="nav-link link text-danger text-primary display-4" href="{% url 'index' %}" ><strong style="color:#2c344e;font-family:nexa">Home</strong></a></li>
+    <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'aboutus' %}"><strong style="color:#2c344e;font-family:nexa ">About us</strong></a></li>
+    <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'events' %}"><strong style="color:#2c344e;font-family:nexa ">Events</strong></a></li>
+    <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'gallery' %}"><strong style="color:#2c344e;font-family:nexa ">Gallery</strong></a></li>
+<!--    <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'sponsers' %}"><strong style="color:#2c344e;font-family:nexa ">Sponsors</strong></a></li>-->
+     <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'team' %}"><strong style="color:#2c344e;font-family:nexa ">Team</strong></a></li>
     {% if  user.is_authenticated %}
-     <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'user_profile' %}"><strong style="color:#2c344e ">Profile</strong></a></li>
+     <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'user_profile' %}"><strong style="color:#2c344e;font-family:nexa ">Profile</strong></a></li>
          {% endif %}
 </ul>
 
      <div class="navbar-buttons mbr-section-btn" >
       {% if not user.is_authenticated %}
-     <a class="btn btn-primary display-4" href="{% url 'log' %}">Login</a>
-     <a class="btn btn-primary display-4" href="{% url 'register' %}">Register</a>
+     <a class="btn btn-primary display-4" id="joinus" href="{% url 'log' %}" style="font-family:nexa;border-radius:20px;padding:4px;font-size:16px;width:100px">Join Us</a>
+<!--     <a class="btn btn-primary display-4" href="{% url 'register' %}" style="font-family:nexa">Register</a>-->
       {% endif %}
          {% if  user.profile.payment == "No" %}
-     <a class="btn btn-primary display-4" href="{% url 'events' %}">Pay Now</a>
+     <a class="btn btn-primary display-4" href="{% url 'events' %}" style="font-family:nexa;border-radius:20px;padding:4px;font-size:16px;width:100px">Pay Now</a>
          {% endif %}
      {% if  user.is_authenticated %}
-     <a class="btn btn-primary display-4" href="{% url 'logout_user' %}">Logout</a>
+     <a class="btn btn-primary display-4" href="{% url 'logout_user' %}" style="font-family:nexa;border-radius:20px;padding:4px;font-size:16px;width:100px">Logout</a>
          {% endif %}
      </div>
             </div>
         </div>
     </nav>
-</section>
+</section><br><br><br><br>
      <!-- Header End -->
-  <section data-bs-version="5.1" class="features16 cid-sXIqec8DYH" id="features17-n">
+           <h1 id="technical" class="text-white text-center our" style="font-size:40px;font-family:euro;padding:0px">About Us</h1>
+      <div class="whats-float">
+    <a href="whatsapp://send?text=Mark your calendars, and gear up for Thrusang’22: Technovation!  www.klthrusang.in"
+       target="_blank">
+        <i class="fa fa-whatsapp"></i><span>WhatsApp<br><small>Share to your Friends</small></span>
+    </a>
+</div>
 
+ <!-- main start-->
+<img src="static/assets/images/THRUSANG text1.png" style="background-image:cover"><br><br><br><br><br><br>
 
-
-    <div class="container">
-         <h1 style="font-size:30px;text-align:center;color:white"><strong>About Us</strong></h1><br>
-        <div class="content-wrapper" style=" border: 2px solid white;padding: 15px;border-radius: 50px 20px;">
-            <div class="row align-items-center" >
-
-                <div class="col-12 col-lg-5">
-                    <div class="image-wrapper">
-                        <img src="static/assets/images/kl black.png">
-                    </div>
-                </div>
-                <div class="col-12 col-lg">
-                    <div class="text-wrapper">
-                        <h6 class="card-title mbr-fonts-style display-5"><strong>K L UNIVERSITY</strong></h6>
-                        <p class="mbr-text mbr-fonts-style mb-4 display-4" style="text-align:justify">
-                            The Koneru Lakshmaiah Charities was established as a trust in 1980 with its official address at Museum Road, Governorpet, Vijayawada, Andhra Pradesh 520 002 and started KL College of Engineering in the Academic year 1980-81. KL Deemed to be University was established in 1980-81, as KL College of Engineering, which was upgraded to KL College of Engineering Autonomous in 2006 by UGC and was declared as a Deemed to be University in 2009 by UGC, MHRD Govt.of India. In 2012 as a Deemed to be University the institution was accredited by NAAC with A Grade and later in 2018, was re-accredited by NAAC with A++ grade. In 2019 UGC, MHRD declared this institution as Category I Institution.
-</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section data-bs-version="5.1" class="features15 cid-sXIql61x9k" id="features16-o">
-
-    
-
-    
-    <div class="container" >
-        <div class="content-wrapper" style=" border: 2px solid white;padding: 35px;border-radius: 45px 20px;">
-            <div class="row align-items-center">
-                <div class="col-12 col-lg">
-                    <div class="text-wrapper">
-                        <h6 class="card-title mbr-fonts-style display-2"><strong>THRUSANG</strong></h6>
-                        <p class="mbr-text mbr-fonts-style mb-4 display-4" style="text-align:justify">
-                            THRUSANG is the result of the first generation of Electronics and Computer Engineering students' hard work. It was the inaugural branch festival, which sparked a new chapter in the college's history. THRUSANG has pleasantly surprised its audience since its inception. It was dubbed Mini-Samyak, a moniker that belies the event's incredible magnitude. Thrusang strives to strengthen all parts of a student's abilities outside of the classroom. The students that participated learnt a variety of life skills and are now operating as executives in major multinational companies.
-</p>
-                    </div>
-                </div>
-                <div class="col-12 col-lg-5">
-                    <div class="image-wrapper">
-                        <img src="static/assets/images/about2.png">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section data-bs-version="5.1" class="features16 cid-sXIta8dT91" id="features17-q">
-    
-
-    
-    <div class="container">
-        <div class="content-wrapper" style=" border: 2px solid white;padding: 10px;border-radius: 50px 20px;">
-            <div class="row align-items-center">
-                <div class="col-12 col-lg-5">
-                    <div class="image-wrapper">
-                        <img src="static/assets/images/Essence_Logo.png">
-                    </div>
-                </div>
-                <div class="col-12 col-lg">
-                    <div class="text-wrapper">
-                        <h6 class="card-title mbr-fonts-style display-5">
-                            <strong>ESSENCE-ECM</strong></h6>
-                        <p class="mbr-text mbr-fonts-style mb-4 display-4" style="text-align:justify">
-                        In the year 2012, the Elegant Student Synergy of Electronics and Computer Engineers (ESSENCE) was established. ESSENCE was established with the goal of bridging the gap between teachers and students outside of the classroom. ESSENCE focuses on the development of an individual from the Department of ECM by integrating students in several wings to enhance their technical or non-technical abilities under the supervision of the faculty. ESSENCE oversees organizing events such as T-Day (Teachers Day Celebrations), Thrusang (ECM Dept. Techno Management Fest, also known as Mini Samyak), several workshops and conferences, and social activities. Apart from classroom learning, ESSENCE attempts to improve all aspects of a student's talents.
-</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Footer start -->
-<section data-bs-version="5.1" class="footer3 cid-sXIDR5mIlp" once="footers" id="footer3-1g">
-
-
-
-
-
-    <div class="container">
-        <div class="media-container-row align-center mbr-white">
-            <div class="row row-links">
-                <ul class="foot-menu">
-
-<li class="foot-menu-item mbr-fonts-style display-7"><a href="{% url 'index' %}" class="text-primary">Home</a></li>
-<li class="foot-menu-item mbr-fonts-style display-7"><a href="{% url 'aboutus' %}" class="text-primary">About Us</a></li>
-<li class="foot-menu-item mbr-fonts-style display-7"><a href="{% url 'team' %}" class="text-primary">Team</a></li>
-<li class="foot-menu-item mbr-fonts-style display-7"><a href="{% url 'gallery' %}" class="text-primary">Gallery</a></li>
- <li class="foot-menu-item mbr-fonts-style display-7"><a href="{% url 'contact' %}" class="text-primary">Contact Us</a></li></ul>
-            </div>
-            <div class="row social-row">
-                <div class="social-list align-right pb-2">
-
-                <div class="soc-item">
-                        <a href="" target="_blank">
-                            <span class="mbr-iconfont mbr-iconfont-social socicon-instagram socicon"></span>
-                        </a>
-                    </div><div class="soc-item">
-                        <a href="" target="_blank">
-                            <span class="mbr-iconfont mbr-iconfont-social socicon-youtube socicon"></span>
-                        </a>
-                    </div></div>
-            </div>
-            <div class="row row-copirayt">
-                <p class="mbr-text mb-0 mbr-fonts-style mbr-white align-center display-7">
-                    © Copyright 2022 Thrusang. All Rights Reserved.
-                </p>
-            </div>
-        </div>
-    </div>
-
-</section>
+  {% include "footer.html" %}
 <script src="static/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="static/assets/smoothscroll/smooth-scroll.js"></script>
 <script src="static/assets/ytplayer/index.js"></script>
 <script src="static/assets/vimeoplayer/player.js"></script>
 <script src="static/assets/dropdown/js/navbar-dropdown.js"></script>
+  <script src='https://unpkg.com/scroll-out/dist/scroll-out.min.js'>
+
+  </script>
+  <script  src="static/about.js"></script>
  <!-- Footer end -->
 </body>
 </html>

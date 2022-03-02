@@ -26,13 +26,15 @@ class profile(models.Model):
     ipl = models.CharField(max_length=10)
     quiz = models.CharField(max_length=10)
     mp = models.CharField(max_length=10)
-    ps = models.CharField(max_length=10)
-    mmt = models.CharField(max_length=10)
+    ld = models.CharField(max_length=10)
+    wb = models.CharField(max_length=10)
     sg = models.CharField(max_length=10)
     rd = models.CharField(max_length=10)
     bgmi = models.CharField(max_length=10)
+    reg_time = models.CharField(max_length=100)
     evcount = models.IntegerField()
     ipcount = models.IntegerField()
+    th_id = models.CharField(max_length=30)
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
 class workshop(models.Model):
