@@ -363,7 +363,11 @@ td, th {
    <div class="pCard_down">
       <div>
           <p style="font-size:20px"><strong>{{user.first_name}}</strong></p>
+          {% if user.profile.th_id != "0" %}
          <p style="font-size:20px"><strong>{{user.profile.th_id}}</strong></p>
+          {% else %}
+          <p style="font-size:20px"><strong>Not Registered Yet</strong></p>
+          {% endif %}
       </div>
    </div>
    <div class="pCard_back">
