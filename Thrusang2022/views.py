@@ -8,7 +8,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 import datetime
 # api = Instamojo(api_key='test_a0ea97bffacc77a18394a713038',auth_token='test_57850829a42be8360521ac63509',endpoint='https://test.instamojo.com/api/1.1/')
-api = Instamojo(api_key='4ce90ef17e4717a3decb1bf06e15356e', auth_token='3fb44e10ea7ecd64ab60d92c09bc779')
+api = Instamojo(api_key='4ce90ef17e4717a3decb1bf06e15356e', auth_token='b3fb44e10ea7ecd64ab60d92c09bc779')
 def index(request):
     return render(request, 'index.html')
 
