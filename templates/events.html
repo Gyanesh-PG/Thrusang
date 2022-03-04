@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html  lang="en">
+<html  lang="en" oncontextmenu=" return disableRightClick() ;">
 {% load static %}
 
 <head>
@@ -8,7 +8,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
   <link rel="shortcut icon" href="static/assets/images/Thrusang_Logo.png" type="image/x-icon">
-    <title>KLThrusang | Events</title>
+    <title>klthrusang | Events</title>
 
 <link rel='stylesheet' href='https://www.marcoguglie.it/Codepen/AnimatedHeaderBg/demo-1/css/demo.css'>
     <link rel="stylesheet" href="static/assets/header/_header_style.css">
@@ -92,6 +92,14 @@
 .whats-float:hover i  {
     transform:rotate(360deg);
 }
+
+    *
+    {
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
 .alert {
   padding: 20px;
   background-color: red;
@@ -684,7 +692,7 @@
 <body>
   <div style="background-image:url('static/assets/images/BGM.jpg');background-attachment:fixed;width:auto;background-repeat:no-repeat;background-size:cover;">
 
-  
+
   <!-- Header start -->
     <section data-bs-version="5.1" class="menu menu2 cid-sXInXOg5Bn" once="menu" id="menu2-k" style="background-color:black; padding:0px;margin:0px;border:0px">
 
@@ -713,7 +721,7 @@
     <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'events' %}"><strong style="color:#2c344e;font-family:nexa ">Events</strong></a></li>
     <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'gallery' %}"><strong style="color:#2c344e;font-family:nexa ">Gallery</strong></a></li>
 <!--    <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'sponsers' %}"><strong style="color:#2c344e;font-family:nexa ">Sponsors</strong></a></li>-->
-<!--     <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'team' %}"><strong style="color:#2c344e;font-family:nexa ">Team</strong></a></li>-->
+{#     <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'team' %}"><strong style="color:#2c344e;font-family:nexa ">Team</strong></a></li>#}
     {% if  user.is_authenticated %}
      <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'user_profile' %}"><strong style="color:#2c344e;font-family:nexa ">Profile</strong></a></li>
          {% endif %}
@@ -742,6 +750,7 @@
         <i class="fa fa-whatsapp"><br></i><span style="text-align:center"><br><small>SHARE</small></span>
     </a>
 </div>
+      <br><br><br>
   {% if messages %}
 
     {% for message in messages %}
@@ -763,7 +772,7 @@
 {% endif %}
 
 
-      <br><br><br><br> <marquee direction = "left"><p style="color:white;font-family:gotham;font-size:16px;">You can compete in any three Technical and Non-Technical activities for just Rs. 300/-, with the exception of the Thrusang Tank event.&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Each workshop has its own Registration fee.&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Workshop registered students can participate in any two events except Thrusang Tank</p></marquee>
+      <br><br><br><br> <marquee direction = "left"><p style="color:white;font-family:gotham;font-size:16px;">You can compete in any Technical and Non-Technical activities for just Rs. 300/-, with the exception of the Thrusang Tank event.&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp | &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Each workshop has its own Registration fee.&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp | &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp To participate in Thrusang Tank you need to pay 500/- excluding the event/workshop payment &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp | &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspWorkshop registered students can participate in any event except Thrusang Tank.</p></marquee>
 
       <section class="container"  style="background:transparent;">
            <h1 id="technical" class="text-white text-center our" style="font-family:euro;padding:0px">Technical Events</h1>
@@ -777,7 +786,7 @@
                                 <div class='post-content'>
                                     <h1 class='title'></h1>
                                     <span class="sub-title" style="font-size: 24px; font-weight: 300 !important;font-family:gotham;font-size:16px">THRUSANG TANK</span>
-                                    <p class='description description1' style="font-family:gotham;font-size:14px"><br>Register to win exciting prizes</p>
+                                    <p class='description description1' style="font-family:gotham;font-size:14px"><br>Register to Win exciting prizes</p>
                                 </div>
                             </div>
                             <div class="row no-gutters" style="padding:0px; margin:0px;">
@@ -788,7 +797,7 @@
                                 {% elif user.profile.tt == "No" %}
                                 <a href="{% url 'tt' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 5px 0px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Register</a>
                                 {% else %}
-                                <p   style="padding:10px;color:green; margin:0px;width:100%;border-radius: 0px 0px 5px 0px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Registered</p>
+                                <p   style="padding:10px;color:green; margin:0px;width:100%;border-radius: 0px 0px 5px 0px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Registerd</p>
                                 {% endif %}
                                 {% else %}
                                     <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 5px 0px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
@@ -809,7 +818,7 @@
                                 </div>
                                 <div class='post-content'>
                                     <span class="sub-title" style="font-size: 24px; font-weight: 300 !important;font-family:gotham;font-size:16px">SNAKE & LADDER QUIZ</span>
-                                    <p class='description description2' style="font-family:gotham;font-size:14px"><br>Register to win exciting prizes</p>
+                                    <p class='description description2' style="font-family:gotham;font-size:14px"><br>Register Now and Win exciting prizes</p>
                                 </div>
                             </div>
 
@@ -818,12 +827,12 @@
                                    {% if user.is_authenticated  %}
                                 {% if  user.profile.evpay == "No" %}
                                 <a href="{% url 'pay_initiate' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 5px 0px;" class="btn  buttonfntr"  style="font-family:euro;font-size:16px;">Pay Now</a>
-                                {% elif user.profile.sl == "No" and user.profile.evcount < 3 %}
+                                {% elif user.profile.sl == "No" %}
                                 <a href="{% url 'sl' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 5px 0px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Register</a>
                                 {% elif user.profile.sl == "Yes" %}
-                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:green;font-family:euro;font-size:16px;">Registered</p>
+                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:green;font-family:euro;font-size:16px;">Registerd</p>
                                 {% else%}
-                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:red;font-family:euro;font-size:16px;">Not Eligible</p>
+                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:red;font-family:euro;font-size:16px;">Not Eligile</p>
                                 {% endif %}
                                 {% else %}
                                     <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 5px 0px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
@@ -844,7 +853,7 @@
                                 </div>
                                 <div class='post-content'>
                                     <span class="sub-title" style="font-size: 24px; font-weight: 300 !important;font-family:gotham;font-size:16px">SELECT * FROM BRAIN</span>
-                                    <p class='description description3' style="font-family:gotham;font-size:14px"><br>Register to win exciting prizes</p>
+                                    <p class='description description3' style="font-family:gotham;font-size:14px"><br>Register Now and Win exciting prizes</p>
                                 </div>
                             </div>
                             <div class="row no-gutters" style="padding:0px; margin:0px;">
@@ -852,12 +861,12 @@
                                     {% if user.is_authenticated  %}
                                 {% if  user.profile.evpay == "No" %}
                                 <a href="{% url 'pay_initiate' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
-                                {% elif user.profile.sb == "No" and user.profile.evcount < 3 %}
+                                {% elif user.profile.sb == "No"  %}
                                 <a href="{% url 'sb' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Register</a>
                                 {% elif user.profile.sb == "Yes" %}
-                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:green;font-family:euro;font-size:16px;">Registered</p>
+                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:green;font-family:euro;font-size:16px;">Registerd</p>
                                 {% else %}
-                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:red;font-family:euro;font-size:16px;">Not Eligible</p>
+                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:red;font-family:euro;font-size:16px;">Not Eligile</p>
                                 {% endif %}
                                 {% else %}
                                     <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
@@ -877,7 +886,7 @@
                                 </div>
                                 <div class='post-content'>
                                     <span class="sub-title" style="font-size: 24px; font-weight: 300 !important;font-family:gotham;font-size:16px">TECH TALK</span>
-                                    <p class='description description4' style="font-family:gotham;font-size:14px"><br>Register to win exciting prizes</p>
+                                    <p class='description description4' style="font-family:gotham;font-size:14px"><br>Register Now and Win exciting prizes</p>
                                 </div>
                             </div>
                             <div class="row no-gutters" style="padding:0px; margin:0px;">
@@ -885,12 +894,12 @@
                                     {% if user.is_authenticated  %}
                                 {% if  user.profile.evpay == "No" %}
                                 <a href="{% url 'pay_initiate' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
-                                {% elif user.profile.tet == "No" and user.profile.evcount < 3 %}
+                                {% elif user.profile.tet == "No"%}
                                 <a href="{% url 'tet' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Register</a>
                                 {% elif user.profile.tet == "Yes" %}
-                                <p style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:green" style="font-family:euro;font-size:16px;">Registered</p>
+                                <p style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:green" style="font-family:euro;font-size:16px;">Registerd</p>
                                 {% else%}
-                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:red;font-family:euro;font-size:16px;">Not Eligible</p>
+                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:red;font-family:euro;font-size:16px;">Not Eligile</p>
                                 {% endif %}
                                 {% else %}
                                     <a href="{% url 'log' %}"style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
@@ -914,7 +923,7 @@
                                 <div class='post-content'>
 
                                     <span class="sub-title" style="font-size: 24px; font-weight: 300 !important;font-family:gotham;font-size:16px">TRICKY CIRCUITS</span>
-                                    <p class='description description5' style="font-family:gotham;font-size:14px"><br>Register to win exciting prizes</p>
+                                    <p class='description description5' style="font-family:gotham;font-size:14px"><br>Register Now and Win exciting prizes</p>
                                 </div>
                             </div>
                             <div class="row no-gutters" style="padding:0px; margin:0px;">
@@ -922,12 +931,12 @@
                                     {% if user.is_authenticated  %}
                                 {% if  user.profile.evpay == "No" %}
                                 <a href="{% url 'pay_initiate' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
-                                {% elif user.profile.tc == "No" and user.profile.evcount < 3 %}
+                                {% elif user.profile.tc == "No" %}
                                 <a href="{% url 'tc' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Register</a>
                                 {% elif user.profile.tc == "Yes" %}
-                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"style="color:green;font-family:euro;font-size:16px;">Registered</p>
+                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"style="color:green;font-family:euro;font-size:16px;">Registerd</p>
                                 {% else %}
-                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"style="color:red;font-family:euro;font-size:16px;">Not Eligible</p>
+                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"style="color:red;font-family:euro;font-size:16px;">Not Eligile</p>
                                 {% endif %}
                                 {% else %}
                                     <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
@@ -948,7 +957,7 @@
                                 </div>
                                 <div class='post-content'>
                                     <span class="sub-title" style="font-size: 24px; font-weight: 300 !important;font-family:gotham;font-size:16px">DE-BUGGING</span>
-                                    <p class='description description6' style="font-family:gotham;font-size:14px"><br>Register to win exciting prizes</p>
+                                    <p class='description description6' style="font-family:gotham;font-size:14px"><br>Register Now and Win exciting prizes</p>
                                 </div>
                             </div>
                             <div class="row no-gutters" style="padding:0px; margin:0px;">
@@ -956,12 +965,12 @@
                                     {% if user.is_authenticated  %}
                                 {% if  user.profile.evpay == "No" %}
                                 <a href="{% url 'pay_initiate' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
-                                {% elif user.profile.deb == "No" and user.profile.evcount < 3 %}
+                                {% elif user.profile.deb == "No" %}
                                 <a href="{% url 'deb' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Register</a>
                                 {% elif user.profile.deb == "Yes" %}
-                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:green;font-family:euro;font-size:16px;">Registered</p>
+                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:green;font-family:euro;font-size:16px;">Registerd</p>
                                 {% else %}
-                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:red;font-family:euro;font-size:16px;">Not Eligible</p>
+                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:red;font-family:euro;font-size:16px;">Not Eligile</p>
                                 {% endif %}
                                 {% else %}
                                     <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"  style="font-family:euro;font-size:16px;">Pay Now</a>
@@ -981,7 +990,7 @@
                                 </div>
                                 <div class='post-content'>
                                     <span class="sub-title" style="font-size: 24px; font-weight: 300 !important;font-family:gotham;font-size:16px">Spin-A-Web</span>
-                                    <p class='description description7' style="font-family:gotham;font-size:14px"><br>Register to win exciting prizes</p>
+                                    <p class='description description7' style="font-family:gotham;font-size:14px"><br>Register Now and Win exciting prizes</p>
                                 </div>
                             </div>
                             <div class="row no-gutters" style="padding:0px; margin:0px;">
@@ -989,12 +998,12 @@
                                     {% if user.is_authenticated  %}
                                 {% if  user.profile.evpay == "No" %}
                                 <a href="{% url 'pay_initiate' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
-                                {% elif user.profile.saw == "No" and user.profile.evcount < 3 %}
+                                {% elif user.profile.saw == "No" %}
                                 <a href="{% url 'saw' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Register</a>
                                 {% elif user.profile.saw == "Yes" %}
-                                <p style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:green;font-family:euro;font-size:16px;">Registered</p>
+                                <p style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:green;font-family:euro;font-size:16px;">Registerd</p>
                                 {% else%}
-                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"style="color:red;font-family:euro;font-size:16px;">Not Eligible</p>
+                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"style="color:red;font-family:euro;font-size:16px;">Not Eligile</p>
                                 {% endif %}
                                 {% else %}
                                     <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
@@ -1014,7 +1023,7 @@
                                 </div>
                                 <div class='post-content'>
                                     <span class="sub-title" style="font-size: 24px; font-weight: 300 !important;font-family:gotham;font-size:16px">CODE GOLF</span>
-                                    <p class='description description8' style="font-family:gotham;font-size:14px"><br>Register to win exciting prizes</p>
+                                    <p class='description description8' style="font-family:gotham;font-size:14px"><br>Register Now and Win exciting prizes</p>
                                 </div>
                             </div>
                             <div class="row no-gutters" style="padding:0px; margin:0px;">
@@ -1022,12 +1031,12 @@
                                     {% if user.is_authenticated  %}
                                 {% if  user.profile.evpay == "No" %}
                                 <a href="{% url 'pay_initiate' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;" >Pay Now</a>
-                                {% elif user.profile.cg == "No" and user.profile.evcount < 3 %}
+                                {% elif user.profile.cg == "No" %}
                                 <a href="{% url 'cg' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"  style="font-family:euro;font-size:16px;">Register</a>
                                 {% elif user.profile.cg == "Yes" %}
-                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"  style="color:green;font-family:euro;font-size:16px;">Registered</p>
+                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"  style="color:green;font-family:euro;font-size:16px;">Registerd</p>
                                 {% else%}
-                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"  style="color:red;font-family:euro;font-size:16px;">Not Eligible</p>
+                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"  style="color:red;font-family:euro;font-size:16px;">Not Eligile</p>
                                 {% endif %}
                                 {% else %}
                                     <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"  style="font-family:euro;font-size:16px;">Pay Now</a>
@@ -1053,7 +1062,7 @@
                                 </div>
                                 <div class='post-content'>
                                     <span class="sub-title" style="font-size: 24px; font-weight: 300 !important;font-family:gotham;font-size:16px">IPL AUCTION</span>
-                                    <p class='description description9' style="font-family:gotham;font-size:14px"><br>Register to win exciting prizes</p>
+                                    <p class='description description9' style="font-family:gotham;font-size:14px"><br>Register Now and Win exciting prizes</p>
                                 </div>
                             </div>
                             <div class="row no-gutters" style="padding:0px; margin:0px;">
@@ -1061,12 +1070,12 @@
                                     {% if user.is_authenticated  %}
                                  {% if user.profile.ipl == "No" and user.profile.evcount >= 3 %}
                                 <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:red;font-family:euro;font-size:16px;">Not Eligible</p>
-                                {% elif  user.profile.evpay == "No" and user.profile.ipcount < 2 %}
+                                {% elif  user.profile.evpay == "No" and user.profile.ipcount < 50 %}
                                 <a href="{% url 'pay_initiate' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
-                                {% elif user.profile.ipl == "No" and user.profile.ipcount < 2 %}
+                                {% elif user.profile.ipl == "No" and user.profile.ipcount < 50%}
                                 <a href="{% url 'ipl' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Register</a>
                                 {% elif user.profile.ipl == "Yes" %}
-                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:green;font-family:euro;font-size:16px;">Registered</p>
+                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:green;font-family:euro;font-size:16px;">Registerd</p>
                                 {% else %}
                                 <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:red">Closed</p>
                                 {% endif %}
@@ -1090,7 +1099,7 @@
                                 </div>
                                 <div class='post-content'>
                                     <span class="sub-title" style="font-size: 24px; font-weight: 300 !important;font-family:gotham;font-size:16px">BGMI</span>
-                                    <p class='description description10' style="font-family:gotham;font-size:14px"><br>Register to win exciting prizes</p>
+                                    <p class='description description10' style="font-family:gotham;font-size:14px"><br>Register Now and Win exciting prizes</p>
                                 </div>
                             </div>
                             <div class="row no-gutters" style="padding:0px; margin:0px;">
@@ -1098,12 +1107,12 @@
                                     {% if user.is_authenticated  %}
                                 {% if  user.profile.evpay == "No" %}
                                 <a href="{% url 'pay_initiate' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
-                                {% elif user.profile.bgmi == "No" and user.profile.evcount < 3 %}
+                                {% elif user.profile.bgmi == "No" %}
                                 <a href="{% url 'bgmi' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Register</a>
                                 {% elif user.profile.bgmi == "Yes" %}
-                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:green;font-family:euro;font-size:16px;">Registered</p>
+                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:green;font-family:euro;font-size:16px;">Registerd</p>
                                 {% else%}
-                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:red;font-family:euro;font-size:16px;">Not Eligible</p>
+                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:red;font-family:euro;font-size:16px;">Not Eligile</p>
                                 {% endif %}
                                 {% else %}
                                     <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
@@ -1123,7 +1132,7 @@
                                 </div>
                                 <div class='post-content'>
                                     <span class="sub-title" style="font-size: 24px; font-weight: 300 !important;font-family:gotham;font-size:16px">SQUID GAME</span>
-                                    <p class='description description11' style="font-family:gotham;font-size:14px"><br>Register to win exciting prizes</p>
+                                    <p class='description description11' style="font-family:gotham;font-size:14px"><br>Register Now and Win exciting prizes</p>
                                 </div>
                             </div>
                             <div class="row no-gutters" style="padding:0px; margin:0px;">
@@ -1131,12 +1140,12 @@
                                     {% if user.is_authenticated  %}
                                 {% if  user.profile.evpay == "No" %}
                                 <a href="{% url 'pay_initiate' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
-                                {% elif user.profile.sg == "No" and user.profile.evcount < 3 %}
+                                {% elif user.profile.sg == "No" %}
                                 <a href="{% url 'sg' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Register</a>
                                 {% elif user.profile.sg == "Yes" %}
-                                <p style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:green;font-family:euro;font-size:16px;">Registered</p>
+                                <p style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:green;font-family:euro;font-size:16px;">Registerd</p>
                                 {% else%}
-                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:red;font-family:euro;font-size:16px;">Not Eligible</p>
+                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:red;font-family:euro;font-size:16px;">Not Eligile</p>
                                 {% endif %}
                                 {% else %}
                                     <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
@@ -1156,7 +1165,7 @@
                                 </div>
                                 <div class='post-content'>
                                     <span class="sub-title" style="font-size: 24px; font-weight: 300 !important;font-family:gotham;font-size:16px">LUDO</span>
-                                    <p class='description description12' style="font-family:gotham;font-size:14px"><br>Register to win exciting prizes</p>
+                                    <p class='description description12' style="font-family:gotham;font-size:14px"><br>Register Now and Win exciting prizes</p>
                                 </div>
                             </div>
                             <div class="row no-gutters" style="padding:0px; margin:0px;">
@@ -1164,12 +1173,12 @@
                                      {% if user.is_authenticated  %}
                                 {% if  user.profile.evpay == "No" %}
                                 <a href="{% url 'pay_initiate' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"  style="font-family:euro;font-size:16px;">Pay Now</a>
-                                {% elif user.profile.ld == "No" and user.profile.evcount < 3 %}
+                                {% elif user.profile.ld == "No" %}
                                 <a href="{% url 'ld' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"  style="font-family:euro;font-size:16px;">Register</a>
                                 {% elif user.profile.ld == "Yes" %}
-                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"  style="color:green;font-family:euro;font-size:16px;">Registered</p>
+                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"  style="color:green;font-family:euro;font-size:16px;">Registerd</p>
                                 {% else%}
-                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"  style="color:red;font-family:euro;font-size:16px;">Not Eligible</p>
+                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"  style="color:red;font-family:euro;font-size:16px;">Not Eligile</p>
                                 {% endif %}
                                 {% else %}
                                     <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"  style="font-family:euro;font-size:16px;">Pay Now</a>
@@ -1194,7 +1203,7 @@
                                 <div class='post-content'>
 
                                     <span class="sub-title" style="font-size: 24px; font-weight: 300 !important;font-family:gotham;font-size:16px">ROADIES</span>
-                                    <p class='description description13' style="font-family:gotham;font-size:14px"><br>Register to win exciting prizes</p>
+                                    <p class='description description13' style="font-family:gotham;font-size:14px"><br>Register Now and Win exciting prizes</p>
                                 </div>
                             </div>
                             <div class="row no-gutters" style="padding:0px; margin:0px;">
@@ -1202,12 +1211,12 @@
                                      {% if user.is_authenticated  %}
                                 {% if  user.profile.evpay == "No" %}
                                 <a href="{% url 'pay_initiate' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"  style="font-family:euro;font-size:16px;">Pay Now</a>
-                                {% elif user.profile.rd == "No" and user.profile.evcount < 3 %}
+                                {% elif user.profile.rd == "No" %}
                                 <a href="{% url 'rd' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"  style="font-family:euro;font-size:16px;">Register</a>
                                 {% elif user.profile.rd == "Yes" %}
-                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"  style="color:green;font-family:euro;font-size:16px;">Registered</p>
+                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"  style="color:green;font-family:euro;font-size:16px;">Registerd</p>
                                 {% else%}
-                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"  style="color:red;font-family:euro;font-size:16px;">Not Eligible</p>
+                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"  style="color:red;font-family:euro;font-size:16px;">Not Eligile</p>
                                 {% endif %}
                                 {% else %}
                                     <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;" >Pay Now</a>
@@ -1229,7 +1238,7 @@
                                 </div>
                                 <div class='post-content'>
                                     <span class="sub-title" style="font-size: 24px; font-weight: 300 !important;font-family:gotham;font-size:16px">MOCK PARLIAMENT</span>
-                                    <p class='description description14' style="font-family:gotham;font-size:14px"><br>Register to win exciting prizes</p>
+                                    <p class='description description14' style="font-family:gotham;font-size:14px"><br>Register Now and Win exciting prizes</p>
                                 </div>
                             </div>
                             <div class="row no-gutters" style="padding:0px; margin:0px;">
@@ -1237,12 +1246,12 @@
                                     {% if user.is_authenticated  %}
                                 {% if  user.profile.evpay == "No" %}
                                 <a href="{% url 'pay_initiate' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
-                                {% elif user.profile.mp == "No" and user.profile.evcount < 3 %}
+                                {% elif user.profile.mp == "No" %}
                                 <a href="{% url 'mp' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Register</a>
                                 {% elif user.profile.mp == "Yes" %}
-                                <p style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:green;font-family:euro;font-size:16px;">Registered</p>
+                                <p style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:green;font-family:euro;font-size:16px;">Registerd</p>
                                 {% else%}
-                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:red;font-family:euro;font-size:16px;">Not Eligible</p>
+                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:red;font-family:euro;font-size:16px;">Not Eligile</p>
                                 {% endif %}
                                 {% else %}
                                     <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
@@ -1262,7 +1271,7 @@
                                 </div>
                                 <div class='post-content'>
                                     <span class="sub-title" style="font-size: 24px; font-weight: 300 !important;font-family:gotham;font-size:16px">QUIZ COMBAT</span>
-                                    <p class='description description15' style="font-family:gotham;font-size:14px"><br>Register to win exciting prizes</p>
+                                    <p class='description description15' style="font-family:gotham;font-size:14px"><br>Register Now and Win exciting prizes</p>
                                 </div>
                             </div>
                             <div class="row no-gutters" style="padding:0px; margin:0px;">
@@ -1271,12 +1280,12 @@
                                 {% if  user.profile.evpay == "No" %}
                                 <a href="{% url 'pay_initiate' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"  style="font-family:euro;font-size:16px;">Pay Now</a>
 
-                                {% elif user.profile.quiz == "No" and user.profile.evcount < 3 %}
+                                {% elif user.profile.quiz == "No" %}
                                 <a href="{% url 'quiz' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"  style="font-family:euro;font-size:16px;">Register</a>
                                 {% elif user.profile.quiz == "Yes" %}
-                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"  style="color:green;font-family:euro;font-size:16px;">Registered</p>
+                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"  style="color:green;font-family:euro;font-size:16px;">Registerd</p>
                                 {% else%}
-                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"  style="color:red;font-family:euro;font-size:16px;">Not Eligible</p>
+                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"  style="color:red;font-family:euro;font-size:16px;">Not Eligile</p>
                                 {% endif %}
                                 {% else %}
                                     <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;" >Pay Now</a>
@@ -1296,7 +1305,7 @@
                                 </div>
                                 <div class='post-content'>
                                     <span class="sub-title" style="font-size: 24px; font-weight: 300 !important;font-family:gotham;font-size:16px">WIRE BUZZ</span>
-                                    <p class='description description16' style="font-family:gotham;font-size:14px"><br>Register to win exciting prizes</p>
+                                    <p class='description description16' style="font-family:gotham;font-size:14px"><br>Register Now and Win exciting prizes</p>
                                 </div>
                             </div>
                             <div class="row no-gutters" style="padding:0px; margin:0px;">
@@ -1304,12 +1313,12 @@
                                      {% if user.is_authenticated  %}
                                 {% if  user.profile.evpay == "No" %}
                                 <a href="{% url 'pay_initiate' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"  style="font-family:euro;font-size:16px;">Pay Now</a>
-                                {% elif user.profile.wb == "No" and user.profile.evcount < 3 %}
+                                {% elif user.profile.wb == "No" %}
                                 <a href="{% url 'wb' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"  style="font-family:euro;font-size:16px;">Register</a>
                                 {% elif user.profile.wb == "Yes" %}
-                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"  style="color:green;font-family:euro;font-size:16px;">Registered</p>
+                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"  style="color:green;font-family:euro;font-size:16px;">Registerd</p>
                                 {% else%}
-                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"  style="color:red;font-family:euro;font-size:16px;">Not Eligible</p>
+                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"  style="color:red;font-family:euro;font-size:16px;">Not Eligile</p>
                                 {% endif %}
                                 {% else %}
                                     <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"  style="font-family:euro;font-size:16px;">Pay Now</a>
@@ -1347,9 +1356,9 @@
                                 {% if  user.workshop.payment == "No" %}
                                 <a href="{% url 'iot' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
                                 {% elif user.workshop.tg == "iot" %}
-                                <p style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"style="color:green;font-family:euro;font-size:16px;">Registered</p>
+                                <p style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"style="color:green;font-family:euro;font-size:16px;">Registerd</p>
                                 {% else %}
-                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"style="color:red;font-family:euro;font-size:16px;">Not Eligible</p>
+                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"style="color:red;font-family:euro;font-size:16px;">Not Eligile</p>
                                 {% endif %}
                                 {% else %}
                                     <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
@@ -1381,9 +1390,9 @@
                                 {% if  user.workshop.payment == "No" %}
                                 <a href="{% url 'cws' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
                                 {% elif user.workshop.tg == "cs" %}
-                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"style="color:green;font-family:euro;font-size:16px;">Registered</p>
+                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"style="color:green;font-family:euro;font-size:16px;">Registerd</p>
                                 {% else %}
-                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:red;font-family:euro;font-size:16px;">Not Eligible</p>
+                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:red;font-family:euro;font-size:16px;">Not Eligile</p>
                                 {% endif %}
                                 {% else %}
                                     <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
@@ -1414,9 +1423,9 @@
                                 {% if  user.workshop.payment == "No" %}
                                 <a href="{% url 'afs' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
                                 {% elif user.workshop.tg == "afs" %}
-                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;color:green" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Registered</p>
+                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;color:green" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Registerd</p>
                                 {% else %}
-                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:red;font-family:euro;font-size:16px;">Not Eligible</p>
+                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:red;font-family:euro;font-size:16px;">Not Eligile</p>
                                 {% endif %}
                                 {% else %}
                                     <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
@@ -1447,9 +1456,9 @@
                                 {% if  user.workshop.payment == "No" %}
                                 <a href="{% url 'bcm' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
                                 {% elif user.workshop.tg == "bcm" %}
-                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:green;font-family:euro;font-size:16px;">Registered</p>
+                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:green;font-family:euro;font-size:16px;">Registerd</p>
                                 {% else %}
-                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:red;font-family:euro;font-size:16px;">Not Eligible</p>
+                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:red;font-family:euro;font-size:16px;">Not Eligile</p>
                                 {% endif %}
                                 {% else %}
                                     <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
@@ -1484,9 +1493,9 @@
                                 {% if  user.workshop.payment == "No" %}
                                 <a href="{% url 'prt' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay</a>
                                 {% elif user.workshop.tg == "prt" %}
-                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:green;font-family:euro;font-size:16px;">Registered</p>
+                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:green;font-family:euro;font-size:16px;">Registerd</p>
                                 {% else %}
-                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:red;font-family:euro;font-size:16px;">Not Eligible</p>
+                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="color:red;font-family:euro;font-size:16px;">Not Eligile</p>
                                 {% endif %}
                                 {% else %}
                                     <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
@@ -1518,9 +1527,9 @@
                                 {% if  user.workshop.payment == "No" %}
                                 <a href="{% url 'ai' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay</a>
                                 {% elif user.workshop.tg == "ai" %}
-                                <p style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"style="color:green;font-family:euro;font-size:16px;">Registered</p>
+                                <p style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"style="color:green;font-family:euro;font-size:16px;">Registerd</p>
                                 {% else %}
-                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"style="color:red;font-family:euro;font-size:16px;">Not Eligible</p>
+                                <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr"style="color:red;font-family:euro;font-size:16px;">Not Eligile</p>
                                 {% endif %}
                                 {% else %}
                                     <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
@@ -1546,7 +1555,7 @@
                     <div style="margin-left: 3vw;" class="mt-3 col-4">
                         <div class="row ">
                             <div class="col-4">
-                                <img style="width:80%;padding:0px" src="static/assets/images/Prize.png" alt="icon">
+                                <img style="width:80%;padding:0px" src="static/assets/images/prize.png" alt="icon">
                             </div>
                             <div style="margin-left: -7vw;" class="col-8"><br>
                                 <ul style="display: block !important;margin:0px" >
@@ -1563,7 +1572,7 @@
                     <div style="margin-left: 3vw;" class="mt-3 col-4">
                         <div class="row ">
                             <div class="col-4">
-                                <img style="width: 80%;margin-bottom: 50px;" src="static/assets/images/Competitions.png" alt="icon">
+                                <img style="width: 80%;margin-bottom: 50px;" src="static/assets/images/competitions.png" alt="icon">
                             </div>
                             <div style="margin-left: -7vw;" class="col-8"><br>
                                 <ul style="display: block !important;margin:0px">
@@ -2129,5 +2138,27 @@
   <script src="static/assets/embla/embla.min.js"></script>
 <script src="static/assets/embla/script.js"></script>
  <!-- Footer end -->
+<script type="text/javascript">
+function disableRightClick()
+{
+alert("Sorry, right click is not allowed !!");
+return false;
+}
+document.onkeydown = function(e) {
+        if (event.keyCode==123) {
+            return false;
+        }
+        if(e.ctrlKey && e.shiftKey && e.keyCode=='I'.charCodeAt(0)) {
+            return false;
+        }
+        if(e.ctrlKey && e.shiftKey && e.keyCode=='J'.charCodeAt(0)) {
+            return false;
+        }
+        if(e.ctrlKey && e.keyCode=='U'.charCodeAt(0)) {
+            return false;
+        }
+}
+
+</script>
 </body>
 </html>

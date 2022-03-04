@@ -50,3 +50,9 @@ class thrusangtank(models.Model):
     name=models.CharField(max_length=40)
     mobile=models.CharField(max_length=40)
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+
+class transactions(models.Model):
+    tans_id = models.CharField(max_length=100)
+    email = models.CharField(max_length=100)
+    trans_time = models.CharField(max_length=100)
+    reason = models.CharField(max_length=100)

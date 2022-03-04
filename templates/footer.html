@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" oncontextmenu=" return disableRightClick() ;">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="static/footer/footer1.css">
@@ -30,7 +30,7 @@
     <ul class="menu">
       <li class="menu__item"><a style="color:white;font-size:20px" class="menu__link" href="{% url 'index' %}" style="font-size:20px;font-family:nexa">Home</a></li>
       <li class="menu__item"><a style="color:white;font-size:20px" class="menu__link" href="{% url 'aboutus' %}" style="font-size:20px;font-family:nexa">About Us</a></li>
-      <li class="menu__item"><a style="color:white;font-size:20px" class="menu__link" href="{% url 'team' %}" style="font-size:20px;font-family:nexa">Team</a></li>
+{#      <li class="menu__item"><a style="color:white;font-size:20px" class="menu__link" href="{% url 'team' %}" style="font-size:20px;font-family:nexa">Team</a></li>#}
         <li class="menu__item"><a style="color:white;font-size:20px"  class="menu__link" href="{% url 'events' %}" style="font-size:20px;font-family:nexa">Events</a></li>
       <li class="menu__item"><a style="color:white;font-size:20px" class="menu__link" href="{% url 'gallery' %}" style="font-size:20px;font-family:nexa">Gallery</a></li>
       <li class="menu__item"><a style="color:white;font-size:20px" class="menu__link" href="{% url 'contact' %}" style="font-size:20px;font-family:nexa">Contact Us</a></li>
@@ -40,5 +40,27 @@
   </footer>
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<script type="text/javascript">
+function disableRightClick()
+{
+alert("Sorry, right click is not allowed !!");
+return false;
+}
+document.onkeydown = function(e) {
+        if (event.keyCode==123) {
+            return false;
+        }
+        if(e.ctrlKey && e.shiftKey && e.keyCode=='I'.charCodeAt(0)) {
+            return false;
+        }
+        if(e.ctrlKey && e.shiftKey && e.keyCode=='J'.charCodeAt(0)) {
+            return false;
+        }
+        if(e.ctrlKey && e.keyCode=='U'.charCodeAt(0)) {
+            return false;
+        }
+}
+
+</script>
 </body>
 </html>

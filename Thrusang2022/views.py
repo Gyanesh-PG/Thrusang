@@ -1,14 +1,15 @@
 from django.shortcuts import render, redirect
-from .models import profile, workshop,iplcount,thrusangtank
+from django.views.decorators.csrf import csrf_exempt
+
+from .models import profile, workshop,iplcount,thrusangtank,transactions
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from instamojo_wrapper import Instamojo
+from django.conf import settings
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseBadRequest
 import datetime
-# api = Instamojo(api_key='test_a0ea97bffacc77a18394a713038',auth_token='test_57850829a42be8360521ac63509',endpoint='https://test.instamojo.com/api/1.1/')
-api = Instamojo(api_key='4ce90ef17e4717a3decb1bf06e15356e', auth_token='b3fb44e10ea7ecd64ab60d92c09bc779')
 def index(request):
     return render(request, 'index.html')
 
@@ -114,54 +115,50 @@ def login_user(request):
 
 def pay_initiate(request):
     if request.user.is_authenticated :
-
-        response = api.payment_request_create(buyer_name=request.user.first_name, email=request.user.email,
-                                              phone=request.user.profile.mobile, amount='300', purpose='Thrusang-(do not refresh or go back!)',
-                                              send_email=False, redirect_url="https://klthrusang.herokuapp.com/success")
-        pro = profile.objects.get(id_no=request.user.profile.id_no)
-        pro.pay_id = response['payment_request']['id']
-        pro.evpay_id = response['payment_request']['id']
-        pro.save()
-        return redirect(response['payment_request']['longurl'])
+        return render(request,'payment300.html')
     else:
-        return render(request, 'index.html')
+        return render(request, 'login.html')
 
-
+@csrf_exempt
 def success(request):
-    try:
-        pay_id = request.GET.get('payment_request_id')
-        response = api.payment_request_status(pay_id)
-        if response['payment_request']['status'] == "Completed":
-            pro = profile.objects.get(pay_id=pay_id)
-            pro.evpay = "Yes"
-            pro.payment = "Yes"
-            if request.user.profile.th_id == "0":
-                c = 0
-                s = "TRG-WEB-0000"
-                pr = profile.objects.all();
-                for k in pr:
-                    if k.th_id != "0":
-                        c += 1
-                if c < 9:
-                    ss=s[0:11]+str(c+1)
-                    pro.th_id=ss
-                elif c>=10 and c<=98:
-                    ss = s[0:10] + str(c+1)
-                    pro.th_id = ss
-                elif c>=1000 and c<=998:
-                    ss = s[0:9] + str(c)
-                    pro.th_id = ss
-                else:
-                    ss = s[0:8] + str(c+1)
-                    pro.th_id = ss
-            pro.save()
-            messages.error(request, 'Payment Successfully Completed.Now you can register to the events.', extra_tags='paid')
-            return render(request, 'thankyou.html')
-        messages.error(request, 'Payment Failed.', extra_tags='fail')
-        return render(request, 'index.html')
-    except:
-        return render(request, 'index.html')
-
+    # only accept POST request.
+    if request.method == "POST":
+        trans_id=request.POST.get('trans')
+        if transactions.objects.filter(tans_id=trans_id).exists():
+            messages.error(request, "The transaction ID you have enetered is already used.", extra_tags='trans')
+            return render(request,'payment300.html')
+        dat = str(datetime.datetime.now())
+        tra=transactions(tans_id=trans_id,email=request.user.username,trans_time=dat,reason="Events")
+        tra.save()
+        pro=profile.objects.get(id_no=request.user.profile.id_no)
+        pro.pay_id = trans_id
+        pro.evpay_id = trans_id
+        pro.evpay = "Yes"
+        pro.payment = "Yes"
+        if request.user.profile.th_id == "0":
+            c = 0
+            s = "TRG-WEB-0000"
+            pr = profile.objects.all();
+            for k in pr:
+                if k.th_id != "0":
+                    c += 1
+            if c < 9:
+                ss=s[0:11]+str(c+1)
+                pro.th_id=ss
+            elif c>=9 and c<=98:
+                ss = s[0:10] + str(c+1)
+                pro.th_id = ss
+            elif c>=99 and c<=999:
+                ss = s[0:9] + str(c+1)
+                pro.th_id = ss
+            else:
+                ss = s[0:8] + str(c+1)
+                pro.th_id = ss
+        pro.save()
+        messages.error(request, 'Payment Successfully Completed.Now you can register to the events.', extra_tags='paid')
+        return render(request, 'thankyou.html')
+    else:
+        return render(request, 'login.html')
 
 def logout_user(request):
     logout(request)
@@ -171,363 +168,304 @@ def logout_user(request):
 def cws(request):
     if request.user.is_authenticated:
 
-        response = api.payment_request_create(buyer_name=request.user.first_name, email=request.user.email,
-                                              phone=request.user.profile.mobile, amount='600', purpose='Thrusang-(do not refresh or go back!)',
-                                              send_email=False, redirect_url="https://klthrusang.herokuapp.com/cwssuccess")
-        ws = workshop.objects.get(user=request.user)
-        ws.pay_id = response['payment_request']['id']
-        ws.save()
-        pro = profile.objects.get(id_no=request.user.profile.id_no)
-        pro.pay_id = response['payment_request']['id']
-        pro.evpay_id = response['payment_request']['id']
-        pro.save()
-        return redirect(response['payment_request']['longurl'])
+        return render(request, 'cyberpay.html')
     else:
-        return render(request, 'index.html')
+        return render(request, 'login.html')
 
-
+@csrf_exempt
 def cwssuccess(request):
-    try:
-        pay_id = request.GET.get('payment_request_id')
-        response = api.payment_request_status(pay_id)
-        if response['payment_request']['status'] == "Completed":
-            ws = workshop.objects.get(pay_id=pay_id)
-            pro = profile.objects.get(pay_id=pay_id)
-            pro.payment = "Yes"
-            pro.evpay = "Yes"
-            pro.evcount += 1
-            ws.payment = "Yes"
-            ws.tg = "cs"
-            if request.user.profile.th_id == "0":
-                c = 0
-                s = "TRG-WEB-0000"
-                pr = profile.objects.all();
-                for k in pr:
-                    if k.th_id != "0":
-                        c += 1
-                if c < 9:
-                    ss = s[0:11] + str(c + 1)
-                    pro.th_id = ss
-                elif c >= 10 and c <= 98:
-                    ss = s[0:10] + str(c + 1)
-                    pro.th_id = ss
-                elif c >= 1000 and c <= 998:
-                    ss = s[0:9] + str(c)
-                    pro.th_id = ss
-                else:
-                    ss = s[0:8] + str(c + 1)
-                    pro.th_id = ss
-            ws.save()
-            pro.save()
-            messages.error(request, 'Payment Successfully Completed.Yor have registered for Cyber Security Workshop', extra_tags='paid')
-            return render(request, 'thankyou.html')
-        messages.error(request, 'Payment Failed.', extra_tags='fail')
-        return render(request, 'index.html')
-    except:
-        return render(request, 'index.html')
+    if request.method == "POST":
+        trans_id=request.POST.get('trans')
+        if transactions.objects.filter(tans_id=trans_id).exists():
+            messages.error(request, "The transaction ID you have enetered is already used.", extra_tags='trans')
+            return render(request,'cyberpay.html')
+        dat = str(datetime.datetime.now())
+        tra=transactions(tans_id=trans_id,email=request.user.username,trans_time=dat,reason="Cyber")
+        tra.save()
+        pro=profile.objects.get(id_no=request.user.profile.id_no)
+        ws = workshop.objects.get(user=request.user)
+        pro.payment = "Yes"
+        pro.evpay = "Yes"
+        pro.evcount += 1
+        ws.payment = "Yes"
+        ws.tg = "cs"
+        if request.user.profile.th_id == "0":
+            c = 0
+            s = "TRG-WEB-0000"
+            pr = profile.objects.all();
+            for k in pr:
+                if k.th_id != "0":
+                    c += 1
+            if c < 9:
+                ss = s[0:11] + str(c + 1)
+                pro.th_id = ss
+            elif c >= 9 and c <= 98:
+                ss = s[0:10] + str(c + 1)
+                pro.th_id = ss
+            elif c >= 99 and c <= 999:
+                ss = s[0:9] + str(c + 1)
+                pro.th_id = ss
+            else:
+                ss = s[0:8] + str(c + 1)
+                pro.th_id = ss
+        ws.save()
+        pro.save()
+        messages.error(request, 'Payment Successfully Completed.Yor have registered for Cyber Security Workshop', extra_tags='paid')
+        return render(request, 'thankyou.html')
+    else:
+        return render(request, 'login.html')
 
 
 def iot(request):
     if request.user.is_authenticated:
-
-        response = api.payment_request_create(buyer_name=request.user.first_name, email=request.user.email,
-                                              phone=request.user.profile.mobile, amount='400', purpose='Thrusang-(do not refresh or go back!)',
-                                              send_email=False, redirect_url="https://klthrusang.herokuapp.com/iotsuccess")
-        ws = workshop.objects.get(user=request.user)
-        ws.pay_id = response['payment_request']['id']
-        ws.save()
-        pro = profile.objects.get(id_no=request.user.profile.id_no)
-        pro.pay_id = response['payment_request']['id']
-        pro.evpay_id = response['payment_request']['id']
-        pro.save()
-        return redirect(response['payment_request']['longurl'])
+        return render(request, 'iotpay.html')
     else:
-        return render(request, 'index.html')
+        return render(request, 'login.html')
 
-
+@csrf_exempt
 def iotsuccess(request):
-    try:
-        pay_id = request.GET.get('payment_request_id')
-        response = api.payment_request_status(pay_id)
-        if response['payment_request']['status'] == "Completed":
-            ws = workshop.objects.get(pay_id=pay_id)
-            pro = profile.objects.get(pay_id=pay_id)
-            pro.payment = "Yes"
-            pro.evpay = "Yes"
-            pro.evcount += 1
-            ws.payment = "Yes"
-            ws.tg = "iot"
-            if request.user.profile.th_id == "0":
-                c = 0
-                s = "TRG-WEB-0000"
-                pr = profile.objects.all();
-                for k in pr:
-                    if k.th_id != "0":
-                        c += 1
-                if c < 9:
-                    ss = s[0:11] + str(c + 1)
-                    pro.th_id = ss
-                elif c >= 10 and c <= 98:
-                    ss = s[0:10] + str(c + 1)
-                    pro.th_id = ss
-                elif c >= 1000 and c <= 998:
-                    ss = s[0:9] + str(c)
-                    pro.th_id = ss
-                else:
-                    ss = s[0:8] + str(c + 1)
-                    pro.th_id = ss
-
-            ws.save()
-            pro.save()
-            messages.error(request, 'Payment Successfully Completed.Yor have registered for IOT Workshop', extra_tags='paid')
-            return render(request, 'thankyou.html')
-        messages.error(request, 'Payment Failed.', extra_tags='fail')
-
-        return render(request, 'index.html')
-    except:
-        return render(request, 'index.html')
+    if request.method == "POST":
+        trans_id=request.POST.get('trans')
+        if transactions.objects.filter(tans_id=trans_id).exists():
+            messages.error(request, "The transaction ID you have enetered is already used.", extra_tags='trans')
+            return render(request,'iotpay.html')
+        dat = str(datetime.datetime.now())
+        tra=transactions(tans_id=trans_id,email=request.user.username,trans_time=dat,reason="IOT")
+        tra.save()
+        pro=profile.objects.get(id_no=request.user.profile.id_no)
+        ws = workshop.objects.get(user=request.user)
+        pro.payment = "Yes"
+        pro.evpay = "Yes"
+        pro.evcount += 1
+        ws.payment = "Yes"
+        ws.tg = "iot"
+        if request.user.profile.th_id == "0":
+            c = 0
+            s = "TRG-WEB-0000"
+            pr = profile.objects.all();
+            for k in pr:
+                if k.th_id != "0":
+                    c += 1
+            if c < 9:
+                ss = s[0:11] + str(c + 1)
+                pro.th_id = ss
+            elif c >= 9 and c <= 98:
+                ss = s[0:10] + str(c + 1)
+                pro.th_id = ss
+            elif c >= 99 and c <= 999:
+                ss = s[0:9] + str(c + 1)
+                pro.th_id = ss
+            else:
+                ss = s[0:8] + str(c + 1)
+                pro.th_id = ss
+        ws.save()
+        pro.save()
+        messages.error(request, 'Payment Successfully Completed.Yor have registered for IOT Workshop', extra_tags='paid')
+        return render(request, 'thankyou.html')
+    else:
+        return render(request, 'login.html')
 
 
 def afs(request):
     if request.user.is_authenticated:
-
-        response = api.payment_request_create(buyer_name=request.user.first_name, email=request.user.email,
-                                              phone=request.user.profile.mobile, amount='300', purpose='Thrusang-(do not refresh or go back!)',
-                                              send_email=False, redirect_url="https://klthrusang.herokuapp.com/afssuccess")
-        ws = workshop.objects.get(user=request.user)
-        ws.pay_id = response['payment_request']['id']
-        ws.save()
-        pro = profile.objects.get(id_no=request.user.profile.id_no)
-        pro.pay_id = response['payment_request']['id']
-        pro.evpay_id = response['payment_request']['id']
-        pro.save()
-        return redirect(response['payment_request']['longurl'])
+        return render(request, 'afspay.html')
     else:
-        return render(request, 'index.html')
+        return render(request, 'login.html')
 
-
+@csrf_exempt
 def afssuccess(request):
-    try:
-        pay_id = request.GET.get('payment_request_id')
-        response = api.payment_request_status(pay_id)
-        if response['payment_request']['status'] == "Completed":
-            ws = workshop.objects.get(pay_id=pay_id)
-            pro = profile.objects.get(pay_id=pay_id)
-            pro.payment = "Yes"
-            pro.evpay = "Yes"
-            pro.evcount += 1
-            ws.payment = "Yes"
-            ws.tg = "afs"
-            if request.user.profile.th_id == "0":
-                c = 0
-                s = "TRG-WEB-0000"
-                pr = profile.objects.all();
-                for k in pr:
-                    if k.th_id != "0":
-                        c += 1
-                if c < 9:
-                    ss = s[0:11] + str(c + 1)
-                    pro.th_id = ss
-                elif c >= 10 and c <= 98:
-                    ss = s[0:10] + str(c + 1)
-                    pro.th_id = ss
-                elif c >= 1000 and c <= 998:
-                    ss = s[0:9] + str(c)
-                    pro.th_id = ss
-                else:
-                    ss = s[0:8] + str(c + 1)
-                    pro.th_id = ss
-            ws.save()
-            pro.save()
-            messages.error(request, 'Payment Successfully Completed. Yor have registered for Aurdino Workshop', extra_tags='paid')
-            return render(request, 'thankyou.html')
-        messages.error(request, 'Payment Failed.', extra_tags='fail')
-
-        return render(request, 'index.html')
-    except:
-        return render(request, 'index.html')
+    if request.method == "POST":
+        trans_id=request.POST.get('trans')
+        if transactions.objects.filter(tans_id=trans_id).exists():
+            messages.error(request, "The transaction ID you have enetered is already used.", extra_tags='trans')
+            return render(request,'afspay.html')
+        dat = str(datetime.datetime.now())
+        tra=transactions(tans_id=trans_id,email=request.user.username,trans_time=dat,reason="AFS")
+        tra.save()
+        pro=profile.objects.get(id_no=request.user.profile.id_no)
+        ws = workshop.objects.get(user=request.user)
+        pro.payment = "Yes"
+        pro.evpay = "Yes"
+        pro.evcount += 1
+        ws.payment = "Yes"
+        ws.tg = "afs"
+        if request.user.profile.th_id == "0":
+            c = 0
+            s = "TRG-WEB-0000"
+            pr = profile.objects.all();
+            for k in pr:
+                if k.th_id != "0":
+                    c += 1
+            if c < 9:
+                ss = s[0:11] + str(c + 1)
+                pro.th_id = ss
+            elif c >= 9 and c <= 98:
+                ss = s[0:10] + str(c + 1)
+                pro.th_id = ss
+            elif c >= 99 and c <= 999:
+                ss = s[0:9] + str(c + 1)
+                pro.th_id = ss
+            else:
+                ss = s[0:8] + str(c + 1)
+                pro.th_id = ss
+        ws.save()
+        pro.save()
+        messages.error(request, 'Payment Successfully Completed.Yor have registered for Arduino For Schools Workshop', extra_tags='paid')
+        return render(request, 'thankyou.html')
+    else:
+        return render(request, 'login.html')
 
 
 def bcm(request):
     if request.user.is_authenticated:
-
-        response = api.payment_request_create(buyer_name=request.user.first_name, email=request.user.email,
-                                              phone=request.user.profile.mobile, amount='600', purpose='Thrusang-(do not refresh or go back!)',
-                                              send_email=False, redirect_url="https://klthrusang.herokuapp.com/bcmsuccess")
-        ws = workshop.objects.get(user=request.user)
-        ws.pay_id = response['payment_request']['id']
-        ws.save()
-        pro = profile.objects.get(id_no=request.user.profile.id_no)
-        pro.pay_id = response['payment_request']['id']
-        pro.evpay_id = response['payment_request']['id']
-        pro.save()
-        return redirect(response['payment_request']['longurl'])
+        return render(request, 'bcmpay.html')
     else:
-        return render(request, 'index.html')
+        return render(request, 'login.html')
 
-
+@csrf_exempt
 def bcmsuccess(request):
-    try:
-        pay_id = request.GET.get('payment_request_id')
-        response = api.payment_request_status(pay_id)
-        if response['payment_request']['status'] == "Completed":
-            ws = workshop.objects.get(pay_id=pay_id)
-            pro = profile.objects.get(pay_id=pay_id)
-            pro.payment = "Yes"
-            pro.evpay = "Yes"
-            pro.evcount += 1
-            ws.payment = "Yes"
-            ws.tg = "bcm"
-            if request.user.profile.th_id == "0":
-                c = 0
-                s = "TRG-WEB-0000"
-                pr = profile.objects.all();
-                for k in pr:
-                    if k.th_id != "0":
-                        c += 1
-                if c < 9:
-                    ss = s[0:11] + str(c + 1)
-                    pro.th_id = ss
-                elif c >= 10 and c <= 98:
-                    ss = s[0:10] + str(c + 1)
-                    pro.th_id = ss
-                elif c >= 1000 and c <= 998:
-                    ss = s[0:9] + str(c)
-                    pro.th_id = ss
-                else:
-                    ss = s[0:8] + str(c + 1)
-                    pro.th_id = ss
-            ws.save()
-            pro.save()
-            messages.error(request, 'Payment Successfully Completed.Yor have registered for Block Chain Workshop', extra_tags='paid')
-            return render(request, 'thankyou.html')
-        messages.error(request, 'Payment Failed.', extra_tags='fail')
-
-        return render(request, 'index.html')
-    except:
-        return render(request, 'index.html')
+    if request.method == "POST":
+        trans_id=request.POST.get('trans')
+        if transactions.objects.filter(tans_id=trans_id).exists():
+            messages.error(request, "The transaction ID you have enetered is already used.", extra_tags='trans')
+            return render(request,'bcmpay.html')
+        dat = str(datetime.datetime.now())
+        tra=transactions(tans_id=trans_id,email=request.user.username,trans_time=dat,reason="BCM")
+        tra.save()
+        pro=profile.objects.get(id_no=request.user.profile.id_no)
+        ws = workshop.objects.get(user=request.user)
+        pro.payment = "Yes"
+        pro.evpay = "Yes"
+        pro.evcount += 1
+        ws.payment = "Yes"
+        ws.tg = "bcm"
+        if request.user.profile.th_id == "0":
+            c = 0
+            s = "TRG-WEB-0000"
+            pr = profile.objects.all();
+            for k in pr:
+                if k.th_id != "0":
+                    c += 1
+            if c < 9:
+                ss = s[0:11] + str(c + 1)
+                pro.th_id = ss
+            elif c >= 9 and c <= 98:
+                ss = s[0:10] + str(c + 1)
+                pro.th_id = ss
+            elif c >= 99 and c <= 999:
+                ss = s[0:9] + str(c + 1)
+                pro.th_id = ss
+            else:
+                ss = s[0:8] + str(c + 1)
+                pro.th_id = ss
+        ws.save()
+        pro.save()
+        messages.error(request, 'Payment Successfully Completed.Yor have registered for BlockChain  Workshop', extra_tags='paid')
+        return render(request, 'thankyou.html')
+    else:
+        return render(request, 'login.html')
 
 
 def prt(request):
     if request.user.is_authenticated:
-
-        response = api.payment_request_create(buyer_name=request.user.first_name, email=request.user.email,
-                                              phone=request.user.profile.mobile, amount='300', purpose='Thrusang-(do not refresh or go back!)',
-                                              send_email=False, redirect_url="https://klthrusang.herokuapp.com/prtsuccess")
-        ws = workshop.objects.get(user=request.user)
-        ws.pay_id = response['payment_request']['id']
-        ws.save()
-        pro = profile.objects.get(id_no=request.user.profile.id_no)
-        pro.pay_id = response['payment_request']['id']
-        pro.evpay_id = response['payment_request']['id']
-        pro.save()
-        return redirect(response['payment_request']['longurl'])
+        return render(request, 'prtpay.html')
     else:
-        return render(request, 'index.html')
+        return render(request, 'login.html')
 
-
+@csrf_exempt
 def prtsuccess(request):
-    try:
-        pay_id = request.GET.get('payment_request_id')
-        response = api.payment_request_status(pay_id)
-        if response['payment_request']['status'] == "Completed":
-            ws = workshop.objects.get(pay_id=pay_id)
-            pro = profile.objects.get(pay_id=pay_id)
-            pro.payment = "Yes"
-            pro.evpay = "Yes"
-            pro.evcount += 1
-            ws.payment = "Yes"
-            ws.tg = "prt"
-            if request.user.profile.th_id == "0":
-                c = 0
-                s = "TRG-WEB-0000"
-                pr = profile.objects.all();
-                for k in pr:
-                    if k.th_id != "0":
-                        c += 1
-                if c < 9:
-                    ss = s[0:11] + str(c + 1)
-                    pro.th_id = ss
-                elif c >= 10 and c <= 98:
-                    ss = s[0:10] + str(c + 1)
-                    pro.th_id = ss
-                elif c >= 1000 and c <= 998:
-                    ss = s[0:9] + str(c)
-                    pro.th_id = ss
-                else:
-                    ss = s[0:8] + str(c + 1)
-                    pro.th_id = ss
-            ws.save()
-            pro.save()
-            messages.error(request, 'Payment Successfully Completed.Yor have registered for 3D Printing Workshop', extra_tags='paid')
-            return render(request, 'thankyou.html')
-        messages.error(request, 'Payment Failed.', extra_tags='fail')
-
-        return render(request, 'index.html')
-    except:
-        return render(request, 'index.html')
+    if request.method == "POST":
+        trans_id=request.POST.get('trans')
+        if transactions.objects.filter(tans_id=trans_id).exists():
+            messages.error(request, "The transaction ID you have enetered is already used.", extra_tags='trans')
+            return render(request,'prtpay.html')
+        dat = str(datetime.datetime.now())
+        tra=transactions(tans_id=trans_id,email=request.user.username,trans_time=dat,reason="3Dprt")
+        tra.save()
+        pro=profile.objects.get(id_no=request.user.profile.id_no)
+        ws = workshop.objects.get(user=request.user)
+        pro.payment = "Yes"
+        pro.evpay = "Yes"
+        pro.evcount += 1
+        ws.payment = "Yes"
+        ws.tg = "prt"
+        if request.user.profile.th_id == "0":
+            c = 0
+            s = "TRG-WEB-0000"
+            pr = profile.objects.all();
+            for k in pr:
+                if k.th_id != "0":
+                    c += 1
+            if c < 9:
+                ss = s[0:11] + str(c + 1)
+                pro.th_id = ss
+            elif c >= 9 and c <= 98:
+                ss = s[0:10] + str(c + 1)
+                pro.th_id = ss
+            elif c >= 99 and c <= 999:
+                ss = s[0:9] + str(c + 1)
+                pro.th_id = ss
+            else:
+                ss = s[0:8] + str(c + 1)
+                pro.th_id = ss
+        ws.save()
+        pro.save()
+        messages.error(request, 'Payment Successfully Completed.Yor have registered for 3D Printing Workshop', extra_tags='paid')
+        return render(request, 'thankyou.html')
+    else:
+        return render(request, 'login.html')
 
 def ai(request):
     if request.user.is_authenticated:
-
-        response = api.payment_request_create(buyer_name=request.user.first_name, email=request.user.email,
-                                              phone=request.user.profile.mobile, amount='500', purpose='Thrusang-(do not refresh or go back!)',
-                                              send_email=False, redirect_url="https://klthrusang.herokuapp.com/aisuccess")
-        ws = workshop.objects.get(user=request.user)
-        ws.pay_id = response['payment_request']['id']
-        ws.save()
-        pro = profile.objects.get(id_no=request.user.profile.id_no)
-        pro.pay_id = response['payment_request']['id']
-        pro.evpay_id = response['payment_request']['id']
-        pro.save()
-        return redirect(response['payment_request']['longurl'])
+        return render(request, 'aipay.html')
     else:
         return render(request, 'index.html')
 
-
+@csrf_exempt
 def aisuccess(request):
-    try:
-        pay_id = request.GET.get('payment_request_id')
-        response = api.payment_request_status(pay_id)
-        if response['payment_request']['status'] == "Completed":
-            ws = workshop.objects.get(pay_id=pay_id)
-            pro = profile.objects.get(pay_id=pay_id)
-            pro.payment = "Yes"
-            pro.evpay = "Yes"
-            pro.evcount += 1
-            ws.payment = "Yes"
-            ws.tg = "ai"
-            if request.user.profile.th_id == "0":
-                c = 0
-                s = "TRG-WEB-0000"
-                pr = profile.objects.all();
-                for k in pr:
-                    if k.th_id != "0":
-                        c += 1
-                if c < 9:
-                    ss = s[0:11] + str(c + 1)
-                    pro.th_id = ss
-                elif c >= 10 and c <= 98:
-                    ss = s[0:10] + str(c + 1)
-                    pro.th_id = ss
-                elif c >= 1000 and c <= 998:
-                    ss = s[0:9] + str(c)
-                    pro.th_id = ss
-                else:
-                    ss = s[0:8] + str(c + 1)
-                    pro.th_id = ss
-            ws.save()
-            pro.save()
-            messages.error(request, 'Payment Successfully Completed.Yor have registered for AI & ML Workshop', extra_tags='paid')
-            return render(request, 'thankyou.html')
-        messages.error(request, 'Payment Failed.', extra_tags='fail')
-
-        return render(request, 'index.html')
-    except:
-        return render(request, 'index.html')
+    if request.method == "POST":
+        trans_id=request.POST.get('trans')
+        if transactions.objects.filter(tans_id=trans_id).exists():
+            messages.error(request, "The transaction ID you have enetered is already used.", extra_tags='trans')
+            return render(request,'aipay.html')
+        dat = str(datetime.datetime.now())
+        tra=transactions(tans_id=trans_id,email=request.user.username,trans_time=dat,reason="AI & ML")
+        tra.save()
+        pro=profile.objects.get(id_no=request.user.profile.id_no)
+        ws = workshop.objects.get(user=request.user)
+        pro.payment = "Yes"
+        pro.evpay = "Yes"
+        pro.evcount += 1
+        ws.payment = "Yes"
+        ws.tg = "ai"
+        if request.user.profile.th_id == "0":
+            c = 0
+            s = "TRG-WEB-0000"
+            pr = profile.objects.all();
+            for k in pr:
+                if k.th_id != "0":
+                    c += 1
+            if c < 9:
+                ss = s[0:11] + str(c + 1)
+                pro.th_id = ss
+            elif c >= 9 and c <= 98:
+                ss = s[0:10] + str(c + 1)
+                pro.th_id = ss
+            elif c >= 99 and c <= 999:
+                ss = s[0:9] + str(c + 1)
+                pro.th_id = ss
+            else:
+                ss = s[0:8] + str(c + 1)
+                pro.th_id = ss
+        ws.save()
+        pro.save()
+        messages.error(request, 'Payment Successfully Completed.Yor have registered for AI & ML Workshop', extra_tags='paid')
+        return render(request, 'thankyou.html')
+    else:
+        return render(request, 'login.html')
 
 def tt(request):
-    if request.user.is_authenticated and request.user.profile.payment=="Yes" and request.user.profile.evcount < 3:
+    if request.user.is_authenticated and request.user.profile.payment=="Yes" :
         pro=profile.objects.get(user=request.user)
         pro.tt="Yes"
         pro.evcount += 1
@@ -536,7 +474,7 @@ def tt(request):
     else:
         return render(request, 'login.html')
 def sl(request):
-    if request.user.is_authenticated and request.user.profile.payment=="Yes" and request.user.profile.evcount < 3:
+    if request.user.is_authenticated and request.user.profile.payment=="Yes":
         pro=profile.objects.get(user=request.user)
         pro.sl="Yes"
         pro.evcount += 1
@@ -545,7 +483,7 @@ def sl(request):
     else:
         return render(request, 'login.html')
 def sb(request):
-    if request.user.is_authenticated  and request.user.profile.payment=="Yes" and request.user.profile.evcount < 3 :
+    if request.user.is_authenticated  and request.user.profile.payment=="Yes" :
         pro=profile.objects.get(user=request.user)
         pro.sb="Yes"
         pro.evcount += 1
@@ -555,7 +493,7 @@ def sb(request):
         return render(request, 'login.html')
 
 def tet(request):
-    if request.user.is_authenticated and request.user.profile.payment=="Yes" and request.user.profile.evcount < 3:
+    if request.user.is_authenticated and request.user.profile.payment=="Yes":
         pro=profile.objects.get(user=request.user)
         pro.tet="Yes"
         pro.evcount += 1
@@ -565,7 +503,7 @@ def tet(request):
         return render(request, 'login.html')
 
 def tc(request):
-    if request.user.is_authenticated and request.user.profile.payment=="Yes" and request.user.profile.evcount < 3:
+    if request.user.is_authenticated and request.user.profile.payment=="Yes":
         pro=profile.objects.get(user=request.user)
         pro.tc="Yes"
         pro.evcount += 1
@@ -575,7 +513,7 @@ def tc(request):
         return render(request, 'login.html')
 
 def deb(request):
-    if request.user.is_authenticated and request.user.profile.payment=="Yes" and request.user.profile.evcount < 3:
+    if request.user.is_authenticated and request.user.profile.payment=="Yes":
         pro=profile.objects.get(user=request.user)
         pro.deb="Yes"
         pro.evcount += 1
@@ -585,7 +523,7 @@ def deb(request):
         return render(request, 'login.html')
 
 def saw(request):
-    if request.user.is_authenticated and request.user.profile.payment=="Yes" and request.user.profile.evcount < 3:
+    if request.user.is_authenticated and request.user.profile.payment=="Yes":
         pro=profile.objects.get(user=request.user)
         pro.saw="Yes"
         pro.evcount += 1
@@ -595,7 +533,7 @@ def saw(request):
         return render(request, 'login.html')
 
 def cg(request):
-    if request.user.is_authenticated and request.user.profile.payment=="Yes" and request.user.profile.evcount < 3:
+    if request.user.is_authenticated and request.user.profile.payment=="Yes":
         pro=profile.objects.get(user=request.user)
         pro.cg="Yes"
         pro.evcount += 1
@@ -605,7 +543,7 @@ def cg(request):
         return render(request, 'login.html')
 
 def ipl(request):
-    if request.user.is_authenticated and request.user.profile.payment=="Yes" and request.user.profile.evcount < 3:
+    if request.user.is_authenticated and request.user.profile.payment=="Yes":
         pro=profile.objects.get(user=request.user)
         pro.ipl="Yes"
         pro.evcount += 1
@@ -623,7 +561,7 @@ def ipl(request):
         return render(request, 'login.html')
 
 def quiz(request):
-    if request.user.is_authenticated  and request.user.profile.payment=="Yes" and request.user.profile.evcount < 3:
+    if request.user.is_authenticated  and request.user.profile.payment=="Yes":
         pro=profile.objects.get(user=request.user)
         pro.quiz="Yes"
         pro.evcount += 1
@@ -633,7 +571,7 @@ def quiz(request):
         return render(request, 'login.html')
 
 def mp(request):
-    if request.user.is_authenticated  and request.user.profile.payment=="Yes" and request.user.profile.evcount < 3:
+    if request.user.is_authenticated  and request.user.profile.payment=="Yes":
         pro=profile.objects.get(user=request.user)
         pro.mp="Yes"
         pro.evcount += 1
@@ -643,7 +581,7 @@ def mp(request):
         return render(request, 'login.html')
 
 def ld(request):
-    if request.user.is_authenticated  and request.user.profile.payment=="Yes" and request.user.profile.evcount < 3:
+    if request.user.is_authenticated  and request.user.profile.payment=="Yes":
         pro=profile.objects.get(user=request.user)
         pro.ld="Yes"
         pro.evcount += 1
@@ -653,7 +591,7 @@ def ld(request):
         return render(request, 'login.html')
 
 def wb(request):
-    if request.user.is_authenticated  and request.user.profile.payment=="Yes" and request.user.profile.evcount < 3:
+    if request.user.is_authenticated  and request.user.profile.payment=="Yes" :
         pro=profile.objects.get(user=request.user)
         pro.wb="Yes"
         pro.evcount += 1
@@ -663,7 +601,7 @@ def wb(request):
         return render(request, 'login.html')
 
 def sg(request):
-    if request.user.is_authenticated and request.user.profile.payment=="Yes" and request.user.profile.evcount < 3:
+    if request.user.is_authenticated and request.user.profile.payment=="Yes":
         pro=profile.objects.get(user=request.user)
         pro.sg="Yes"
         pro.evcount += 1
@@ -673,7 +611,7 @@ def sg(request):
         return render(request, 'login.html')
 
 def rd(request):
-    if request.user.is_authenticated and request.user.profile.payment=="Yes" and request.user.profile.evcount < 3:
+    if request.user.is_authenticated and request.user.profile.payment=="Yes":
         pro=profile.objects.get(user=request.user)
         pro.rd="Yes"
         pro.evcount += 1
@@ -683,7 +621,7 @@ def rd(request):
         return render(request, 'login.html')
 
 def bgmi(request):
-    if request.user.is_authenticated and request.user.profile.payment=="Yes" and request.user.profile.evcount < 3:
+    if request.user.is_authenticated and request.user.profile.payment=="Yes":
         pro=profile.objects.get(user=request.user)
         pro.bgmi="Yes"
         pro.evcount += 1
@@ -710,55 +648,51 @@ def ttpay_initiate(request):
             else:
                 messages.error(request, 'Something went wrong.', extra_tags='login')
                 return render(request, 'login.html')
-        response = api.payment_request_create(buyer_name=request.user.first_name, email=request.user.email,
-                                              phone=request.user.profile.mobile, amount='500', purpose='Thrusang-(do not refresh or go back!)',
-                                              send_email=False, redirect_url="https://klthrusang.herokuapp.com/ttsuccess")
-        pro = profile.objects.get(id_no=request.user.profile.id_no)
-        pro.pay_id = response['payment_request']['id']
-        pro.ttpay_id = response['payment_request']['id']
-        pro.save()
-        return redirect(response['payment_request']['longurl'])
+        return render(request,'payment500.html')
     else:
-        return render(request, 'index.html')
+        return render(request, 'login.html')
 
-
+@csrf_exempt
 def ttsuccess(request):
-    try:
-        pay_id = request.GET.get('payment_request_id')
-        response = api.payment_request_status(pay_id)
-        if response['payment_request']['status'] == "Completed":
-            pro = profile.objects.get(ttpay_id=pay_id)
-            pro.ttpay = "Yes"
-            pro.payment = "Yes"
-            pro.tt = "Yes"
-            pro.evcount += 1
-            if request.user.profile.th_id == "0":
-                c = 0
-                s = "TRG-WEB-0000"
-                pr = profile.objects.all();
-                for k in pr:
-                    if k.th_id != "0":
-                        c += 1
-                if c < 9:
-                    ss = s[0:11] + str(c + 1)
-                    pro.th_id = ss
-                elif c >= 10 and c <= 98:
-                    ss = s[0:10] + str(c + 1)
-                    pro.th_id = ss
-                elif c >= 1000 and c <= 998:
-                    ss = s[0:9] + str(c)
-                    pro.th_id = ss
-                else:
-                    ss = s[0:8] + str(c + 1)
-                    pro.th_id = ss
-            pro.save()
-            messages.error(request, 'Payment Successfully Completed.', extra_tags='paid')
-            return render(request, 'thankyou.html')
-        messages.error(request, 'Payment Failed.', extra_tags='fail')
-
-        return render(request, 'index.html')
-    except:
-        return render(request, 'index.html')
+    if request.method == "POST":
+        trans_id=request.POST.get('trans')
+        if transactions.objects.filter(tans_id=trans_id).exists():
+            messages.error(request, "The transaction ID you have enetered is already used.", extra_tags='trans')
+            return render(request,'payment500.html')
+        dat = str(datetime.datetime.now())
+        tra=transactions(tans_id=trans_id,email=request.user.username,trans_time=dat,reason="Thrusang Tank")
+        tra.save()
+        pro=profile.objects.get(id_no=request.user.profile.id_no)
+        pro.pay_id = trans_id
+        pro.ttpay_id = trans_id
+        pro.ttpay = "Yes"
+        pro.payment = "Yes"
+        pro.tt = "Yes"
+        pro.evcount += 1
+        if request.user.profile.th_id == "0":
+            c = 0
+            s = "TRG-WEB-0000"
+            pr = profile.objects.all();
+            for k in pr:
+                if k.th_id != "0":
+                    c += 1
+            if c < 9:
+                ss = s[0:11] + str(c + 1)
+                pro.th_id = ss
+            elif c >= 9 and c <= 98:
+                ss = s[0:10] + str(c + 1)
+                pro.th_id = ss
+            elif c >= 99 and c <= 999:
+                ss = s[0:9] + str(c + 1)
+                pro.th_id = ss
+            else:
+                ss = s[0:8] + str(c + 1)
+                pro.th_id = ss
+        pro.save()
+        messages.error(request, 'Payment Successfully Completed.', extra_tags='paid')
+        return render(request, 'thankyou.html')
+    else:
+        return render(request, 'login.html')
 
 
 def ttdetails(request):
@@ -859,7 +793,7 @@ def eventexplore(request):
     return render(request, 'events.html')
 
 def thanks(request):
-    return render(request, 'index.html')
+    return render(request, 'events.html')
 
 
 
