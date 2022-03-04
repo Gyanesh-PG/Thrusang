@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
-from django.http import FileResponse
-import os
+
 from .models import profile, workshop,iplcount,thrusangtank,transactions
 from django.contrib import messages
 from django.contrib.auth.models import User
@@ -771,7 +770,7 @@ def iot_det(request):
 
 
 def cs_det(request):
-    return render(request, 'index.html')
+    return redirect("https://drive.google.com/file/d/15b70Z1qaAZJmp-HsSS9_P2WRZywYc82q/view?usp=sharing")
 
 
 def arduino_det(request):
@@ -779,16 +778,15 @@ def arduino_det(request):
 
 
 def blockchain_det(request):
-    return render(request, 'index.html')
+    return redirect("https://drive.google.com/file/d/1_ULxTeaUMp1816uHC1bUjRsJyAAt5VyV/view?usp=sharing")
 
 
 def printing_det(request):
-    return render(request, 'index.html')
+    return redirect("https://drive.google.com/file/d/16o4TeolOOf8k_j_7otZuNj6mk7d0BYRf/view?usp=sharing")
 
 
 def ai_det(request):
-    filepath = os.path.join('static', 'ML and AI worshop Ecm_FEst.pdf')
-    return FileResponse(open(filepath, 'rb'), content_type='application/pdf')
+    return redirect("https://drive.google.com/file/d/10geB4duBQyNcTo38pFUtlZM9IV_UNCZr/view?usp=sharing")
 
 
 def eventexplore(request):
