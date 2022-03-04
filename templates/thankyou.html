@@ -1,4 +1,5 @@
-<html oncontextmenu=" return disableRightClick() ;">
+
+<html oncontextmenu=" return disableRightClick();">
 <head>
 <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Source+Sans+Pro" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
@@ -8,7 +9,7 @@
   max-width:1200px;
   margin:0 auto;
 }
-
+  
 
 #drawing_canvas {
     position: absolute;
@@ -25,19 +26,20 @@
 </head>
 <body style="background-image:url('static/assets/images/ThankYou.jpg');background-size: cover;background-repeat: no-repeat;background-position:center ;">
 
-
+   
 
 <section>
     <canvas id="drawing_canvas"></canvas>
 
 </section>
 
-<section style="padding-left:auto;padding-right:auto;padding-bottom:auto;padding-top: auto; margin-top: 33% ;margin-right: 0;margin-bottom: 3%;margin-left: 46%;">
-        <button style="border-radius:20px;background:white;border: none;"><a  href="{% url 'thanks' %}" style="font-size: 20px;text-decoration: none;color:#cb4154"><b>Go Home</b></a></button>
-    </section>
+<!-- <section style="padding-left:auto;padding-right:auto;padding-bottom:auto;padding-top: auto; margin-top: 33% ;margin-right: 0;margin-bottom: 3%;margin-left: 46%;">
 
+        <button style="border-radius:20px;background:white;border: none;"><a  href="file:///C:/Users/praga/OneDrive/Desktop/thankyou.html" style="font-size: 20px;text-decoration: none;color:#cb4154"><b>Go Home</b></a></button>
+    </section> -->
+<button style="border-radius:20px;background:white;border: none;padding-left:auto;padding-right:auto;padding-bottom:auto;padding-top: auto; margin-top: 35% ;margin-right: 0;margin-bottom: 3%;margin-left: 46%;"><a  href="{% url 'index' %}" style="font-size: 20px;text-decoration: none;color:#cb4154"><b>Go Home</b></a></button>
 
-
+   
 
 <script>
 const TWO_PI = Math.PI * 2;
@@ -312,16 +314,16 @@ function cubeBezier(p0, c0, c1, p1, t) {
     return p;
 }
 </script>
-<script type="text/javascript">
-function disableRightClick()
-{
-alert("Sorry, right click is not allowed !!");
-return false;
-}
+ <script type="text/javascript"> 
+function disableRightClick() 
+{ 
+alert("Sorry, right click is not allowed !!"); 
+return false; 
+} 
 document.onkeydown = function(e) {
         if (event.keyCode==123) {
             return false;
-        }
+        } 
         if(e.ctrlKey && e.shiftKey && e.keyCode=='I'.charCodeAt(0)) {
             return false;
         }
