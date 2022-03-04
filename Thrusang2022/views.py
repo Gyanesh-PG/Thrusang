@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
-
+from django.http import FileResponse
+import os
 from .models import profile, workshop,iplcount,thrusangtank,transactions
 from django.contrib import messages
 from django.contrib.auth.models import User
@@ -786,7 +787,8 @@ def printing_det(request):
 
 
 def ai_det(request):
-    return redirect("https://drive.google.com/file/d/10geB4duBQyNcTo38pFUtlZM9IV_UNCZr/view?usp=sharing")
+    filepath = os.path.join('static', 'ML and AI worshop Ecm_FEst.pdf')
+    return FileResponse(open(filepath, 'rb'), content_type='application/pdf')
 
 
 def eventexplore(request):
