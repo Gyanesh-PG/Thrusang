@@ -766,7 +766,7 @@ def wirebuzz_det(request):
 
 
 def iot_det(request):
-    return render(request, 'index.html')
+    return redirect(response,"https://drive.google.com/file/d/10geB4duBQyNcTo38pFUtlZM9IV_UNCZr/view?usp=sharing")
 
 
 def cs_det(request):
