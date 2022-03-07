@@ -186,9 +186,11 @@ def cwssuccess(request):
         ws = workshop.objects.get(user=request.user)
         pro.payment = "Yes"
         pro.evpay = "Yes"
+        pro.pay_id = trans_id
         pro.evcount += 1
         ws.payment = "Yes"
         ws.tg = "cs"
+        ws.pay_id=trans_id
         if request.user.profile.th_id == "0":
             c = 0
             s = "TRG-WEB-0000"
@@ -236,9 +238,11 @@ def iotsuccess(request):
         ws = workshop.objects.get(user=request.user)
         pro.payment = "Yes"
         pro.evpay = "Yes"
+        pro.pay_id = trans_id
         pro.evcount += 1
         ws.payment = "Yes"
         ws.tg = "iot"
+        ws.pay_id=trans_id
         if request.user.profile.th_id == "0":
             c = 0
             s = "TRG-WEB-0000"
@@ -286,9 +290,11 @@ def afssuccess(request):
         ws = workshop.objects.get(user=request.user)
         pro.payment = "Yes"
         pro.evpay = "Yes"
+        pro.pay_id = trans_id
         pro.evcount += 1
         ws.payment = "Yes"
         ws.tg = "afs"
+        ws.pay_id=trans_id
         if request.user.profile.th_id == "0":
             c = 0
             s = "TRG-WEB-0000"
@@ -336,9 +342,11 @@ def bcmsuccess(request):
         ws = workshop.objects.get(user=request.user)
         pro.payment = "Yes"
         pro.evpay = "Yes"
+        pro.pay_id = trans_id
         pro.evcount += 1
         ws.payment = "Yes"
         ws.tg = "bcm"
+        ws.pay_id=trans_id
         if request.user.profile.th_id == "0":
             c = 0
             s = "TRG-WEB-0000"
@@ -385,10 +393,12 @@ def prtsuccess(request):
         pro=profile.objects.get(id_no=request.user.profile.id_no)
         ws = workshop.objects.get(user=request.user)
         pro.payment = "Yes"
+        pro.pay_id = trans_id
         pro.evpay = "Yes"
         pro.evcount += 1
         ws.payment = "Yes"
         ws.tg = "prt"
+        ws.pay_id=trans_id
         if request.user.profile.th_id == "0":
             c = 0
             s = "TRG-WEB-0000"
@@ -435,8 +445,10 @@ def aisuccess(request):
         ws = workshop.objects.get(user=request.user)
         pro.payment = "Yes"
         pro.evpay = "Yes"
+        pro.pay_id = trans_id
         pro.evcount += 1
         ws.payment = "Yes"
+        ws.pay_id=trans_id
         ws.tg = "ai"
         if request.user.profile.th_id == "0":
             c = 0
