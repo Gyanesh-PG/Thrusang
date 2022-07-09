@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html  lang="en" oncontextmenu=" return disableRightClick() ;">
+{% load static %}
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Mobirise v5.6.0, mobirise.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="static/assets/images/Thrusang_Logo.png" type="image/x-icon">
+  <meta name="description" content="">
+  <title>KLThrusang | TEAM</title>
+   <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"/>
+
+
+  <title>KLThrusang | Team</title>
+  <link rel="stylesheet" href="static/assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="static/assets/bootstrap/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="static/assets/bootstrap/css/bootstrap-reboot.min.css">
+  <link rel="stylesheet" href="static/assets/dropdown/css/style.css">
+  <link rel="stylesheet" href="static/assets/socicon/css/styles.css">
+  <link rel="stylesheet" href="static/assets/theme/css/style.css">
+      <link rel="stylesheet" href="static/font.css">
+
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i,700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i,700&display=swap"></noscript>
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap"></noscript>
+  <link rel="preload" as="style" href="static/assets/mobirise/css/mbr-additional.css"><link rel="stylesheet" href="static/assets/mobirise/css/mbr-additional.css" type="text/css">
+
+
+
+
+
+  <style>
+      .container-team {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 40px 0;
+}
+.container-team .card {
+  position: relative;
+  width: 300px;
+  height: 350px;
+  margin: 20px;
+  overflow: hidden;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container-team .card .content {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  flex-direction: column;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 -10px 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius:18px;
+
+}
+
+.container-team .card .content .contentBx h3 {
+  text-transform: uppercase;
+  color: #fff;
+  letter-spacing: 2px;
+  font-weight: 500;
+  font-size: 18px;
+  text-align: center;
+  margin: 20px 0 15px;
+  line-height: 0.8em;
+
+  opacity: 5;
+
+}
+h3{
+font-color:black;
+}
+  </style>
+</head>
+<body style="background-color: #121921">
+
+  <!-- Header start -->
+   <section data-bs-version="5.1" class="menu menu2 cid-sXInXOg5Bn" once="menu" id="menu2-k" style="background-color:black; padding:0px;margin:0px;border:0px">
+
+    <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg" style="background-color:white;border-radius:0 0 20px 20px" >
+        <div class="container-fluid"  style="background-color:white;">
+            <div class="navbar-brand">
+                <span class="navbar-logo">
+                    <a href="{% url 'index' %}">
+                        <img  src="static/assets/images/navlogo.png" alt="" style="max-height:2.2rem;width:230px;position:relative">
+                    </a>
+                </span>
+
+            </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbarSupportedContent" data-bs-target="#navbarSupportedContent" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+            <div  class="collapse navbar-collapse" id="navbarSupportedContent" >
+<ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
+    <li class="nav-item" ><a class="nav-link link text-danger text-primary display-4" href="{% url 'index' %}" ><strong style="color:#2c344e;font-family:nexa">Home</strong></a></li>
+    <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'aboutus' %}"><strong style="color:#2c344e;font-family:nexa ">About us</strong></a></li>
+    <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'events' %}"><strong style="color:#2c344e;font-family:nexa ">Events</strong></a></li>
+    <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'gallery' %}"><strong style="color:#2c344e;font-family:nexa ">Gallery</strong></a></li>
+<!--    <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'sponsers' %}"><strong style="color:#2c344e;font-family:nexa ">Sponsors</strong></a></li>-->
+<!--<li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'team' %}"><strong style="color:#2c344e;font-family:nexa ">Team</strong></a></li>     <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'team' %}"><strong style="color:#2c344e;font-family:nexa ">Team</strong></a></li>-->
+    {% if  user.is_authenticated %}
+     <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'user_profile' %}"><strong style="color:#2c344e;font-family:nexa ">Profile</strong></a></li>
+         {% endif %}
+</ul>
+
+     <div class="navbar-buttons mbr-section-btn" >
+      {% if not user.is_authenticated %}
+     <a class="btn btn-primary display-4" id="joinus" href="{% url 'log' %}" style="font-family:nexa;border-radius:20px;padding:4px;font-size:16px;width:100px">Join Us</a>
+<!--     <a class="btn btn-primary display-4" href="{% url 'register' %}" style="font-family:nexa">Register</a>-->
+      {% endif %}
+         {% if  user.profile.payment == "No" %}
+     <a class="btn btn-primary display-4" href="{% url 'events' %}" style="font-family:nexa;border-radius:20px;padding:4px;font-size:16px;width:100px">Pay Now</a>
+         {% endif %}
+     {% if  user.is_authenticated %}
+     <a class="btn btn-primary display-4" href="{% url 'logout_user' %}" style="font-family:nexa;border-radius:20px;padding:4px;font-size:16px;width:100px">Logout</a>
+         {% endif %}
+     </div>
+            </div>
+        </div>
+    </nav>
+</section>
+     <!-- Header End -->
+<br><br>
+
+  <div class="container-team">
+      <div class="card" style="width:450px;height:480px;">
+        <div class="imgBx">
+          <img src="static/assets/images/team/siva ganga sir.jpg" alt=""/>
+        </div>
+        <div class="content">
+          <div class="contentBx">
+               <h3 >Dr. M.S.G PRASAD<br><br><span></span><span>H.O.D(ECM)</span><br><br><span></span><span><p style="font-size: 15px">CHAIRMAN</p></span></h3>
+          </div>
+        </div>
+      </div>
+
+</div>
+
+
+    <div class="container-team">
+      <div class="card">
+        <div class="imgBx">
+          <img src="static/assets/images/team/gopi sir.jpg" alt=""/>
+        </div>
+        <div class="content">
+          <div class="contentBx">
+                <h3>Dr. P. GOPI KRISHNA<br><br><span></span><span>Faculty</span><br><br><span></span><span><p style="font-size: 15px">CONVENER</p></span></h3>
+          </div>
+        </div>
+      </div>
+
+        <div class="card">
+        <div class="imgBx">
+          <img src="static/assets/images/team/krishnaveni.jpg" alt=""/>
+        </div>
+        <div class="content">
+          <div class="contentBx">
+               <h3>K. KRISHNAVENI<br><br><span></span><span>Faculty</span><br><br><span></span><span><p style="font-size: 15px">CO-CONVENER</p></span></h3>
+          </div>
+        </div>
+      </div>
+
+         <div class="card">
+        <div class="imgBx">
+          <img src="static/assets/images/team/sridevi_madam.jpg" alt=""/>
+        </div>
+        <div class="content">
+          <div class="contentBx">
+               <h3>SMT. SRIDEVI<br><br><span></span><span>Faculty</span><br><br><span></span><span><p style="font-size: 15px">TEAM ADVISOR</p></span></h3>
+          </div>
+        </div>
+      </div>
+
+</div>
+
+
+
+      <div class="container-team">
+      <div class="card">
+        <div class="imgBx">
+          <img src="static/assets/images/team/Abhinav.jpg" alt=""/>
+        </div>
+        <div class="content">
+          <div class="contentBx">
+                <h3>180050025<br><br><span></span><span>V. ABHINAV</span><br><br><span></span><span><p style="font-size: 15px">STUDENT CHIEF</p></span></h3>
+          </div>
+        </div>
+      </div>
+
+        <div class="card">
+        <div class="imgBx">
+          <img src="static/assets/images/team/Bhuvan.jpg" alt=""/>
+        </div>
+        <div class="content">
+          <div class="contentBx">
+<h3>190050027<br><br><span></span><span>K. BHUVAN SAI</span><br><br><span></span><span><p style="font-size: 15px">DEPUTY CHIEF</p></span></h3>
+          </div>
+        </div>
+      </div>
+
+</div>
+
+
+        <div class="container-team">
+      <div class="card">
+        <div class="imgBx">
+          <img src="static/assets/images/team/bhanu.jpg" alt=""/>
+        </div>
+        <div class="content">
+          <div class="contentBx">
+                 <h3>190050029<br><br><span></span><span>K. CHANDRA BHANU</span><br><br><span></span><span><p style="font-size: 15px">COO</p></span></h3>
+          </div>
+        </div>
+      </div>
+
+        <div class="card">
+        <div class="imgBx" >
+          <img style="height:350px;" src="static/assets/images/team/kathik.jpg" alt=""/>
+        </div>
+        <div class="content">
+          <div class="contentBx">
+                  <h3>190050047<br><br><span></span><span>KARTIK PEDAPATI</span><br><br><span></span><span><p style="font-size: 15px">CEO</p></span></h3>
+          </div>
+        </div>
+      </div>
+
+</div>
+
+
+<div class="container-team">
+    <div class="card">
+        <div class="imgBx">
+          <img
+            src="static/assets/images/team/venkat.jpg"
+            alt=""
+          />
+        </div>
+        <div class="content">
+          <div class="contentBx">
+            <h3>190050078
+
+            <br><br>
+            <span></span>
+            <span>V.BHARGAV</span>
+                <br><br>
+            <span></span>
+                <span><p style="font-size: 15px">LOGISTICS</p></span>
+            </h3>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="card">
+        <div class="imgBx">
+          <img
+            src="static/assets/images/team/pravallika.jpg"
+            alt=""
+          />
+        </div>
+        <div class="content">
+          <div class="contentBx">
+            <h3>180050105
+
+            <br><br>
+            <span></span>
+            <span>PRAVALLIKA
+</span>
+                <br><br>
+            <span></span>
+                <span><p style="font-size: 15px">CREATIVE ARTS
+</p></span>
+            </h3>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="imgBx">
+          <img
+            src="static/assets/images/team/thanusha.jpg"
+            alt=""
+          />
+        </div>
+        <div class="content">
+          <div class="contentBx">
+            <h3>180050108<br><br><span></span><span>THANUSHA</span><br><br><span></span><span><p style="font-size: 15px">CREATIVE ARTS</p></span></h3>
+          </div>
+        </div>
+      </div>
+    </div>
+<!--END ROW-->
+<div class="container-team">
+    <div class="card">
+        <div class="imgBx">
+          <img src="static/assets/images/team/jyothi1.jpg" alt=""/>
+        </div>
+        <div class="content">
+          <div class="contentBx">
+            <h3>180050110<br><br>
+            <span></span>
+            <span>JYOTHI</span>
+                <br><br>
+            <span></span>
+                <span><p style="font-size: 15px">CREATIVE ARTS</p></span>
+            </h3>
+          </div>
+        </div>
+
+
+      <div class="card">
+        <div class="imgBx">
+          <img
+            src="static/assets/images/team/prasannika.jpg"
+            alt=""
+          />
+        </div>
+        <div class="content">
+          <div class="contentBx">
+            <h3>180050049
+
+            <br><br>
+            <span></span>
+            <span>PRASANNIKA</span>
+                <br><br>
+            <span></span>
+                <span><p style="font-size: 15px">CREATIVE ARTS</p></span>
+            </h3>
+          </div>
+        </div>
+      </div>
+
+
+  <!-- ----------- -->
+      <div class="card">
+        <div class="imgBx">
+          <img src="static/assets/images/team/priyanka.jpg" alt=""/>
+        </div>
+        <div class="content">
+          <div class="contentBx">
+            <h3>180050070<br><br><span></span><span>PRIYANKA</span><br><br><span></span><span><p style="font-size: 15px">CREATIVE ARTS</p></span></h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-team">
+
+          <div class="card">
+        <div class="imgBx">
+          <img src="static/assets/images/team/deepika.jpg" alt=""/>
+        </div>
+        <div class="content">
+          <div class="contentBx">
+            <h3>190050063<br><br><span></span><span>T. DEEPIKA</span><br><br><span></span><span><p style="font-size: 15px">CREATIVE ARTS</p></span></h3>
+          </div>
+        </div>
+      </div>
+          <div class="card">
+        <div class="imgBx">
+          <img src="static/assets/images/team/teja_sree.jpg" alt=""/>
+        </div>
+        <div class="content">
+          <div class="contentBx">
+<h3>190050067<br><br><span></span><span>T. TEJA SREE</span><br><br><span></span><span><p style="font-size: 15px">CREATIVE ARTS</p></span></h3>
+          </div>
+        </div>
+      </div>
+</div>
+
+   <!-- ----------- -->
+<div class="container-team">
+      <div class="card">
+        <div class="imgBx">
+          <img src="static/assets/images/team/sowmya.jpg" alt=""/>
+        </div>
+        <div class="content">
+          <div class="contentBx">
+<h3>190050079<br><br><span></span><span>V. SOWMYA</span><br><br><span></span><span><p style="font-size: 15px">CREATIVE ARTS</p></span></h3>
+          </div>
+        </div>
+      </div>
+          <div class="card">
+        <div class="imgBx">
+          <img src="static/assets/images/team/josy.jpg" alt=""/>
+        </div>
+        <div class="content">
+          <div class="contentBx">
+<h3>190050022<br><br><span></span><span>JOSEPHINE RAMASWAMY</span><br><br><span></span><span><p style="font-size: 15px">TECHNICAL</p></span></h3>
+          </div>
+        </div>
+      </div>
+          <div class="card">
+        <div class="imgBx">
+          <img src="static/assets/images/team/siva teja.jpg" alt=""/>
+        </div>
+        <div class="content">
+          <div class="contentBx">
+<h3>180050067<br><br><span></span><span>D.SIVA TEJA</span><br><br><span></span><span><p style="font-size: 15px">TECHNICAL</p></span></h3>
+          </div>
+        </div>
+      </div>
+</div>
+
+   <!-- -----------end row -->
+<div class="container-team">
+          <div class="card">
+        <div class="imgBx">
+          <img src="static/assets/images/team/nirmayi.jpg" alt=""/>
+        </div>
+        <div class="content">
+          <div class="contentBx">
+<h3>190050011<br><br><span></span><span>NIRMAYI</span><br><br><span></span><span><p style="font-size: 15px">C.M.O</p></span></h3>
+          </div>
+        </div>
+      </div>
+          <div class="card">
+        <div class="imgBx">
+          <img src="static/assets/images/team/dinesh.jpg" alt=""/>
+        </div>
+        <div class="content">
+          <div class="contentBx">
+<h3>190050104<br><br><span></span><span>K.DINESH</span><br><br><span></span><span><p style="font-size: 15px">R&C</p></span></h3>
+          </div>
+        </div>
+      </div>
+</div>
+    <div class="card">
+        <div class="imgBx">
+          <img src="static/assets/images/team/keerthana_sri.jpg" alt=""/>
+        </div>
+        <div class="content">
+          <div class="contentBx">
+<h3>190050113<br><br><span></span><span>K.KEERTHANA</span><br><br><span></span><span><p style="font-size: 15px">R&C</p></span></h3>
+          </div>
+        </div>
+      </div>
+
+   <!-- ----------- -->
+<div class="container-team">
+
+          <div class="card">
+        <div class="imgBx">
+          <img src="static/assets/images/team/kevin.jpg" alt=""/>
+        </div>
+        <div class="content">
+          <div class="contentBx">
+<h3>180050008<br><br><span></span><span>KEVIN</span><br><br><span></span><span><p style="font-size: 15px">PUBLIC RELATION</p></span></h3>
+          </div>
+        </div>
+      </div>
+          <div class="card">
+        <div class="imgBx">
+          <img src="static/assets/images/team/anurag.jpg" alt=""/>
+        </div>
+        <div class="content">
+          <div class="contentBx">
+<h3>190050043<br><br><span></span><span>P.ANURAG</span><br><br><span></span><span><p style="font-size: 15px">PUBLIC RELATION</p></span></h3>
+          </div>
+        </div>
+      </div>
+</div>
+    <div class="card">
+        <div class="imgBx">
+          <img src="static/assets/images/team/jnanadeep.jpg" alt=""/>
+        </div>
+        <div class="content">
+          <div class="contentBx">
+<h3>190050046<br><br><span></span><span>P.JNANADEEP</span><br><br><span></span><span><p style="font-size: 15px">PUBLIC RELATION</p></span></h3>
+          </div>
+        </div>
+      </div>
+
+   <!-- ----------- -->
+<div class="container-team">
+
+          <div class="card">
+        <div class="imgBx">
+          <img src="static/assets/images/team/g_ravindra.jpg" alt=""/>
+        </div>
+        <div class="content">
+          <div class="contentBx">
+<h3>180050058<br><br><span></span><span>G.RAVINDRA</span><br><br><span></span><span><p style="font-size: 15px">BROADCASTING</p></span></h3>
+          </div>
+        </div>
+      </div>
+          <div class="card">
+        <div class="imgBx">
+          <img src="static/assets/images/team/joshu.jpg" alt=""/>
+        </div>
+        <div class="content">
+          <div class="contentBx">
+<h3>190050038<br><br><span></span><span>JOSHUA EVANS</span><br><br><span></span><span><p style="font-size: 15px">BROADCASTING</p></span></h3>
+          </div>
+        </div>
+      </div>
+</div>
+    <div class="card">
+        <div class="imgBx">
+          <img src="static/assets/images/team/roshan.jpg" alt=""/>
+        </div>
+        <div class="content">
+          <div class="contentBx">
+<h3>180050008<br><br><span></span><span>ROSHAN KUMAR</span><br><br><span></span><span><p style="font-size: 15px">PROTOCOL</p></span></h3>
+          </div>
+        </div>
+      </div>
+
+
+   <!-- ----------- -->
+<div class="container-team">
+
+
+          <div class="card">
+        <div class="imgBx">
+          <img src="static/assets/images/team/adarsh.jpg" alt=""/>
+
+        </div>
+        <div class="content">
+          <div class="contentBx">
+<h3>190050015<br><br><span></span><span>CH.ADARSH</span><br><br><span></span><span><p style="font-size: 15px">PROTOCOL</p></span></h3>
+          </div>
+        </div>
+      </div>
+</div>
+
+    <div class="card">
+        <div class="imgBx">
+          <img src="static/assets/images/team/naren.jpg" alt=""/>
+        </div>
+        <div class="content">
+          <div class="contentBx">
+<h3>190050053<br><br><span></span><span>P.NARENDRA</span><br><br><span></span><span><p style="font-size: 15px">DESIGNING</p></span></h3>
+          </div>
+        </div>
+      </div>
+          <div class="card">
+        <div class="imgBx">
+          <img src="static/assets/images/team/manasa.jpg" alt=""/>
+        </div>
+        <div class="content">
+          <div class="contentBx">
+<h3>190050106<br><br><span></span><span>M.MANASA</span><br><br><span></span><span><p style="font-size: 15px">DESIGNING</p></span></h3>
+          </div>
+        </div>
+      </div>
+
+
+   <!-- ----------- -->
+<div class="container-team">
+
+          <div class="card">
+        <div class="imgBx">
+          <img src="static/assets/images/team/bhava_keerthana.jpg" alt=""/>
+        </div>
+        <div class="content">
+          <div class="contentBx">
+<h3>190050077<br><br><span></span><span>V.BHAVA KEERTHANA</span><br><br><span></span><span><p style="font-size: 15px">DESIGNING</p></span></h3>
+          </div>
+        </div>
+      </div>
+</div>
+
+   <!-- ----------- -->
+<div class="container-team">
+<!--      <div class="card">-->
+<!--        <div class="imgBx">-->
+<!--          <img src="static/assets/images/dp.jpg" alt=""/>-->
+<!--        </div>-->
+<!--        <div class="content">-->
+<!--          <div class="contentBx">-->
+<!--<h3>190050077<br><br><span></span><span>KEERTHANA</span><br><br><span></span><span><p style="font-size: 15px">DESIGNING</p></span></h3>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+          <div class="card">
+        <div class="imgBx">
+          <img src="static/assets/images/team/sudha.jpg" alt=""/>
+        </div>
+        <div class="content">
+          <div class="contentBx">
+<h3>190050050<br><br><span></span><span>P.SUDHA</span><br><br><span></span><span><p style="font-size: 15px">DESIGNING</p></span></h3>
+          </div>
+        </div>
+      </div>
+          <div class="card">
+        <div class="imgBx">
+          <img src="static/assets/images/team/lokesh.jpg" alt=""/>
+        </div>
+        <div class="content">
+          <div class="contentBx">
+<h3>180050045<br><br><span></span><span>D.LOKESH</span><br><br><span></span><span><p style="font-size: 15px">SPONSORSHIP</p></span></h3>
+          </div>
+        </div>
+      </div>
+</div>
+
+   <!-- ----------- -->
+<div class="container-team">
+      <div class="card">
+        <div class="imgBx">
+          <img src="static/assets/images/team/shathwik.jpg" alt=""/>
+        </div>
+        <div class="content">
+          <div class="contentBx">
+<h3>190050089<br><br><span></span><span>K.SATHVIK</span><br><br><span></span><span><p style="font-size: 15px">SPONSORSHIP</p></span></h3>
+          </div>
+        </div>
+      </div>
+          <div class="card">
+        <div class="imgBx">
+          <img src="static/assets/images/team/om.jpg" alt=""/>
+        </div>
+        <div class="content">
+          <div class="contentBx">
+<h3>190050042<br><br><span></span><span>OM DIVESHAB</span><br><br><span></span><span><p style="font-size: 15px">NON TECH</p></span></h3>
+          </div>
+        </div>
+      </div>
+          <div class="card">
+        <div class="imgBx">
+          <img src="static/assets/images/team/tejaswini.jpg" alt=""/>
+        </div>
+        <div class="content">
+          <div class="contentBx">
+<h3>190050028<br><br><span></span><span>K.TEJASWINI</span><br><br><span></span><span><p style="font-size: 15px">NON TECH</p></span></h3>
+          </div>
+        </div>
+      </div>
+</div>
+
+   <!-- ----------- -->
+<div class="container-team">
+      <div class="card">
+        <div class="imgBx">
+          <img src="static/assets/images/team/aditya.jpg" alt=""/>
+        </div>
+        <div class="content">
+          <div class="contentBx">
+<h3>190050007<br><br><span></span><span>B.ADITYA</span><br><br><span></span><span><p style="font-size: 15px">NON TECH</p></span></h3>
+          </div>
+        </div>
+      </div>
+          <div class="card">
+        <div class="imgBx">
+          <img src="static/assets/images/team/gyanesh.jpg" alt=""/>
+        </div>
+        <div class="content">
+          <div class="contentBx">
+<h3>190050049<br><br><span></span><span>P.GYANESH</span><br><br><span></span><span><p style="font-size: 15px">WEB DEVELOPER</p></span></h3>
+          </div>
+        </div>
+      </div>
+          <div class="card">
+        <div class="imgBx">
+          <img src="static/assets/images/team/sunil.jpg" alt=""/>
+        </div>
+        <div class="content">
+          <div class="contentBx">
+<h3>190050051<br><br><span></span><span>P.SUNIL</span><br><br><span></span><span><p style="font-size: 15px">WEB DEVELOPER</p></span></h3>
+          </div>
+        </div>
+      </div>
+    <div class="card">
+        <div class="imgBx">
+          <img src="static/assets/images/team/dileep.jpg" alt=""/>
+        </div>
+        <div class="content">
+          <div class="contentBx">
+<h3>190050003<br><br><span></span><span>A.Dileep Kumar</span><br><br><span></span><span><p style="font-size: 15px">WEB DEVELOPER</p></span></h3>
+          </div>
+        </div>
+      </div>
+</div></div><br><br><br>
+
+<!-- Footer start -->
+
+<script src="static/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="static/assets/smoothscroll/smooth-scroll.js"></script>
+<script src="static/assets/ytplayer/index.js"></script>
+<script src="static/assets/vimeoplayer/player.js"></script>
+<script src="static/assets/dropdown/js/navbar-dropdown.js"></script>
+ <!-- Footer end -->
+<script type="text/javascript">
+function disableRightClick()
+{
+alert("Sorry, right click is not allowed !!");
+return false;
+}
+document.onkeydown = function(e) {
+        if (event.keyCode==123) {
+            return false;
+        }
+        if(e.ctrlKey && e.shiftKey && e.keyCode=='I'.charCodeAt(0)) {
+            return false;
+        }
+        if(e.ctrlKey && e.shiftKey && e.keyCode=='J'.charCodeAt(0)) {
+            return false;
+        }
+        if(e.ctrlKey && e.keyCode=='U'.charCodeAt(0)) {
+            return false;
+        }
+}
+
+</script>
+    {% include "footer.html" %}
+</body>
+</html>

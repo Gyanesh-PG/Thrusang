@@ -1,0 +1,204 @@
+
+<!DOCTYPE html>
+<html  lang="en" oncontextmenu=" return disableRightClick() ;">
+{% load static %}
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Mobirise v5.6.0, mobirise.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="static/assets/images/Thrusang_Logo.png" type="image/x-icon">
+  <meta name="description" content="">
+
+
+  <title>KLThrusang | Pay</title>
+        <link rel="stylesheet" href="static/font.css">
+
+  <link rel="stylesheet" href="static/assets/web/assets/mobirise-icons2/mobirise2.css">
+  <link rel="stylesheet" href="static/assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="static/assets/bootstrap/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="static/assets/bootstrap/css/bootstrap-reboot.min.css">
+  <link rel="stylesheet" href="static/assets/dropdown/css/style.css">
+  <link rel="stylesheet" href="static/assets/socicon/css/styles.css">
+  <link rel="stylesheet" href="static/assets/theme/css/style.css">
+          <link rel="stylesheet" href="static/font.css">
+
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i,700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i,700&display=swap"></noscript>
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap"></noscript>
+  <link rel="preload" as="style" href="static/assets/mobirise/css/mbr-additional.css"><link rel="stylesheet" href="static/assets/mobirise/css/mbr-additional.css" type="text/css">
+<style>
+   input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 50%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+</style>
+
+<style>
+#lightbox {
+
+  position: fixed; z-index: 999;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+
+  background: rgba(0, 0, 0, 0.5);
+
+  display: flex;
+  align-items: center;
+  align-items: center;
+
+  visibility: hidden;
+  opacity: 0;
+
+  transition: opacity ease 0.4s;
+}
+/
+#lightbox.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+#lightbox img {
+
+  width: 100%;
+  height: auto;
+
+  object-fit: cover;
+}
+
+  </style>
+
+</head>
+<body>
+{% if messages %}
+
+    {% for message in messages %}
+        {%if "fail" in message.tags %}
+<div class="alert">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+  <strong>Warning! </strong>{{ message }}
+</div>
+        {%endif%}
+    {% endfor %}
+    {% for message in messages %}
+        {%if "paid" in message.tags %}
+<div class="alert" style="background-color: green;">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+  <strong>Success! </strong>{{ message }}
+</div>
+        {%endif%}
+    {% endfor %}
+{% endif %}
+
+  <div style="background-image:url('static/assets/images/BG5.jpg');ackground-attachment:fixed;width:auto;background-repeat:no-repeat;background-size:cover;">
+
+<section data-bs-version="5.1" class="contacts1 cid-sXIDoC44No" id="contacts1-1f" style="background:transparent"><br><br>
+
+
+
+
+    <div class="container-fluid">
+        <div class="mbr-section-head">
+            <h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2">
+           <h1 id="technical" class="text-white text-center our" style="font-family:euro;padding:0px">Scan To Pay</h1>
+            </h3>
+
+        </div>
+        <div class="row justify-content-center mt-4">
+<div class="card col-12 col-lg-6" style="width: auto;">
+                <div class="card-wrapper" style="border-radius:50px;background: linear-gradient(to bottom, #ffffff 60%, #ffff99 100%);padding: 20px">
+                    <div class="card-box align-center">
+
+<form action="{% url 'iotsuccess' %}" method="POST">
+
+    <img src="static/assets/images/400.png" style="width: 300px" height="300px">
+    <div class="textbox">
+   <input type="text" placeholder="Transaction/Reference"  name="trans" required><br>
+    </div>
+    <input type="submit">
+</form>
+                    </div>
+                </div>
+            </div>
+            <div class="card col-12 col-lg-6" style="width: auto;">
+<!--                <div class="card-wrapper" style="border-radius:50px;background: linear-gradient(to bottom, #ffffff 60%, #ffff99 100%);padding: 20px">-->
+                    <div class="card-box align-center">
+
+<img src="static/assets/images/paymenthelppng.png" style="width: 100%; height:400px" class="zoomE">
+                    </div>
+<!--                </div>-->
+            </div>
+
+                    </div>
+                </div>
+
+
+</section><br><br>
+
+
+  </div>
+<script type="text/javascript">
+function disableRightClick()
+{
+return false;
+}
+document.onkeydown = function(e) {
+        if (event.keyCode==123) {
+            return false;
+        }
+        if(e.ctrlKey && e.shiftKey && e.keyCode=='I'.charCodeAt(0)) {
+            return false;
+        }
+        if(e.ctrlKey && e.shiftKey && e.keyCode=='J'.charCodeAt(0)) {
+            return false;
+        }
+        if(e.ctrlKey && e.keyCode=='U'.charCodeAt(0)) {
+            return false;
+        }
+}
+
+</script>
+</body>
+<script>
+window.onload = () => {
+
+  let all = document.getElementsByClassName("zoomE");
+
+  if (all.length>0) { for (let i of all) {
+    i.onclick = () => {
+
+      if (document.fullscreenElement != null || document.webkitFullscreenElement != null) {
+        if (document.exitFullscreen) { document.exitFullscreen(); }
+        else { document.webkitCancelFullScreen(); }
+      }
+      else {
+        if (i.requestFullscreen) { i.requestFullscreen(); }
+        else { i.webkitRequestFullScreen(); }
+      }
+    };
+  }}
+};
+  </script>
+</html>

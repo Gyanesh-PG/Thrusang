@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="en" oncontextmenu=" return disableRightClick() ;">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="static/footer/footer1.css">
+</head>
+<body>
+<footer class="footer">
+    <div class="waves">
+      <div class="wave" id="wave1"></div>
+      <div class="wave" id="wave2"></div>
+      <div class="wave" id="wave3"></div>
+      <div class="wave" id="wave4"></div>
+    </div>
+    <ul class="social-icon">
+      <li class="social-icon__item"><a class="social-icon__link" href="https://www.facebook.com/kluecm.thrusang" target="_back">
+          <ion-icon name="logo-facebook"></ion-icon>
+        </a></li>
+      <li class="social-icon__item"><a class="social-icon__link" href="https://www.instagram.com/essence_ecm/?hl=en" target="_back">
+          <ion-icon name="logo-instagram"></ion-icon>
+        </a></li>
+      <li class="social-icon__item"><a class="social-icon__link" href="#">
+          <ion-icon name="logo-twitter"></ion-icon>
+        </a></li>
+      <li class="social-icon__item"><a class="social-icon__link" href="https://www.youtube.com/channel/UCIZYhx9_nHGwf-iKklVRLWQ/videos" target="_blank">
+          <ion-icon name="logo-youtube"></ion-icon>
+        </a></li>
+    </ul>
+    <ul class="menu">
+      <li class="menu__item"><a style="color:white;font-size:20px" class="menu__link" href="{% url 'index' %}" style="font-size:20px;font-family:nexa">Home</a></li>
+      <li class="menu__item"><a style="color:white;font-size:20px" class="menu__link" href="{% url 'aboutus' %}" style="font-size:20px;font-family:nexa">About Us</a></li>
+ <li class="menu__item"><a style="color:white;font-size:20px" class="menu__link" href="{% url 'team' %}" style="font-size:20px;font-family:nexa">Team</a></li>
+
+        <li class="menu__item"><a style="color:white;font-size:20px"  class="menu__link" href="{% url 'events' %}" style="font-size:20px;font-family:nexa">Events</a></li>
+      <li class="menu__item"><a style="color:white;font-size:20px" class="menu__link" href="{% url 'gallery' %}" style="font-size:20px;font-family:nexa">Gallery</a></li>
+      <li class="menu__item"><a style="color:white;font-size:20px" class="menu__link" href="{% url 'contact' %}" style="font-size:20px;font-family:nexa">Contact Us</a></li>
+
+    </ul>
+    <p style="color:white;font-size:15px ">©Copyright @2022 KLThrusang</p>
+  </footer>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<script type="text/javascript">
+function disableRightClick()
+{
+return false;
+}
+document.onkeydown = function(e) {
+        if (event.keyCode==123) {
+            return false;
+        }
+        if(e.ctrlKey && e.shiftKey && e.keyCode=='I'.charCodeAt(0)) {
+            return false;
+        }
+        if(e.ctrlKey && e.shiftKey && e.keyCode=='J'.charCodeAt(0)) {
+            return false;
+        }
+        if(e.ctrlKey && e.keyCode=='U'.charCodeAt(0)) {
+            return false;
+        }
+}
+
+</script>
+</body>
+</html>

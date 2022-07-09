@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en" oncontextmenu=" return disableRightClick() ;">
+{% load static %}
+<head>
+
+    <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Mobirise v5.6.0, mobirise.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="static/assets/images/Thrusang_Logo.png" type="image/x-icon">
+  <meta name="description" content="">
+
+
+  <title>KLThrusang | Profile</title>
+  <link rel="stylesheet" href="static/assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="static/assets/bootstrap/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="static/assets/bootstrap/css/bootstrap-reboot.min.css">
+  <link rel="stylesheet" href="static/assets/dropdown/css/style.css">
+  <link rel="stylesheet" href="static/assets/socicon/css/styles.css">
+  <link rel="stylesheet" href="static/assets/theme/css/style.css">
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i,700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i,700&display=swap"></noscript>
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap"></noscript>
+  <link rel="preload" as="style" href="static/assets/mobirise/css/mbr-additional.css"><link rel="stylesheet" href="static/assets/mobirise/css/mbr-additional.css" type="text/css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans:400,700'>
+<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css'><link rel="stylesheet" href="./style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700'>
+<link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+    <link rel="stylesheet" href="static/profile-style.css">
+        <link rel="stylesheet" href="static/font.css">
+
+    <style>
+        body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+  color: #000;
+  background-image:url('static/assets/images/BG1.jpg');
+  background-attachment:fixed;
+  width:auto;
+  background-repeat:no-repeat;
+  background-size:cover;
+
+}
+
+.student-profile .card {
+  border-radius: 10px;
+}
+
+.student-profile .card .card-header .profile_img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  margin: 10px auto;
+  border: 10px solid #ccc;
+  border-radius: 50%;
+}
+
+.student-profile .card h3 {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.student-profile .card p {
+  font-size: 16px;
+  color: #000;
+}
+
+.student-profile .table th,
+.student-profile .table td {
+  font-size: 14px;
+  padding: 5px 10px;
+  color: #000;
+}
+
+ .alert {
+  padding: 20px;
+  background-color: red;
+  color: white;
+}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}
+
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+.left {
+  width: 40%;
+}
+
+.right {
+  width: 60%;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.codepen, .profile {
+  margin: 1em auto;
+}
+.codepen h1, .profile h1 {
+  color: #484848;
+  font-weight: 100;
+}
+.codepen a, .profile a {
+  color: #1daaff;
+}
+.codepen a:hover, .profile a:hover {
+  color: #0072b6;
+}
+
+.profile {
+  max-width: 500px;
+  border: 1px solid #e1e1e1;
+  border-radius: 20px;
+  padding: 2em;
+  margin: 1em;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  position: relative;
+}
+.profile figure {
+  margin: 0;
+}
+.profile figure img {
+  max-width: 150px;
+  max-height: 150px;
+  border-radius: 50%;
+
+  box-shadow: 0px 0px 20px rgba(21, 21, 21, 0.15);
+}
+.profile header h1 {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+.profile header h1 small {
+  display: block;
+  clear: both;
+  font-size: 18px;
+  opacity: 0.6;
+}
+.profile main {
+  display: none;
+}
+.profile main dl {
+  display: block;
+  width: 100%;
+}
+.profile main dl dt,
+.profile main dl dd {
+  float: left;
+  padding: 8px 5px;
+  margin: 0;
+  border-bottom: 1px solid #e1e1e1;
+}
+.profile main dl dt a,
+.profile main dl dd a {
+  padding-right: 5px;
+}
+.profile main dl dt {
+  width: 30%;
+  padding-right: 10px;
+  font-weight: bold;
+}
+.profile main dl dt:after {
+  content: ":";
+}
+.profile main dl dd {
+  width: 70%;
+}
+.profile .toggle {
+  position: absolute;
+  background: #fff;
+  top: 30px;
+  left: 30px;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 24px;
+  text-align: center;
+  z-index: 20;
+  vertical-align: middle;
+  box-shadow: 0px 0px 10px rgba(21, 21, 21, 0.15);
+  cursor: pointer;
+  border-radius: 20px;
+  user-select: none;
+  transition: box-shadow 300ms ease;
+}
+.profile .toggle:hover {
+  box-shadow: 0px 0px 10px rgba(21, 21, 21, 0.25);
+}
+.profile .toggle main {
+  font-size: 16px;
+}
+
+.view_details {
+  position: absolute;
+  top: -5000px;
+  left: -5000px;
+}
+
+label {
+  display: block;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 520px) {
+  .profile {
+    padding: 1em;
+    margin: 1em;
+  }
+
+  .profile img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .profile main dl,
+.profile main dl dt,
+.profile main dl dd {
+    display: block;
+    width: 100%;
+    float: none;
+  }
+
+  .profile main dl dt {
+    border-bottom: none;
+  }
+
+  .profile main dl dd {
+    margin-bottom: 10px;
+  }
+
+  .profile .toggle {
+    top: 15px;
+    left: 15px;
+  }
+}
+        table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 0px solid #dddddd;
+  text-align: left;
+  padding: 10px;
+}
+
+    </style>
+
+</head>
+<body>
+
+  <!-- Header start -->
+    <section data-bs-version="5.1" class="menu menu2 cid-sXInXOg5Bn" once="menu" id="menu2-k" style="background-color:black; padding:0px;margin:0px;border:0px">
+
+    <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg" style="background-color:white;border-radius:0 0 20px 20px" >
+        <div class="container-fluid"  style="background-color:white;">
+            <div class="navbar-brand">
+                <span class="navbar-logo">
+                    <a href="{% url 'index' %}">
+                        <img  src="static/assets/images/navlogo.png" alt="" style="max-height:2.2rem;width:230px;position:relative">
+                    </a>
+                </span>
+
+            </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbarSupportedContent" data-bs-target="#navbarSupportedContent" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+            <div  class="collapse navbar-collapse" id="navbarSupportedContent" >
+<ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
+    <li class="nav-item" ><a class="nav-link link text-danger text-primary display-4" href="{% url 'index' %}" ><strong style="color:#2c344e;font-family:nexa">Home</strong></a></li>
+    <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'aboutus' %}"><strong style="color:#2c344e;font-family:nexa ">About us</strong></a></li>
+    <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'events' %}"><strong style="color:#2c344e;font-family:nexa ">Events</strong></a></li>
+    <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'gallery' %}"><strong style="color:#2c344e;font-family:nexa ">Gallery</strong></a></li>
+<!--    <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'sponsers' %}"><strong style="color:#2c344e;font-family:nexa ">Sponsors</strong></a></li>-->
+<!--     <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'team' %}"><strong style="color:#2c344e;font-family:nexa ">Team</strong></a></li>-->
+   <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'team' %}"><strong style="color:#2c344e;font-family:nexa ">Team</strong></a></li>
+    {% if  user.is_authenticated %}
+     <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'user_profile' %}"><strong style="color:#2c344e;font-family:nexa ">Profile</strong></a></li>
+         {% endif %}
+</ul>
+
+     <div class="navbar-buttons mbr-section-btn" >
+      {% if not user.is_authenticated %}
+     <a class="btn btn-primary display-4" id="joinus" href="{% url 'log' %}" style="font-family:nexa;border-radius:20px;padding:4px;font-size:16px;width:100px">Join Us</a>
+<!--     <a class="btn btn-primary display-4" href="{% url 'register' %}" style="font-family:nexa">Register</a>-->
+      {% endif %}
+         {% if  user.profile.payment == "No" %}
+     <a class="btn btn-primary display-4" href="{% url 'events' %}" style="font-family:nexa;border-radius:20px;padding:4px;font-size:16px;width:100px">Pay Now</a>
+         {% endif %}
+     {% if  user.is_authenticated %}
+     <a class="btn btn-primary display-4" href="{% url 'logout_user' %}" style="font-family:nexa;border-radius:20px;padding:4px;font-size:16px;width:100px">Logout</a>
+         {% endif %}
+     </div>
+            </div>
+        </div>
+    </nav>
+</section>
+     <!-- Header End -->
+<br><br><br>
+{% if messages %}
+
+    {% for message in messages %}
+        {%if "fail" in message.tags %}
+<div class="alert">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+  <strong>Warning! </strong>{{ message }}
+</div>
+        {%endif%}
+    {% endfor %}
+    {% for message in messages %}
+        {%if "paid" in message.tags %}
+<div class="alert" style="background-color: green;">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+  <strong>Success! </strong>{{ message }}
+</div>
+        {%endif%}
+    {% endfor %}
+{% endif %}
+<div class="pCard_card">
+   <div class="pCard_up">
+
+      <div class="pCard_add"><i class="fa fa-plus"></i></div>
+   </div>
+   <div class="pCard_down">
+      <div>
+          <p style="font-size:20px"><strong>{{user.first_name}}</strong></p>
+          {% if user.profile.th_id != "0" %}
+         <p style="font-size:20px"><strong>{{user.profile.th_id}}</strong></p>
+          {% else %}
+          <p style="font-size:20px"><strong>Not Registered Yet</strong></p>
+          {% endif %}
+      </div>
+   </div>
+   <div class="pCard_back">
+       <p style="text-align: center;margin: auto;font-size: 30px"><strong>Details</strong></p><br>
+      <table>
+          <tr>
+              <th>Email:</th>
+              <td>{{user.email}}</td>
+          </tr>
+          <tr>
+              <th>Mobile:</th>
+              <td>{{user.profile.mobile}}</td>
+          </tr>
+          <tr>
+              <th>College:</th>
+              <th>{{user.profile.college_name}}</th>
+          </tr>
+          <tr>
+              <th>ID:</th>
+              <th>{{user.profile.id_no}}</th>
+          </tr>
+          <tr>
+              <th>Branch:</th>
+              <th>{{user.profile.branch}}</th>
+          </tr>
+          <tr>
+              <th>Paid:</th>
+              {% if user.profile.payment == "No" %}
+                <th><i class="fa fa-times" aria-hidden="true" style="font-size: 20px;color:red">Not paid</i></th>
+              {% else %}
+               <th><i class="fa fa-check-circle" aria-hidden="true" style="font-size: 20px;color:green">Paid</i></th>
+              {% endif %}
+          </tr>
+
+      </table>
+
+   </div>
+
+</div>
+
+
+</div><br><br><br><br>
+
+  <script src='https://code.jquery.com/jquery-1.12.1.min.js'></script>
+  <script  src="static/profile-script.js"></script>
+
+ <!-- Footer start -->
+
+  {% include "footer.html" %}
+<!--<section data-bs-version="5.1" class="footer3 cid-sXIDR5mIlp" once="footers" id="footer3-1g">-->
+<!--    <div class="container">-->
+<!--        <div class="media-container-row align-center mbr-white">-->
+<!--            <div class="row row-links">-->
+<!--                <ul class="foot-menu">-->
+
+<!--<li class="foot-menu-item mbr-fonts-style display-7"><a href="{% url 'index' %}" class="text-primary">Home</a></li>-->
+<!--<li class="foot-menu-item mbr-fonts-style display-7"><a href="{% url 'aboutus' %}" class="text-primary">About Us</a></li>-->
+<!--<li class="foot-menu-item mbr-fonts-style display-7"><a href="{% url 'team' %}" class="text-primary">Team</a></li>-->
+<!--<li class="foot-menu-item mbr-fonts-style display-7"><a href="{% url 'gallery' %}" class="text-primary">Gallery</a></li>-->
+<!-- <li class="foot-menu-item mbr-fonts-style display-7"><a href="{% url 'contact' %}" class="text-primary">Contact Us</a></li></ul>-->
+<!--            </div>-->
+<!--            <div class="row social-row">-->
+<!--                <div class="social-list align-right pb-2">-->
+
+<!--                <div class="soc-item">-->
+<!--                        <a href="" target="_blank">-->
+<!--                            <span class="mbr-iconfont mbr-iconfont-social socicon-instagram socicon"></span>-->
+<!--                        </a>-->
+<!--                    </div><div class="soc-item">-->
+<!--                        <a href="" target="_blank">-->
+<!--                            <span class="mbr-iconfont mbr-iconfont-social socicon-youtube socicon"></span>-->
+<!--                        </a>-->
+<!--                    </div></div>-->
+<!--            </div>-->
+<!--            <div class="row row-copirayt">-->
+<!--                <p class="mbr-text mb-0 mbr-fonts-style mbr-white align-center display-7">-->
+<!--                    © Copyright 2022 Thrusang. All Rights Reserved.-->
+<!--                </p>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+
+<!--</section>-->
+<script src="static/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="static/assets/smoothscroll/smooth-scroll.js"></script>
+<script src="static/assets/ytplayer/index.js"></script>
+<script src="static/assets/vimeoplayer/player.js"></script>
+<script src="static/assets/dropdown/js/navbar-dropdown.js"></script>
+ <!-- Footer end -->
+<script type="text/javascript">
+function disableRightClick()
+{
+return false;
+}
+document.onkeydown = function(e) {
+        if (event.keyCode==123) {
+            return false;
+        }
+        if(e.ctrlKey && e.shiftKey && e.keyCode=='I'.charCodeAt(0)) {
+            return false;
+        }
+        if(e.ctrlKey && e.shiftKey && e.keyCode=='J'.charCodeAt(0)) {
+            return false;
+        }
+        if(e.ctrlKey && e.keyCode=='U'.charCodeAt(0)) {
+            return false;
+        }
+}
+
+</script>
+</body>
+</html>

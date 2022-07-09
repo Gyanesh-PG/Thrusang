@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html  lang="en" oncontextmenu=" return disableRightClick() ;">
+{% load static %}
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Mobirise v5.6.0, mobirise.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="static/assets/images/Thrusang_Logo.png" type="image/x-icon">
+  <meta name="description" content="">
+  
+  
+  <title>KLThrusang | Gallery</title>
+  <link rel="stylesheet" href="static/assets/web/assets/mobirise-icons2/mobirise2.css">
+  <link rel="stylesheet" href="static/assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="static/assets/bootstrap/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="static/assets/bootstrap/css/bootstrap-reboot.min.css">
+  <link rel="stylesheet" href="static/assets/dropdown/css/style.css">
+  <link rel="stylesheet" href="static/assets/socicon/css/styles.css">
+  <link rel="stylesheet" href="static/assets/theme/css/style.css">
+    <link rel="stylesheet" href="static/footer/footer1.css">
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i,700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i,700&display=swap"></noscript>
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap"></noscript>
+  <link rel="preload" as="style" href="static/assets/mobirise/css/mbr-additional.css"><link rel="stylesheet" href="static/assets/mobirise/css/mbr-additional.css" type="text/css">
+      <link rel="stylesheet" href="static/font.css">
+
+  
+  
+  
+</head>
+<body>
+  
+  <!-- Header start -->
+   <section data-bs-version="5.1" class="menu menu2 cid-sXInXOg5Bn" once="menu" id="menu2-k" style="background-color:black; padding:0px;margin:0px;border:0px">
+
+    <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg" style="background-color:white;border-radius:0 0 20px 20px" >
+        <div class="container-fluid"  style="background-color:white;">
+            <div class="navbar-brand">
+                <span class="navbar-logo">
+                    <a href="{% url 'index' %}">
+                        <img  src="static/assets/images/navlogo.png" alt="" style="max-height:2.2rem;width:230px;position:relative">
+                    </a>
+                </span>
+
+            </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbarSupportedContent" data-bs-target="#navbarSupportedContent" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+            <div  class="collapse navbar-collapse" id="navbarSupportedContent" >
+<ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
+    <li class="nav-item" ><a class="nav-link link text-danger text-primary display-4" href="{% url 'index' %}" ><strong style="color:#2c344e;font-family:nexa">Home</strong></a></li>
+    <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'aboutus' %}"><strong style="color:#2c344e;font-family:nexa ">About us</strong></a></li>
+    <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'events' %}"><strong style="color:#2c344e;font-family:nexa ">Events</strong></a></li>
+    <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'gallery' %}"><strong style="color:#2c344e;font-family:nexa ">Gallery</strong></a></li>
+<!--    <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'sponsers' %}"><strong style="color:#2c344e;font-family:nexa ">Sponsors</strong></a></li>-->
+<!--<li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'team' %}"><strong style="color:#2c344e;font-family:nexa ">Team</strong></a></li>     <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'team' %}"><strong style="color:#2c344e;font-family:nexa ">Team</strong></a></li>-->
+    {% if  user.is_authenticated %}
+     <li class="nav-item"><a class="nav-link link text-danger text-primary display-4" href="{% url 'user_profile' %}"><strong style="color:#2c344e;font-family:nexa ">Profile</strong></a></li>
+         {% endif %}
+</ul>
+
+     <div class="navbar-buttons mbr-section-btn" >
+      {% if not user.is_authenticated %}
+     <a class="btn btn-primary display-4" id="joinus" href="{% url 'log' %}" style="font-family:nexa;border-radius:20px;padding:4px;font-size:16px;width:100px">Join Us</a>
+<!--     <a class="btn btn-primary display-4" href="{% url 'register' %}" style="font-family:nexa">Register</a>-->
+      {% endif %}
+         {% if  user.profile.payment == "No" %}
+     <a class="btn btn-primary display-4" href="{% url 'events' %}" style="font-family:nexa;border-radius:20px;padding:4px;font-size:16px;width:100px">Pay Now</a>
+         {% endif %}
+     {% if  user.is_authenticated %}
+     <a class="btn btn-primary display-4" href="{% url 'logout_user' %}" style="font-family:nexa;border-radius:20px;padding:4px;font-size:16px;width:100px">Logout</a>
+         {% endif %}
+     </div>
+            </div>
+        </div>
+    </nav>
+</section>
+     <!-- Header End -->
+  <div style="background-image:url('static/assets/images/BGM.jpg');background-attachment:fixed;width:auto;background-repeat:no-repeat;background-size:cover;">
+
+<section data-bs-version="5.1" class="slider1 cid-sXIvQcd17u" id="slider1-z" style="background:transparent">
+
+    
+    <div class="carousel slide" id="sXMZDNm8Xj" data-interval="5000" data-bs-interval="5000">
+        <ol class="carousel-indicators">
+            <li data-slide-to="0" data-bs-slide-to="0" class="active" data-target="#sXMZDNm8Xj" data-bs-target="#sXMZDNm8Xj"></li>
+            <li data-slide-to="1" data-bs-slide-to="1" data-target="#sXMZDNm8Xj" data-bs-target="#sXMZDNm8Xj"></li>
+            <li data-slide-to="2" data-bs-slide-to="2" data-target="#sXMZDNm8Xj" data-bs-target="#sXMZDNm8Xj"></li>
+        </ol>
+        <div class="carousel-inner">
+                        <h4 class="mbr-section-title mbr-fonts-style mb-0 display-2">Gallery</h4>
+
+            <div class="carousel-item slider-image item active">
+                <div class="item-wrapper">
+                    <img class="d-block w-100" src="static/assets/images/main_pic.JPG">
+                </div>
+            </div>
+            <div class="carousel-item slider-image item">
+                <div class="item-wrapper">
+                    <img class="d-block w-100" src="static/assets/images/main_gallery1.JPG" alt="pic">
+
+                </div>
+            </div>
+            <div class="carousel-item slider-image item">
+                <div class="item-wrapper">
+                    <img class="d-block w-100" src="static/assets/images/main_gallery3.JPG">
+
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control carousel-control-prev" role="button" data-slide="prev" data-bs-slide="prev" href="#sXMZDNm8Xj">
+            <span class="mobi-mbri mobi-mbri-arrow-prev" aria-hidden="true"></span>
+            <span class="sr-only visually-hidden">Previous</span>
+        </a>
+        <a class="carousel-control carousel-control-next" role="button" data-slide="next" data-bs-slide="next" href="#sXMZDNm8Xj">
+            <span class="mobi-mbri mobi-mbri-arrow-next" aria-hidden="true"></span>
+            <span class="sr-only visually-hidden">Next</span>
+        </a>
+    </div>
+</section>
+
+<section data-bs-version="5.1" class="gallery4 mbr-gallery cid-sXIx7QVDHg" id="gallery4-11" style="background:transparent">
+    
+
+    
+
+    <div class="container-fluid">
+        
+        <div class="row mbr-gallery mt-4">
+            <div class="col-12 col-md-6 col-lg-3 item gallery-image active">
+                <div class="item-wrapper" data-toggle="modal" data-bs-toggle="modal" data-target="#sXMZDO3EQL-modal" data-bs-target="#sXMZDO3EQL-modal">
+                    <img class="w-100" src="static/assets/images/gallery1.JPG" alt="" data-slide-to="0" data-bs-slide-to="0" data-target="#lb-sXMZDO3EQL" data-bs-target="#lb-sXMZDO3EQL">
+                    <div class="icon-wrapper">
+                        <span class="mobi-mbri mobi-mbri-search mbr-iconfont mbr-iconfont-btn"></span>
+                    </div>
+                </div>
+                
+            </div><div class="col-12 col-md-6 col-lg-3 item gallery-image">
+                <div class="item-wrapper" data-toggle="modal" data-bs-toggle="modal" data-target="#sXMZDO3EQL-modal" data-bs-target="#sXMZDO3EQL-modal">
+                    <img class="w-100" src="static/assets/images/gallery2.JPG" alt="" data-slide-to="1" data-bs-slide-to="1" data-target="#lb-sXMZDO3EQL" data-bs-target="#lb-sXMZDO3EQL">
+                    <div class="icon-wrapper">
+                        <span class="mobi-mbri mobi-mbri-search mbr-iconfont mbr-iconfont-btn"></span>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="col-12 col-md-6 col-lg-3 item gallery-image">
+                <div class="item-wrapper" data-toggle="modal" data-bs-toggle="modal" data-target="#sXMZDO3EQL-modal" data-bs-target="#sXMZDO3EQL-modal">
+                    <img class="w-100" src="static/assets/images/gallery3.JPG" alt="" data-slide-to="2" data-bs-slide-to="2" data-target="#lb-sXMZDO3EQL" data-bs-target="#lb-sXMZDO3EQL">
+                    <div class="icon-wrapper">
+                        <span class="mobi-mbri mobi-mbri-search mbr-iconfont mbr-iconfont-btn"></span>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="col-12 col-md-6 col-lg-3 item gallery-image">
+                <div class="item-wrapper" data-toggle="modal" data-bs-toggle="modal" data-target="#sXMZDO3EQL-modal" data-bs-target="#sXMZDO3EQL-modal">
+                    <img class="w-100" src="static/assets/images/gallery4.JPG" alt="" data-slide-to="3" data-bs-slide-to="3" data-target="#lb-sXMZDO3EQL" data-bs-target="#lb-sXMZDO3EQL">
+                    <div class="icon-wrapper">
+                        <span class="mobi-mbri mobi-mbri-search mbr-iconfont mbr-iconfont-btn"></span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="modal mbr-slider" tabindex="-1" role="dialog" aria-hidden="true" id="sXMZDO3EQL-modal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="carousel slide carousel-fade" id="lb-sXMZDO3EQL" data-interval="5000" data-bs-interval="5000">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img class="d-block w-100" src="static/assets/images/gallery1.JPG" alt="">
+                                </div><div class="carousel-item">
+                                    <img class="d-block w-100" src="static/assets/images/gallery2.JPG" alt="">
+                                </div>
+                                
+                                <div class="carousel-item">
+                                    <img class="d-block w-100" src="static/assets/images/gallery3.JPG" alt="">
+                                </div>
+                                <div class="carousel-item">
+                                    <img class="d-block w-100" src="static/assets/images/gallery4.JPG" alt="">
+                                </div>
+                            </div>
+                            <ol class="carousel-indicators">
+                                <li data-slide-to="0" data-bs-slide-to="0" class="active" data-target="#lb-sXMZDO3EQL" data-bs-target="#lb-sXMZDO3EQL"></li>
+                                <li data-slide-to="1" data-bs-slide-to="1" data-target="#lb-sXMZDO3EQL" data-bs-target="#lb-sXMZDO3EQL"></li>
+                                <li data-slide-to="2" data-bs-slide-to="2" data-target="#lb-sXMZDO3EQL" data-bs-target="#lb-sXMZDO3EQL"></li>
+                                <li data-slide-to="3" data-bs-slide-to="3" data-target="#lb-sXMZDO3EQL" data-bs-target="#lb-sXMZDO3EQL"></li>
+                            </ol>
+                            <a role="button" href="" class="close" data-dismiss="modal" data-bs-dismiss="modal" aria-label="Close">
+                            </a>
+                            <a class="carousel-control-prev carousel-control" role="button" data-slide="prev" data-bs-slide="prev" href="#lb-sXMZDO3EQL">
+                                <span class="mobi-mbri mobi-mbri-arrow-prev" aria-hidden="true"></span>
+                                <span class="sr-only visually-hidden">Previous</span>
+                            </a>
+                            <a class="carousel-control-next carousel-control" role="button" data-slide="next" data-bs-slide="next" href="#lb-sXMZDO3EQL">
+                                <span class="mobi-mbri mobi-mbri-arrow-next" aria-hidden="true"></span>
+                                <span class="sr-only visually-hidden">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section data-bs-version="5.1" class="gallery5 mbr-gallery cid-sXIxYOGluI" id="gallery5-12" style="background:transparent">
+    
+
+    
+
+    <div class="container-fluid">
+        
+        <div class="row mbr-gallery mt-4">
+            <div class="col-12 col-md-6 col-lg-3 item gallery-image">
+                <div class="item-wrapper" data-toggle="modal" data-bs-toggle="modal" data-target="#sXMZDP158m-modal" data-bs-target="#sXMZDP158m-modal">
+                    <img class="w-100" src="static/assets/images/gallery5.JPG" alt="" data-slide-to="0" data-bs-slide-to="0" data-target="#lb-sXMZDP158m" data-bs-target="#lb-sXMZDP158m">
+                    <div class="icon-wrapper">
+                        <span class="mobi-mbri mobi-mbri-search mbr-iconfont mbr-iconfont-btn"></span>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="col-12 col-md-6 col-lg-3 item gallery-image">
+                <div class="item-wrapper" data-toggle="modal" data-bs-toggle="modal" data-target="#sXMZDP158m-modal" data-bs-target="#sXMZDP158m-modal">
+                    <img class="w-100" src="static/assets/images/gallery6.JPG" alt="" data-slide-to="1" data-bs-slide-to="1" data-target="#lb-sXMZDP158m" data-bs-target="#lb-sXMZDP158m">
+                    <div class="icon-wrapper">
+                        <span class="mobi-mbri mobi-mbri-search mbr-iconfont mbr-iconfont-btn"></span>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="col-12 col-md-6 col-lg-3 item gallery-image">
+                <div class="item-wrapper" data-toggle="modal" data-bs-toggle="modal" data-target="#sXMZDP158m-modal" data-bs-target="#sXMZDP158m-modal">
+                    <img class="w-100" src="static/assets/images/gallery7.JPG" alt="" data-slide-to="2" data-bs-slide-to="2" data-target="#lb-sXMZDP158m" data-bs-target="#lb-sXMZDP158m">
+                    <div class="icon-wrapper">
+                        <span class="mobi-mbri mobi-mbri-search mbr-iconfont mbr-iconfont-btn"></span>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="col-12 col-md-6 col-lg-3 item gallery-image">
+                <div class="item-wrapper" data-toggle="modal" data-bs-toggle="modal" data-target="#sXMZDP158m-modal" data-bs-target="#sXMZDP158m-modal">
+                    <img class="w-100" src="static/assets/images/gallery8.JPG" alt="" data-slide-to="3" data-bs-slide-to="3" data-target="#lb-sXMZDP158m" data-bs-target="#lb-sXMZDP158m">
+                    <div class="icon-wrapper">
+                        <span class="mobi-mbri mobi-mbri-search mbr-iconfont mbr-iconfont-btn"></span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="modal mbr-slider" tabindex="-1" role="dialog" aria-hidden="true" id="sXMZDP158m-modal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="carousel slide carousel-fade" id="lb-sXMZDP158m" data-interval="5000" data-bs-interval="5000">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img class="d-block w-100" src="static/assets/images/gallery5.JPG" alt="">
+                                </div>
+                                <div class="carousel-item">
+                                    <img class="d-block w-100" src="static/assets/images/gallery6.JPG" alt="">
+                                </div>
+                                <div class="carousel-item">
+                                    <img class="d-block w-100" src="static/assets/images/gallery7.JPG" alt="">
+                                </div>
+                                <div class="carousel-item">
+                                    <img class="d-block w-100" src="static/assets/images/gallery8.JPG" alt="">
+                                </div>
+                            </div>
+                            <ol class="carousel-indicators">
+                                <li data-slide-to="0" data-bs-slide-to="0" class="active" data-target="#lb-sXMZDP158m" data-bs-target="#lb-sXMZDP158m"></li>
+                                <li data-slide-to="1" data-bs-slide-to="1" data-target="#lb-sXMZDP158m" data-bs-target="#lb-sXMZDP158m"></li>
+                                <li data-slide-to="2" data-bs-slide-to="2" data-target="#lb-sXMZDP158m" data-bs-target="#lb-sXMZDP158m"></li>
+                                <li data-slide-to="3" data-bs-slide-to="3" data-target="#lb-sXMZDP158m" data-bs-target="#lb-sXMZDP158m"></li>
+                            </ol>
+                            <a role="button" href="" class="close" data-dismiss="modal" data-bs-dismiss="modal" aria-label="Close">
+                            </a>
+                            <a class="carousel-control-prev carousel-control" role="button" data-slide="prev" data-bs-slide="prev" href="#lb-sXMZDP158m">
+                                <span class="mobi-mbri mobi-mbri-arrow-prev" aria-hidden="true"></span>
+                                <span class="sr-only visually-hidden">Previous</span>
+                            </a>
+                            <a class="carousel-control-next carousel-control" role="button" data-slide="next" data-bs-slide="next" href="#lb-sXMZDP158m">
+                                <span class="mobi-mbri mobi-mbri-arrow-next" aria-hidden="true"></span>
+                                <span class="sr-only visually-hidden">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section data-bs-version="5.1" class="gallery5 mbr-gallery cid-sXIzkRomVH" id="gallery5-15" style="background:transparent">
+    
+
+    
+
+    <div class="container-fluid">
+        
+        <div class="row mbr-gallery mt-4">
+            <div class="col-12 col-md-6 col-lg-3 item gallery-image">
+                <div class="item-wrapper" data-toggle="modal" data-bs-toggle="modal" data-target="#sXMZDPRZOp-modal" data-bs-target="#sXMZDPRZOp-modal">
+                    <img class="w-100" src="static/assets/images/gallery9.JPG" alt="" data-slide-to="0" data-bs-slide-to="0" data-target="#lb-sXMZDPRZOp" data-bs-target="#lb-sXMZDPRZOp">
+                    <div class="icon-wrapper">
+                        <span class="mobi-mbri mobi-mbri-search mbr-iconfont mbr-iconfont-btn"></span>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="col-12 col-md-6 col-lg-3 item gallery-image">
+                <div class="item-wrapper" data-toggle="modal" data-bs-toggle="modal" data-target="#sXMZDPRZOp-modal" data-bs-target="#sXMZDPRZOp-modal">
+                    <img class="w-100" src="static/assets/images/gallery10.JPG" alt="" data-slide-to="1" data-bs-slide-to="1" data-target="#lb-sXMZDPRZOp" data-bs-target="#lb-sXMZDPRZOp">
+                    <div class="icon-wrapper">
+                        <span class="mobi-mbri mobi-mbri-search mbr-iconfont mbr-iconfont-btn"></span>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="col-12 col-md-6 col-lg-3 item gallery-image">
+                <div class="item-wrapper" data-toggle="modal" data-bs-toggle="modal" data-target="#sXMZDPRZOp-modal" data-bs-target="#sXMZDPRZOp-modal">
+                    <img class="w-100" src="static/assets/images/gallery11.JPG" alt="" data-slide-to="2" data-bs-slide-to="2" data-target="#lb-sXMZDPRZOp" data-bs-target="#lb-sXMZDPRZOp">
+                    <div class="icon-wrapper">
+                        <span class="mobi-mbri mobi-mbri-search mbr-iconfont mbr-iconfont-btn"></span>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="col-12 col-md-6 col-lg-3 item gallery-image">
+                <div class="item-wrapper" data-toggle="modal" data-bs-toggle="modal" data-target="#sXMZDPRZOp-modal" data-bs-target="#sXMZDPRZOp-modal">
+                    <img class="w-100" src="static/assets/images/gallery12.JPG" alt="" data-slide-to="3" data-bs-slide-to="3" data-target="#lb-sXMZDPRZOp" data-bs-target="#lb-sXMZDPRZOp">
+                    <div class="icon-wrapper">
+                        <span class="mobi-mbri mobi-mbri-search mbr-iconfont mbr-iconfont-btn"></span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="modal mbr-slider" tabindex="-1" role="dialog" aria-hidden="true" id="sXMZDPRZOp-modal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="carousel slide carousel-fade" id="lb-sXMZDPRZOp" data-interval="5000" data-bs-interval="5000">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img class="d-block w-100" src="static/assets/images/gallery9.JPG" alt="">
+                                </div>
+                                <div class="carousel-item">
+                                    <img class="d-block w-100" src="static/assets/images/gallery10.JPG" alt="">
+                                </div>
+                                <div class="carousel-item">
+                                    <img class="d-block w-100" src="static/assets/images/gallery11.JPG" alt="">
+                                </div>
+                                <div class="carousel-item">
+                                    <img class="d-block w-100" src="static/assets/images/gallery12.JPG" alt="">
+                                </div>
+                            </div>
+                            <ol class="carousel-indicators">
+                                <li data-slide-to="0" data-bs-slide-to="0" class="active" data-target="#lb-sXMZDPRZOp" data-bs-target="#lb-sXMZDPRZOp"></li>
+                                <li data-slide-to="1" data-bs-slide-to="1" data-target="#lb-sXMZDPRZOp" data-bs-target="#lb-sXMZDPRZOp"></li>
+                                <li data-slide-to="2" data-bs-slide-to="2" data-target="#lb-sXMZDPRZOp" data-bs-target="#lb-sXMZDPRZOp"></li>
+                                <li data-slide-to="3" data-bs-slide-to="3" data-target="#lb-sXMZDPRZOp" data-bs-target="#lb-sXMZDPRZOp"></li>
+                            </ol>
+                            <a role="button" href="" class="close" data-dismiss="modal" data-bs-dismiss="modal" aria-label="Close">
+                            </a>
+                            <a class="carousel-control-prev carousel-control" role="button" data-slide="prev" data-bs-slide="prev" href="#lb-sXMZDPRZOp">
+                                <span class="mobi-mbri mobi-mbri-arrow-prev" aria-hidden="true"></span>
+                                <span class="sr-only visually-hidden">Previous</span>
+                            </a>
+                            <a class="carousel-control-next carousel-control" role="button" data-slide="next" data-bs-slide="next" href="#lb-sXMZDPRZOp">
+                                <span class="mobi-mbri mobi-mbri-arrow-next" aria-hidden="true"></span>
+                                <span class="sr-only visually-hidden">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+  <section data-bs-version="5.1" class="video2 cid-sXIvNnS9ME" id="video2-y" style="background:transparent">
+
+
+    <div class="container">
+
+        <div class="row justify-content-center mt-4">
+            <div class="col-12 col-md-10 video-block">
+                <div class="video-wrapper"><iframe class="mbr-embedded-video" src="https://www.youtube.com/embed/Gvj3hfY1ySU" width="1280" height="720" frameborder="0" allowfullscreen></iframe></div>
+
+            </div>
+        </div>
+    </div>
+</section><br><br><br><br><br>
+<!-- Footer start -->
+<!--<section data-bs-version="5.1" class="footer3 cid-sXIDR5mIlp" once="footers" id="footer3-1g">-->
+
+
+
+
+
+<!--    <div class="container">-->
+<!--        <div class="media-container-row align-center mbr-white">-->
+<!--            <div class="row row-links">-->
+<!--                <ul class="foot-menu">-->
+
+<!--<li class="foot-menu-item mbr-fonts-style display-7"><a href="{% url 'index' %}" class="text-primary">Home</a></li>-->
+<!--<li class="foot-menu-item mbr-fonts-style display-7"><a href="{% url 'aboutus' %}" class="text-primary">About Us</a></li>-->
+<!--<li class="foot-menu-item mbr-fonts-style display-7"><a href="{% url 'team' %}" class="text-primary">Team</a></li>-->
+<!--<li class="foot-menu-item mbr-fonts-style display-7"><a href="{% url 'gallery' %}" class="text-primary">Gallery</a></li>-->
+<!-- <li class="foot-menu-item mbr-fonts-style display-7"><a href="{% url 'contact' %}" class="text-primary">Contact Us</a></li></ul>-->
+<!--            </div>-->
+<!--            <div class="row social-row">-->
+<!--                <div class="social-list align-right pb-2">-->
+
+<!--                <div class="soc-item">-->
+<!--                        <a href="" target="_blank">-->
+<!--                            <span class="mbr-iconfont mbr-iconfont-social socicon-instagram socicon"></span>-->
+<!--                        </a>-->
+<!--                    </div><div class="soc-item">-->
+<!--                        <a href="" target="_blank">-->
+<!--                            <span class="mbr-iconfont mbr-iconfont-social socicon-youtube socicon"></span>-->
+<!--                        </a>-->
+<!--                    </div></div>-->
+<!--            </div>-->
+<!--            <div class="row row-copirayt">-->
+<!--                <p class="mbr-text mb-0 mbr-fonts-style mbr-white align-center display-7">-->
+<!--                    © Copyright 2022 Thrusang. All Rights Reserved.-->
+<!--                </p>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+
+<!--</section>-->
+  {% include 'footer.html' %}
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<script src="static/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="static/assets/smoothscroll/smooth-scroll.js"></script>
+<script src="static/assets/ytplayer/index.js"></script>
+<script src="static/assets/vimeoplayer/player.js"></script>
+<script src="static/assets/dropdown/js/navbar-dropdown.js"></script>
+ <!-- Footer end -->
+  </div>
+<script type="text/javascript">
+function disableRightClick()
+{
+return false;
+}
+document.onkeydown = function(e) {
+        if (event.keyCode==123) {
+            return false;
+        }
+        if(e.ctrlKey && e.shiftKey && e.keyCode=='I'.charCodeAt(0)) {
+            return false;
+        }
+        if(e.ctrlKey && e.shiftKey && e.keyCode=='J'.charCodeAt(0)) {
+            return false;
+        }
+        if(e.ctrlKey && e.keyCode=='U'.charCodeAt(0)) {
+            return false;
+        }
+}
+
+</script>
+</body>
+</html>

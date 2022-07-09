@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html oncontextmenu=" return disableRightClick() ;">
+{% load static %}
+<head>
+    <title>klthrusang | Login</title>
+    <link rel="shortcut icon" href="static/assets/images/Thrusang_Logo.png" type="image/x-icon">
+    <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body
+{
+    height: 400px;
+    background: linear-gradient(to bottom right, #ffccff 7%, #0099cc 100%);
+}
+    .alert {
+  padding: 20px;
+  background-color: red;
+  color: white;
+}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}
+
+
+ body{
+        background-position: center;
+         background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  background-image: url('static/assets/images/SignBG.jpg');
+
+    }
+.input-container {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.icon {
+  padding: 10px;
+  background: dodgerblue;
+  color: white;
+  min-width: 50px;
+  text-align: center;
+}
+
+.input-field,select {
+  width: 100%;
+  padding: 10px;
+  outline: none;
+}
+
+.input-field:focus {
+  border: 2px solid dodgerblue;
+}
+
+/* Set a style for the submit button */
+.btn {
+  background-color: dodgerblue;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.btn:hover {
+  opacity: 1;
+}
+
+.signup-form {
+	width: auto;
+	margin: 0 auto;
+	padding: 20px 0;
+      margin-top: 80px;
+}
+.signup-form form {
+	border-radius: 10px;
+	margin-bottom: 20px;
+     margin-top: 80px;
+	background: #fff;
+	box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.3);
+	padding: 40px;
+    height: auto;
+    background: lightgrey;
+
+}
+
+
+</style>
+</head>
+<body>
+{% if messages %}
+
+    {% for message in messages %}
+        {%if "login" in message.tags %}
+<div class="alert">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+  <strong>Warning! </strong>{{ message }}
+</div>
+        {%endif%}
+    {% endfor %}
+    {% for message in messages %}
+        {%if "signup" in message.tags %}
+<div class="alert" style="background-color: green;">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+  <strong>Success! </strong>{{ message }}
+</div>
+        {%endif%}
+    {% endfor %}
+{% endif %}
+<div class="signup-form">
+<form method="POST" action="{% url 'login_user' %}" style="max-width:500px;margin:auto">
+    {% csrf_token %}
+  <h2 style="text-align:center">Sign In</h2><br>
+ 
+  
+ 
+  <div class="input-container">
+    <i class="fa fa-envelope icon"></i>
+    <input class="input-field" type="email" placeholder="Email" name="email" required>
+  </div>
+  
+  <div class="input-container">
+    <i class="fa fa-key icon"></i>
+    <input class="input-field" type="password" placeholder="Password" name="psw" required>
+  </div>
+  
+
+  <button type="submit" class="btn">Submit</button><br><br>
+<div class="bottom-action clearfix">
+<!--            <label class="float-left form-check-label"><input type="checkbox"> Remember me</label>-->
+    <p style="text-align:center;float:left;"><a href="{% url 'register' %}">Create an Acccount</a></p>
+            <a href="{% url 'contact' %}" class="float-right">Forgot Password?</a><br><br>
+
+
+        </div>
+    <p style="text-align:center;">Go <a href="{% url 'index' %}">Home</a>.</p>
+</form></div>
+<script type="text/javascript">
+function disableRightClick()
+{
+return false;
+}
+document.onkeydown = function(e) {
+        if (event.keyCode==123) {
+            return false;
+        }
+        if(e.ctrlKey && e.shiftKey && e.keyCode=='I'.charCodeAt(0)) {
+            return false;
+        }
+        if(e.ctrlKey && e.shiftKey && e.keyCode=='J'.charCodeAt(0)) {
+            return false;
+        }
+        if(e.ctrlKey && e.keyCode=='U'.charCodeAt(0)) {
+            return false;
+        }
+}
+
+</script>
+</body>
+</html>
