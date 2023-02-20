@@ -78,11 +78,11 @@ WSGI_APPLICATION = 'Thrusang.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Thrusang2',
+        'NAME': 'railway',
         'USER': 'postgres',
-        'PASSWORD': 'Gyanesh@721',
-        'HOST': 'localhost',
-        'PORT': '5432'
+        'PASSWORD': '0ZlVkD6Fk8B2vIzBpfRu',
+        'HOST': 'http://containers-us-west-163.railway.app',
+        'PORT': '6787'
     }
 }
 
