@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" oncontextmenu=" return disableRightClick() ;">
+<head>
+    <meta charset="UTF-8">
+    <title>KLThrusang | Thrusang Tank</title>
+
+    <style>
+ body{
+        background-image: url('static/assets/images/SignBG.jpg');
+        background-position: center;
+         background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+
+    }
+.input-container {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.icon {
+  padding: 10px;
+  background: dodgerblue;
+  color: white;
+  min-width: 50px;
+  text-align: center;
+}
+
+.input-field,select {
+  width: 100%;
+  padding: 10px;
+  outline: none;
+}
+
+.input-field:focus {
+  border: 2px solid dodgerblue;
+}
+
+/* Set a style for the submit button */
+.btn {
+  background-color: dodgerblue;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.btn:hover {
+  opacity: 1;
+}
+
+.signup-form {
+	width: auto;
+	margin: 0 auto;
+	padding: 20px 0;
+      margin-top: 80px;
+}
+.signup-form form {
+	border-radius: 10px;
+	margin-bottom: 20px;
+     margin-top: 80px;
+	background: #fff;
+	box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.3);
+	padding: 40px;
+background:lightgrey;
+}
+
+</style>
+
+</head>
+
+<body>
+<div class="signup-form">
+<form method="POST" action="{% url 'ttpay_initiate' %}" style="max-width:500px;margin:auto" name="myform" onsubmit="return validation()">
+    {% csrf_token %}
+  <h2 style="text-align:center;color:black">Thrusang Tank Registration</h2>
+
+  <p style="text-align:center;color:black">Note: Please Provide details of your teammate if any.</p>
+    <p style="text-align:center;color:black">Note: If no teammate leave fields default.</p>
+  <div class="input-container">
+    <i class="fa fa-user icon"></i>
+    <input class="input-field" type="Name" placeholder="Name" name="name" value="Name">
+  </div>
+
+  <div class="input-container">
+    <i class="fa fa-phone icon"></i>
+    <input class="input-field" type="text" placeholder="mobile number" name="mobile" value="0000000000">
+  </div>
+
+
+  <button type="submit" class="btn">Pay Now</button><br><br>
+
+</form>
+</div>
+<script type="text/javascript">
+function disableRightClick()
+{
+alert("Sorry, right click is not allowed !!");
+return false;
+}
+document.onkeydown = function(e) {
+        if (event.keyCode==123) {
+            return false;
+        }
+        if(e.ctrlKey && e.shiftKey && e.keyCode=='I'.charCodeAt(0)) {
+            return false;
+        }
+        if(e.ctrlKey && e.shiftKey && e.keyCode=='J'.charCodeAt(0)) {
+            return false;
+        }
+        if(e.ctrlKey && e.keyCode=='U'.charCodeAt(0)) {
+            return false;
+        }
+}
+
+</script>
+</body>
+ <script>
+function validation()
+{
+var name=document.myform.name;
+var phno = document.myform.mobile;
+
+var letters = /^[A-Za-z ' ']+$/;
+var numbers = /^[0-9]+$/;
+
+if(! name.value.match(letters))
+{
+  alert("Name should be only alphabets");
+  return false;
+}
+
+
+
+if(phno.value.length !=10)
+{
+  alert("Phone Number should be of 10 digits length");
+  return false;
+}
+
+if(! phno.value.match(numbers))
+{
+
+  return false;
+}
+
+}
+
+    </script>
+</html>

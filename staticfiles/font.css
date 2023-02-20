@@ -1,0 +1,13 @@
+@font-face {
+  font-family: 'gotham';
+    src: url('/static/fonts/Gotham-Light.otf');
+}
+@font-face {
+  font-family: 'nexa';
+    src: url('/static/fonts/Nexa Regular.otf');
+}
+
+@font-face {
+  font-family: 'euro';
+    src: url('/static/fonts/eurostile.TTF');
+}

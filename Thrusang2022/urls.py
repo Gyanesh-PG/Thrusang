@@ -1,0 +1,107 @@
+"""Thrusang URL Configuration
+
+The `urlpatterns` list routes URLs to views. For more information please see:
+    https://docs.djangoproject.com/en/4.0/topics/http/urls/
+Examples:
+Function views
+    1. Add an import:  from my_app import views
+    2. Add a URL to urlpatterns:  path('', views.home, name='home')
+Class-based views
+    1. Add an import:  from other_app.views import Home
+    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
+Including another URLconf
+    1. Import the include() function: from django.urls import include, path
+    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+"""
+from django.contrib import admin
+from django.urls import path
+from . import views
+urlpatterns = [
+    path('', views.index,name="index"),
+    path('index.html', views.index,name="index"),
+    path('aboutus', views.aboutus,name="aboutus"),
+    path('team', views.team,name="team"),
+    path('gallery', views.gallery,name="gallery"),
+    path('events', views.events,name="events"),
+    path('sponsers', views.sponsers,name="sponsers"),
+    path('contact', views.contact,name="contact"),
+    path('register', views.register,name="register"),
+    path('register_user', views.register_user, name="register_user"),
+    path('login_user', views.login_user, name="login_user"),
+    path('log', views.log, name="log"),
+    path('logout_user', views.logout_user, name="logout_user"),
+    path('user_profile', views.user_profile, name="user_profile"),
+    path('ttpay_initiate', views.ttpay_initiate, name="ttpay_initiate"),
+    path('ttdetails', views.ttdetails, name="ttdetails"),
+    path('tank_det', views.tank_det, name="tank_det"),
+    path('tank_detpay', views.tank_detpay, name="tank_detpay"),
+    path('tank_success', views.tank_success, name="tank_success"),
+    path('ethical', views.ethical, name="ethical"),
+    path('aurdino', views.aurdino, name="aurdino"),
+    path('crtdrsk', views.crtdrsk, name="crtdrsk"),
+    path('repair', views.repair, name="repair"),
+    path('knowit', views.knowit, name="knowit"),
+    path('cyber', views.cyber, name="cyber"),
+    path('selectstr', views.selectstr, name="selectstr"),
+    path('techt', views.techt, name="techt"),
+    path('tricky', views.tricky, name="tricky"),
+    path('spinweb', views.spinweb, name="spinweb"),
+    path('ithon', views.ithon, name="ithon"),
+    path('dreams', views.dreams, name="dreams"),
+    path('droneai', views.droneai, name="droneai"),
+    path('wordwiz', views.wordwiz, name="wordwiz"),
+    path('sanklp', views.sanklp, name="sanklp"),
+    path('prodigai', views.prodigai, name="prodigai"),
+    path('woedblk', views.woedblk, name="woedblk"),
+    path('mathbz', views.mathbz, name="mathbz"),
+    path('jam', views.jam, name="jam"),
+    path('quiz', views.quiz, name="quiz"),
+    path('webdes', views.webdes, name="webdes"),
+    path('postdes', views.postdes, name="postdes"),
+    path('codewar', views.codewar, name="codewar"),
+    path('dpquer', views.dpquer, name="dpquer"),
+    path('innovatr', views.innovatr, name="innovatr"),
+    path('techsi', views.techsi, name="techsi"),
+    path('iplauc', views.iplauc, name="iplauc"),
+    path('bgmi', views.bgmi, name="bgmi"),
+    path('squid', views.squid, name="squid"),
+    path('ludo', views.ludo, name="ludo"),
+    path('quizcomb', views.quizcomb, name="quizcomb"),
+    path('onemorepls', views.onemorepls, name="onemorepls"),
+    path('handsup', views.handsup, name="handsup"),
+    path('chunk', views.chunk, name="chunk"),
+    path('myclay', views.myclay, name="myclay"),
+    path('rushup', views.rushup, name="rushup"),
+    path('spellb', views.spellb, name="spellb"),
+    path('phtophon', views.phtophon, name="phtophon"),
+    path('suduko', views.suduko, name="suduko"),
+    path('smashkrts', views.smashkrts, name="smashkrts"),
+    path('dhumcrds', views.dhumcrds, name="dhumcrds"),
+    path('thugof', views.thugof, name="thugof"),
+    path('lemonspn', views.lemonspn, name="lemonspn"),
+    path('esports', views.esports, name="esports"),
+    path('badmnton', views.badmnton, name="badmnton"),
+    path('volleybl', views.volleybl, name="volleybl"),
+    path('crckt', views.crckt, name="crckt"),
+    path('foodchlng', views.foodchlng, name="foodchlng"),
+    path('aids_det', views.aids_det, name="aids_det"),
+    path('ssb_det', views.ssb_det, name="ssb_det"),
+    path('techtalk_det', views.techtalk_det, name="techtalk_det"),
+    path('tricky_det', views.tricky_det, name="tricky_det"),
+    path('ipl_det', views.ipl_det, name="ipl_det"),
+    path('bgmi_det', views.bgmi_det, name="bgmi_det"),
+    path('saw_det', views.saw_det, name="saw_det"),
+    path('squid_det', views.squid_det, name="squid_det"),
+    path('ludo_det', views.ludo_det, name="ludo_det"),
+    path('quiz_det', views.quiz_det, name="quiz_det"),
+    path('cs_det', views.cs_det, name="cs_det"),
+    path('eventexplore', views.eventexplore, name="eventexplore"),
+    path('thanks', views.thanks, name="thanks"),
+    path('quizophile_det', views.quizophile_det, name="quizophile_det"),
+    path('dbqueries_det', views.dbqueries_det, name="dbqueries_det"),
+    path('posterdesign_det', views.posterdesign_det, name="posterdesign_det"),
+    path('technicalessay_det', views.technicalessay_det, name="technicalessay_det"),
+    path('innovator_det', views.innovator_det, name="innovator_det"),
+    path('webdesign_det', views.webdesign_det, name="webdesign_det"),
+    path('codewar_det', views.codewar_det, name="codewar_det"),
+]

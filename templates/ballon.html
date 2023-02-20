@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html oncontextmenu=" return disableRightClick() ;">
+<head>
+  <style type="text/css">
+    .banner{
+      position: absolute;
+      bottom: 0;
+      right: -370px ;
+
+      z-index: 9;
+      width: 430px;
+      overflow: hidden;
+      background-color: transparent;
+      transition: all 0.6s;
+    }
+    .btn-banner{
+      position: absolute;
+      left: 0;
+      top: 0;
+      padding: 0;
+      border: none;
+      border-radius: 5px 0 0 5px;
+      width: 60px;
+      height: 60px;
+      text-align: center;
+      color: white;
+      font-size: 24px;
+      display: block;
+      background-color: transparent;
+      outline: none;
+    }
+    .btn-banner span{
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      display: block;
+      position: absolute;
+      right: 0;
+      top: 0;
+      border-radius: 15px 0px 0px 15px;
+      background-color: white;
+      background-image: url('file:///C:/Users/dilip/Downloads/gift.png');
+      background-size: 30px;
+      background-position: 15px;
+      background-repeat: no-repeat;
+      transition: all 0.4s;
+    }
+    .btn-banner span:hover{
+      background-color: black;
+    }
+    .banner-header{
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 70px;
+    }
+    .banner-body{
+      padding: 0;
+      background-color: transparent;
+      float: left;
+      width: calc(100% - 68px);
+      margin-left: 60px;
+
+    }
+    span.btn-o-banner{
+      position: absolute;
+      background-color: white;
+      padding: 0;
+      width: 30px;
+      height: 30px;
+      border-radius: 5px;
+      background-image: url('file:///C:/Users/dilip/Downloads/gift-box.png');
+      background-size: 20px;
+      background-position: 5px;
+      background-repeat: no-repeat;
+    }
+    span.btn-o-banner:hover{
+      background-color: yellow;
+    }
+    .pop-content{
+      padding: 20px;
+    }
+    .showpop{
+      right: 0;
+    }
+    @media (max-width: 767px){
+      .banner{
+        position: absolute;
+        right: calc(-100% + 68px);
+        width: 100%;
+      }
+    }
+  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>pop UP</title>
+</head>
+<body>
+<div class="banner">
+  <div class="banner-header">
+    <button class="btn-banner"><span></span> </button>
+  </div>
+  <div class="banner-body">
+    <a href="" style="display: black;">
+      <img src="file:///C:/Users/dilip/Downloads/popup.jpeg" width="100%" alt="">
+    </a>
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script >
+    $('.banner').removeClass('showpop');
+    $('.banner-header span').addClass('btn-o-banner');
+
+    setTimeout(function(){
+      $('.banner').removeClass('showpop');
+        $('.banner-header span').removeClass('btn-o-banner');
+    });
+    $('.btn-banner').on('click',function(){
+      $('.banner').toggleClass('showpop');
+        $('.banner-header span').toggleClass('btn-o-banner');
+    });
+  </script>
+<script type="text/javascript">
+function disableRightClick()
+{
+return false;
+}
+document.onkeydown = function(e) {
+        if (event.keyCode==123) {
+            return false;
+        }
+        if(e.ctrlKey && e.shiftKey && e.keyCode=='I'.charCodeAt(0)) {
+            return false;
+        }
+        if(e.ctrlKey && e.shiftKey && e.keyCode=='J'.charCodeAt(0)) {
+            return false;
+        }
+        if(e.ctrlKey && e.keyCode=='U'.charCodeAt(0)) {
+            return false;
+        }
+}
+
+</script>
+</body>
+</html>
