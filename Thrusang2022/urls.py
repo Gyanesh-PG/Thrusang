@@ -26,6 +26,7 @@ urlpatterns = [
     path('sponsers', views.sponsers,name="sponsers"),
     path('contact', views.contact,name="contact"),
     path('register', views.register,name="register"),
+    path('gyasundil', views.gyasundil, name="gyasundil"),
     path('register_user', views.register_user, name="register_user"),
     path('login_user', views.login_user, name="login_user"),
     path('log', views.log, name="log"),
@@ -104,4 +105,5 @@ urlpatterns = [
     path('innovator_det', views.innovator_det, name="innovator_det"),
     path('webdesign_det', views.webdesign_det, name="webdesign_det"),
     path('codewar_det', views.codewar_det, name="codewar_det"),
+    path('regform', views.regform, name="regform"),
 ]

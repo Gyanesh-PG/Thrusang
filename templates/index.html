@@ -144,7 +144,6 @@ color:white;
      <div class="navbar-buttons mbr-section-btn" >
       {% if not user.is_authenticated %}
      <a id="joinus" class="btn btn-primary display-4"  href="{% url 'log' %}" style="font-family:nexa;border-radius:20px;padding:4px;font-size:16px;width:100px;">Join Us</a>
-<!--     <a class="btn btn-primary display-4" href="{% url 'register' %}" style="font-family:nexa">Register</a>-->
       {% endif %}
          {% if  user.profile.payment == "No" %}
      <a class="btn btn-primary display-4" href="{% url 'events' %}" style="font-family:nexa;border-radius:20px;padding:4px;font-size:16px;width:100px">Pay Now</a>

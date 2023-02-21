@@ -44,8 +44,10 @@ def user_profile(request):
 
 
 def register(request):
-    return render(request, 'signup.html')
+    return render(request, 'index.html')
 
+def gyasundil(request):
+    return render(request,'signup.html')
 
 def register_user(request):
     if request.method == 'POST':
@@ -742,4 +744,7 @@ def webdesign_det(request):
 
 def codewar_det(request):
     return render(request, 'codeWar_event.html')
+
+def regform(request):
+    return redirect("https://forms.gle/UeygUBGBcz8HjFp16")
 

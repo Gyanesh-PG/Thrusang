@@ -731,7 +731,6 @@
      <div class="navbar-buttons mbr-section-btn" >
       {% if not user.is_authenticated %}
      <a class="btn btn-primary display-4" id="joinus" href="{% url 'log' %}" style="font-family:nexa;border-radius:20px;padding:4px;font-size:16px;width:100px">Join Us</a>
-<!--     <a class="btn btn-primary display-4" href="{% url 'register' %}" style="font-family:nexa">Register</a>-->
       {% endif %}
          {% if  user.profile.payment == "No" %}
      <a class="btn btn-primary display-4" href="{% url 'events' %}" style="font-family:nexa;border-radius:20px;padding:4px;font-size:16px;width:100px">Pay Now</a>
@@ -802,7 +801,7 @@
                                 <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;color:green;" class="btn  buttonfntr"style="color:green;font-family:euro;font-size:16px;">Registerd</p>
                                 {% endif %}
                                 {% else %}
-                                    <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
+                                    <a href="{% url 'regform' %}"  target="_blank" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
                                 {% endif %}
                                 </div>
                                 <div class="col-md-6" style="padding:0px; margin:0px;">
@@ -833,7 +832,7 @@
                                 <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;color:green" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Registerd</p>
                                 {% endif %}
                                 {% else %}
-                                    <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
+                                    <a href="{% url 'regform' %}" target="_blank" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
                                 {% endif %}
                                 </div>
                                 <div class="col-md-6" style="padding:0px; margin:0px;">
@@ -851,7 +850,7 @@
                                 </div>
                                 <div class='post-content'>
                                     <h1 class='title' style="font-size: 24px; font-weight: lighter !important;font-family:gotham;font-size:16px">Create Desk</h1>
-                                    <span class="sub-title" style="font-size: 24px; font-weight: 300 !important;font-family:gotham;font-size:16px">Offered by AI/DS</span>
+                                    <span class="sub-title" style="font-size: 24px; font-weight: 300 !important;font-family:gotham;font-size:16px">Offered by AI&DS</span>
 <!--                                    <p class='description description19'><br>sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss</p>-->
                                 </div>
                             </div>
@@ -864,7 +863,7 @@
                                 <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;color:green;" class="btn  buttonfntr"style="color:red;font-family:euro;font-size:16px;">Registered</p>
                                 {% endif %}
                                 {% else %}
-                                <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
+                                <a href="{% url 'regform' %}"  target="_blank" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
                                     {% endif %}
                                 </div>
                                 <div class="col-md-6" style="padding:0px; margin:0px;">
@@ -877,11 +876,11 @@
                     <div class="col-md-3 card-15">
                         <div class="post-module47 " onmouseover="bgblur47(this)"  onmouseout="bgrestore47(this)">
                             <div class='post-modules' style="margin-bottom: 0px !important;">
-                                <div class='thumbnail' style="background-image: linear-gradient(180deg, rgba(18, 25, 33, 0) 41.15%, rgba(18, 25, 33, 0.37) 54.8%, rgba(18, 25, 33, 0.63) 71.51%, rgba(18, 25, 33, 0.86) 85.37%, #121921 100%), url('static/assets/images/w4.jpg');" >
+                                <div class='thumbnail' style="background-image: linear-gradient(180deg, rgba(18, 25, 33, 0) 41.15%, rgba(18, 25, 33, 0.37) 54.8%, rgba(18, 25, 33, 0.63) 71.51%, rgba(18, 25, 33, 0.86) 85.37%, #121921 100%), url('static/assets/images/w4.png');" >
                                 </div>
                                 <div class='post-content'>
                                     <h1 class='title' style="font-size: 24px; font-weight: lighter !important;font-family:gotham;font-size:16px">Repair and Enhance</h1>
-                                    <span class="sub-title" style="font-size: 24px; font-weight: 300 !important;font-family:gotham;font-size:16px">Offered by AI/DS</span>
+                                    <span class="sub-title" style="font-size: 24px; font-weight: 300 !important;font-family:gotham;font-size:16px">Offered by AI&DS</span>
 <!--                                    <p class='description description22'><br> ssssssssssssssssssssssssssssssssssssssssssssssssssssssssss</p>-->
                                 </div>
                             </div>
@@ -894,7 +893,7 @@
                                     <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;color:green" class="btn  buttonfntr"style="color:red;font-family:euro;font-size:16px;">Registered</p>
                                 {% endif %}
                                 {% else %}
-                                <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
+                                <a href="{% url 'regform' %}"  target="_blank" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
                                     {% endif %}
                                 </div>
                                 <div class="col-md-6" style="padding:0px; margin:0px;">
@@ -915,7 +914,7 @@
                                 </div>
                                 <div class='post-content'>
                                     <h1 class='title' style="font-size: 24px; font-weight: lighter !important;font-family:gotham;font-size:16px">Know it better</h1>
-                                    <span class="sub-title" style="font-size: 24px; font-weight: 300 !important;font-family:gotham;font-size:16px">Offered by AI/DS</span>
+                                    <span class="sub-title" style="font-size: 24px; font-weight: 300 !important;font-family:gotham;font-size:16px">Offered by AI&DS</span>
 <!--                                    <p class='description description23'><br>sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss</p>-->
                                 </div>
                             </div>
@@ -928,7 +927,7 @@
                                 <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;color:green;" class="btn  buttonfntr"style="color:red;font-family:euro;font-size:16px;">Registered</p>
                                 {% endif %}
                                 {% else %}
-                                <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
+                                <a href="{% url 'regform' %}"  target="_blank" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
                                     {% endif %}
                                 </div>
                                 <div class="col-md-6" style="padding:0px; margin:0px;">
@@ -958,7 +957,7 @@
                                 <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;color:green;" class="btn  buttonfntr"style="color:red;font-family:euro;font-size:16px;">Registered</p>
                                 {% endif %}
                                 {% else %}
-                                <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
+                                <a href="{% url 'regform' %}"  target="_blank" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
                                     {% endif %}
                                 </div>
                                 <div class="col-md-6" style="padding:0px; margin:0px;">
@@ -998,7 +997,7 @@
                                 <p style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;color:green;" class="btn  buttonfntr" style="color:green;font-family:euro;font-size:16px;">Registerd</p>
                                 {% endif %}
                                 {% else %}
-                                    <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
+                                    <a href="{% url 'regform' %}"  target="_blank" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
                                 {% endif %}
                                 </div>
                                 <div class="col-md-6" style="padding:0px; margin:0px;">
@@ -1028,7 +1027,7 @@
                                 <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;color:green;" class="btn  buttonfntr"style="color:red;font-family:euro;font-size:16px;">Registered</p>
                                 {% endif %}
                                 {% else %}
-                                <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
+                                <a href="{% url 'regform' %}"  target="_blank" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
                                     {% endif %}
                                 </div>
                                 <div class="col-md-6" style="padding:0px; margin:0px;">
@@ -1057,7 +1056,7 @@
                                 <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;color:green;" class="btn  buttonfntr"style="color:red;font-family:euro;font-size:16px;">Registered</p>
                                 {% endif %}
                                 {% else %}
-                                <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
+                                <a href="{% url 'regform' %}"  target="_blank" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
                                     {% endif %}
                                 </div>
                                 <div class="col-md-6" style="padding:0px; margin:0px;">
@@ -1087,7 +1086,7 @@
                                 <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;color:green;" class="btn  buttonfntr"style="color:red;font-family:euro;font-size:16px;">Registered</p>
                                 {% endif %}
                                 {% else %}
-                                <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
+                                <a href="{% url 'regform' %}"  target="_blank" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
                                     {% endif %}
                                 </div>
                                 <div class="col-md-6" style="padding:0px; margin:0px;">
@@ -1124,7 +1123,7 @@
                                 <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;color:green;" class="btn  buttonfntr"style="color:red;font-family:euro;font-size:16px;">Registered</p>
                                 {% endif %}
                                 {% else %}
-                                <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
+                                <a href="{% url 'regform' %}"  target="_blank" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
                                     {% endif %}
                                 </div>
                                 <div class="col-md-6" style="padding:0px; margin:0px;">
@@ -1154,7 +1153,7 @@
                                 <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;color:green;" class="btn  buttonfntr"style="color:red;font-family:euro;font-size:16px;">Registered</p>
                                 {% endif %}
                                 {% else %}
-                                <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
+                                <a href="{% url 'regform' %}"  target="_blank" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
                                     {% endif %}
                                 </div>
                                 <div class="col-md-6" style="padding:0px; margin:0px;">
@@ -1170,7 +1169,7 @@
                                 <div class='thumbnail' style="background-image: linear-gradient(180deg, rgba(18, 25, 33, 0) 41.15%, rgba(18, 25, 33, 0.37) 54.8%, rgba(18, 25, 33, 0.63) 71.51%, rgba(18, 25, 33, 0.86) 85.37%, #121921 100%), url('static/assets/images/event7.jpg');" >
                                 </div>
                                 <div class='post-content'>
-                                    <span class="sub-title" style="font-size: 24px; font-weight: 300 !important;font-family:gotham;font-size:16px">Dreams of Reality -CHATGPT <br> Offered by AI/DS</span>
+                                    <span class="sub-title" style="font-size: 24px; font-weight: 300 !important;font-family:gotham;font-size:16px">Dreams of Reality -CHATGPT <br> Offered by AI&DS</span>
                                     <p class='description description7' style="font-family:gotham;font-size:14px"><br>Register Now and Win exciting prizes</p>
                                 </div>
                             </div>
@@ -1183,7 +1182,7 @@
                                 <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;color:green;" class="btn  buttonfntr"style="color:red;font-family:euro;font-size:16px;">Registered</p>
                                 {% endif %}
                                 {% else %}
-                                <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
+                                <a href="{% url 'regform' %}"  target="_blank" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
                                     {% endif %}
                                 </div>
                                 <div class="col-md-6" style="padding:0px; margin:0px;">
@@ -1200,7 +1199,7 @@
                                 </div>
                                 <div class='post-content'>
 
-                                    <span class="sub-title" style="font-size: 24px; font-weight: 300 !important;font-family:gotham;font-size:16px">Drone AI <br> Offered by AI/DS</span>
+                                    <span class="sub-title" style="font-size: 24px; font-weight: 300 !important;font-family:gotham;font-size:16px">Drone AI <br> Offered by AI&DS</span>
                                     <p class='description description8' style="font-family:gotham;font-size:14px"><br>Register Now and Win exciting prizes</p>
                                 </div>
                             </div>
@@ -1213,7 +1212,7 @@
                                 <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;color:green;" class="btn  buttonfntr"style="color:red;font-family:euro;font-size:16px;">Registered</p>
                                 {% endif %}
                                 {% else %}
-                                <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
+                                <a href="{% url 'regform' %}"  target="_blank" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
                                     {% endif %}
                                 </div>
                                 <div class="col-md-6" style="padding:0px; margin:0px;">
@@ -1237,7 +1236,7 @@
 );" >
                                 </div>
                                 <div class='post-content'>
-                                    <span class="sub-title" style="font-size: 24px; font-weight: 300 !important;font-family:gotham;font-size:16px">Word Wizard Battle <br> Offered by AI/DS</span>
+                                    <span class="sub-title" style="font-size: 24px; font-weight: 300 !important;font-family:gotham;font-size:16px">Word Wizard Battle <br> Offered by AI&DS</span>
                                     <p class='description description9' style="font-family:gotham;font-size:14px"><br>Register Now and Win exciting prizes</p>
                                 </div>
                             </div>
@@ -1250,7 +1249,7 @@
                                 <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;color:green;" class="btn  buttonfntr"style="color:red;font-family:euro;font-size:16px;">Registered</p>
                                 {% endif %}
                                 {% else %}
-                                <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
+                                <a href="{% url 'regform' %}"  target="_blank" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
                                     {% endif %}
                                 </div>
                                 <div class="col-md-6" style="padding:0px; margin:0px;">
@@ -1266,7 +1265,7 @@
                                 <div class='thumbnail' style="background-image: linear-gradient(180deg, rgba(18, 25, 33, 0) 41.15%, rgba(18, 25, 33, 0.37) 54.8%, rgba(18, 25, 33, 0.63) 71.51%, rgba(18, 25, 33, 0.86) 85.37%, #121921 100%), url('static/assets/images/event10.jpg');" >
                                 </div>
                                 <div class='post-content'>
-                                    <span class="sub-title" style="font-size: 24px; font-weight: 300 !important;font-family:gotham;font-size:16px">Sankalpa - A Spiritual Factor <br> Offered by AI/DS</span>
+                                    <span class="sub-title" style="font-size: 24px; font-weight: 300 !important;font-family:gotham;font-size:16px">Sankalpa - A Spiritual Factor <br> Offered by AI&DS</span>
                                     <p class='description description10' style="font-family:gotham;font-size:14px"><br>Register Now and Win exciting prizes</p>
                                 </div>
                             </div>
@@ -1279,7 +1278,7 @@
                                 <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;color:green;" class="btn  buttonfntr"style="color:red;font-family:euro;font-size:16px;">Registered</p>
                                 {% endif %}
                                 {% else %}
-                                <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
+                                <a href="{% url 'regform' %}"  target="_blank" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
                                     {% endif %}
                                 </div>
                                 <div class="col-md-6" style="padding:0px; margin:0px;">
@@ -1296,7 +1295,7 @@
                                 </div>
                                 <div class='post-content'>
 
-                                    <span class="sub-title" style="font-size: 24px; font-weight: 300 !important;font-family:gotham;font-size:16px">Prodigy Artificial <br> Offered by AI/DS</span>
+                                    <span class="sub-title" style="font-size: 24px; font-weight: 300 !important;font-family:gotham;font-size:16px">Prodigy Artificial <br> Offered by AI&DS</span>
                                     <p class='description description11' style="font-family:gotham;font-size:14px"><br>Register Now and Win exciting prizes</p>
                                 </div>
                             </div>
@@ -1309,7 +1308,7 @@
                                 <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;color:green;" class="btn  buttonfntr"style="color:red;font-family:euro;font-size:16px;">Registered</p>
                                 {% endif %}
                                 {% else %}
-                                <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
+                                <a href="{% url 'regform' %}"  target="_blank" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
                                     {% endif %}
                                 </div>
                                 <div class="col-md-6" style="padding:0px; margin:0px;">
@@ -1327,7 +1326,7 @@
 );" >
                                 </div>
                                 <div class='post-content'>
-                                    <span class="sub-title" style="font-size: 24px; font-weight: 300 !important;font-family:gotham;font-size:16px">Word Block <br> Offered by CS/IT</span>
+                                    <span class="sub-title" style="font-size: 24px; font-weight: 300 !important;font-family:gotham;font-size:16px">Word Block <br> Offered by CS-IT</span>
                                     <p class='description description12' style="font-family:gotham;font-size:14px"><br>Register Now and Win exciting prizes</p>
                                 </div>
                             </div>
@@ -1340,7 +1339,7 @@
                                 <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;color:green;" class="btn  buttonfntr"style="color:red;font-family:euro;font-size:16px;">Registered</p>
                                 {% endif %}
                                 {% else %}
-                                <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
+                                <a href="{% url 'regform' %}"  target="_blank" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
                                     {% endif %}
                                 </div>
                                 <div class="col-md-6" style="padding:0px; margin:0px;">
@@ -1364,7 +1363,7 @@
                                 <div class='thumbnail' style="background-image: linear-gradient(180deg, rgba(18, 25, 33, 0) 41.15%, rgba(18, 25, 33, 0.37) 54.8%, rgba(18, 25, 33, 0.63) 71.51%, rgba(18, 25, 33, 0.86) 85.37%, #121921 100%), url('static/assets/images/event13.jpg');" >
                                 </div>
                                 <div class='post-content'>
-                                    <span class="sub-title" style="font-size: 24px; font-weight: 300 !important;font-family:gotham;font-size:16px">Math Buzzz <br> Offered by CS/IT</span>
+                                    <span class="sub-title" style="font-size: 24px; font-weight: 300 !important;font-family:gotham;font-size:16px">Math Buzzz <br> Offered by CS-IT</span>
                                     <p class='description description13' style="font-family:gotham;font-size:14px"><br>Register Now and Win exciting prizes</p>
                                 </div>
                             </div>
@@ -1377,7 +1376,7 @@
                                 <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;color:green;" class="btn  buttonfntr"style="color:red;font-family:euro;font-size:16px;">Registered</p>
                                 {% endif %}
                                 {% else %}
-                                <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
+                                <a href="{% url 'regform' %}"  target="_blank" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
                                     {% endif %}
                                 </div>
                                 <div class="col-md-6" style="padding:0px; margin:0px;">
@@ -1394,7 +1393,7 @@
                                 </div>
                                 <div class='post-content'>
 
-                                    <span class="sub-title" style="font-size: 24px; font-weight: 300 !important;font-family:gotham;font-size:16px">JAM <br> Offered by CS/IT</span>
+                                    <span class="sub-title" style="font-size: 24px; font-weight: 300 !important;font-family:gotham;font-size:16px">JAM <br> Offered by CS-IT</span>
                                     <p class='description description14' style="font-family:gotham;font-size:14px"><br>Register Now and Win exciting prizes</p>
                                 </div>
                             </div>
@@ -1407,7 +1406,7 @@
                                 <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;color:green;" class="btn  buttonfntr"style="color:red;font-family:euro;font-size:16px;">Registered</p>
                                 {% endif %}
                                 {% else %}
-                                <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
+                                <a href="{% url 'regform' %}"  target="_blank" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
                                     {% endif %}
                                 </div>
                                 <div class="col-md-6" style="padding:0px; margin:0px;">
@@ -1436,7 +1435,7 @@
                                 <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;color:green;" class="btn  buttonfntr"style="color:red;font-family:euro;font-size:16px;">Registered</p>
                                 {% endif %}
                                 {% else %}
-                                <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
+                                <a href="{% url 'regform' %}"  target="_blank" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
                                     {% endif %}
                                 </div>
                                 <div class="col-md-6" style="padding:0px; margin:0px;">
@@ -1466,7 +1465,7 @@
                                 <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;color:green;" class="btn  buttonfntr"style="color:red;font-family:euro;font-size:16px;">Registered</p>
                                 {% endif %}
                                 {% else %}
-                                <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
+                                <a href="{% url 'regform' %}"  target="_blank" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
                                     {% endif %}
                                 </div>
                                 <div class="col-md-6" style="padding:0px; margin:0px;">
@@ -1500,7 +1499,7 @@
                                 <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;color:green;" class="btn  buttonfntr"style="color:red;font-family:euro;font-size:16px;">Registered</p>
                                 {% endif %}
                                 {% else %}
-                                <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
+                                <a href="{% url 'regform' %}"  target="_blank" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
                                     {% endif %}
                                 </div>
                                 <div class="col-md-6" style="padding:0px; margin:0px;">
@@ -1530,7 +1529,7 @@
                                 <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;color:green;" class="btn  buttonfntr"style="color:red;font-family:euro;font-size:16px;">Registered</p>
                                 {% endif %}
                                 {% else %}
-                                <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
+                                <a href="{% url 'regform' %}"  target="_blank" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
                                     {% endif %}
                                 </div>
                                 <div class="col-md-6" style="padding:0px; margin:0px;">
@@ -1559,7 +1558,7 @@
                                 <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;color:green;" class="btn  buttonfntr"style="color:red;font-family:euro;font-size:16px;">Registered</p>
                                 {% endif %}
                                 {% else %}
-                                <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
+                                <a href="{% url 'regform' %}"  target="_blank" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
                                     {% endif %}
                                 </div>
                                 <div class="col-md-6" style="padding:0px; margin:0px;">
@@ -1589,7 +1588,7 @@
                                 <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;color:green;" class="btn  buttonfntr"style="color:red;font-family:euro;font-size:16px;">Registered</p>
                                 {% endif %}
                                 {% else %}
-                                <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
+                                <a href="{% url 'regform' %}"  target="_blank" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
                                     {% endif %}
                                 </div>
                                 <div class="col-md-6" style="padding:0px; margin:0px;">
@@ -1623,7 +1622,7 @@
                                 <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;color:green;" class="btn  buttonfntr"style="color:red;font-family:euro;font-size:16px;">Registered</p>
                                 {% endif %}
                                 {% else %}
-                                <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
+                                <a href="{% url 'regform' %}"  target="_blank" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
                                     {% endif %}
                                 </div>
                                 <div class="col-md-6" style="padding:0px; margin:0px;">
@@ -1660,7 +1659,7 @@
                                 <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;color:green;" class="btn  buttonfntr"style="color:red;font-family:euro;font-size:16px;">Registered</p>
                                 {% endif %}
                                 {% else %}
-                                <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
+                                <a href="{% url 'regform' %}"  target="_blank" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
                                     {% endif %}
                                 </div>
                                 <div class="col-md-6" style="padding:0px; margin:0px;">
@@ -1690,7 +1689,7 @@
                                 <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;color:green;" class="btn  buttonfntr"style="color:red;font-family:euro;font-size:16px;">Registered</p>
                                 {% endif %}
                                 {% else %}
-                                <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
+                                <a href="{% url 'regform' %}"  target="_blank" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
                                     {% endif %}
                                 </div>
                                 <div class="col-md-6" style="padding:0px; margin:0px;">
@@ -1719,7 +1718,7 @@
                                 <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;color:green;" class="btn  buttonfntr"style="color:red;font-family:euro;font-size:16px;">Registered</p>
                                 {% endif %}
                                 {% else %}
-                                <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
+                                <a href="{% url 'regform' %}"  target="_blank" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
                                     {% endif %}
                                 </div>
                                 <div class="col-md-6" style="padding:0px; margin:0px;">
@@ -1748,7 +1747,7 @@
                                 <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;color:green;" class="btn  buttonfntr"style="color:red;font-family:euro;font-size:16px;">Registered</p>
                                 {% endif %}
                                 {% else %}
-                                <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
+                                <a href="{% url 'regform' %}"  target="_blank" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
                                     {% endif %}
                                 </div>
                                 <div class="col-md-6" style="padding:0px; margin:0px;">
@@ -1781,7 +1780,7 @@
                                 <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;color:green;" class="btn  buttonfntr"style="color:red;font-family:euro;font-size:16px;">Registered</p>
                                 {% endif %}
                                 {% else %}
-                                <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
+                                <a href="{% url 'regform' %}"  target="_blank" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
                                     {% endif %}
                                 </div>
                                 <div class="col-md-6" style="padding:0px; margin:0px;">
@@ -1798,7 +1797,7 @@
                                 <div class='thumbnail' style="background-image: linear-gradient(180deg, rgba(18, 25, 33, 0) 41.15%, rgba(18, 25, 33, 0.37) 54.8%, rgba(18, 25, 33, 0.63) 71.51%, rgba(18, 25, 33, 0.86) 85.37%, #121921 100%), url('static/assets/images/event27.jpg');" >
                                 </div>
                                 <div class='post-content'>
-                                    <span class="sub-title" style="font-size: 24px; font-weight: 300 !important;font-family:gotham;font-size:16px">One More Please ! <br> Offered by AI/DS</span>
+                                    <span class="sub-title" style="font-size: 24px; font-weight: 300 !important;font-family:gotham;font-size:16px">One More Please ! <br> Offered by AI&DS</span>
                                     <p class='description description27' style="font-family:gotham;font-size:14px"><br>Register Now and Win exciting prizes</p>
                                 </div>
                             </div>
@@ -1811,7 +1810,7 @@
                                 <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;color:green;" class="btn  buttonfntr"style="color:red;font-family:euro;font-size:16px;">Registered</p>
                                 {% endif %}
                                 {% else %}
-                                <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
+                                <a href="{% url 'regform' %}"  target="_blank" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
                                     {% endif %}
                                 </div>
                                 <div class="col-md-6" style="padding:0px; margin:0px;">
@@ -1827,7 +1826,7 @@
                                 <div class='thumbnail' style="background-image: linear-gradient(180deg, rgba(18, 25, 33, 0) 41.15%, rgba(18, 25, 33, 0.37) 54.8%, rgba(18, 25, 33, 0.63) 71.51%, rgba(18, 25, 33, 0.86) 85.37%, #121921 100%), url('static/assets/images/event28.jpg');" >
                                 </div>
                                 <div class='post-content'>
-                                    <span class="sub-title" style="font-size: 24px; font-weight: 300 !important;font-family:gotham;font-size:16px">Heads Up <br> Offered by AI/DS</span>
+                                    <span class="sub-title" style="font-size: 24px; font-weight: 300 !important;font-family:gotham;font-size:16px">Heads Up <br> Offered by AI&DS</span>
                                     <p class='description description28' style="font-family:gotham;font-size:14px"><br>Register Now and Win exciting prizes</p>
                                 </div>
                             </div>
@@ -1840,7 +1839,7 @@
                                 <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;color:green;" class="btn  buttonfntr"style="color:red;font-family:euro;font-size:16px;">Registered</p>
                                 {% endif %}
                                 {% else %}
-                                <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
+                                <a href="{% url 'regform' %}"  target="_blank" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
                                     {% endif %}
                                 </div>
                                 <div class="col-md-6" style="padding:0px; margin:0px;">
@@ -1856,7 +1855,7 @@
                                 <div class='thumbnail' style="background-image: linear-gradient(180deg, rgba(18, 25, 33, 0) 41.15%, rgba(18, 25, 33, 0.37) 54.8%, rgba(18, 25, 33, 0.63) 71.51%, rgba(18, 25, 33, 0.86) 85.37%, #121921 100%), url('static/assets/images/event29.jpg');" >
                                 </div>
                                 <div class='post-content'>
-                                    <span class="sub-title" style="font-size: 24px; font-weight: 300 !important;font-family:gotham;font-size:16px">Chuck Your Luck <br> Offered by AI/DS</span>
+                                    <span class="sub-title" style="font-size: 24px; font-weight: 300 !important;font-family:gotham;font-size:16px">Chuck Your Luck <br> Offered by AI&DS</span>
                                     <p class='description description29' style="font-family:gotham;font-size:14px"><br>Register Now and Win exciting prizes</p>
                                 </div>
                             </div>
@@ -1869,7 +1868,7 @@
                                 <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;color:green;" class="btn  buttonfntr"style="color:red;font-family:euro;font-size:16px;">Registered</p>
                                 {% endif %}
                                 {% else %}
-                                <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
+                                <a href="{% url 'regform' %}"  target="_blank" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
                                     {% endif %}
                                 </div>
                                 <div class="col-md-6" style="padding:0px; margin:0px;">
@@ -1889,7 +1888,7 @@
                                 <div class='thumbnail' style="background-image: linear-gradient(180deg, rgba(18, 25, 33, 0) 41.15%, rgba(18, 25, 33, 0.37) 54.8%, rgba(18, 25, 33, 0.63) 71.51%, rgba(18, 25, 33, 0.86) 85.37%, #121921 100%), url('static/assets/images/event30.jpg');" >
                                 </div>
                                 <div class='post-content'>
-                                    <span class="sub-title" style="font-size: 24px; font-weight: 300 !important;font-family:gotham;font-size:16px">My Klaydition <br> Offered by AI/DS</span>
+                                    <span class="sub-title" style="font-size: 24px; font-weight: 300 !important;font-family:gotham;font-size:16px">My Klaydition <br> Offered by AI&DS</span>
                                     <p class='description description30' style="font-family:gotham;font-size:14px"><br>Register Now and Win exciting prizes</p>
                                 </div>
                             </div>
@@ -1902,7 +1901,7 @@
                                 <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;color:green;" class="btn  buttonfntr"style="color:red;font-family:euro;font-size:16px;">Registered</p>
                                 {% endif %}
                                 {% else %}
-                                <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
+                                <a href="{% url 'regform' %}"  target="_blank" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
                                     {% endif %}
                                 </div>
                                 <div class="col-md-6" style="padding:0px; margin:0px;">
@@ -1919,7 +1918,7 @@
                                 <div class='thumbnail' style="background-image: linear-gradient(180deg, rgba(18, 25, 33, 0) 41.15%, rgba(18, 25, 33, 0.37) 54.8%, rgba(18, 25, 33, 0.63) 71.51%, rgba(18, 25, 33, 0.86) 85.37%, #121921 100%), url('static/assets/images/event31.jpg');" >
                                 </div>
                                 <div class='post-content'>
-                                    <span class="sub-title" style="font-size: 24px; font-weight: 300 !important;font-family:gotham;font-size:16px">Rush Up! <br> Offered by AI/DS</span>
+                                    <span class="sub-title" style="font-size: 24px; font-weight: 300 !important;font-family:gotham;font-size:16px">Rush Up! <br> Offered by AI&DS</span>
                                     <p class='description description31' style="font-family:gotham;font-size:14px"><br>Register Now and Win exciting prizes</p>
                                 </div>
                             </div>
@@ -1932,7 +1931,7 @@
                                 <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;color:green;" class="btn  buttonfntr"style="color:red;font-family:euro;font-size:16px;">Registered</p>
                                 {% endif %}
                                 {% else %}
-                                <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
+                                <a href="{% url 'regform' %}"  target="_blank" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
                                     {% endif %}
                                 </div>
                                 <div class="col-md-6" style="padding:0px; margin:0px;">
@@ -1948,7 +1947,7 @@
                                 <div class='thumbnail' style="background-image: linear-gradient(180deg, rgba(18, 25, 33, 0) 41.15%, rgba(18, 25, 33, 0.37) 54.8%, rgba(18, 25, 33, 0.63) 71.51%, rgba(18, 25, 33, 0.86) 85.37%, #121921 100%), url('static/assets/images/event32.jpg');" >
                                 </div>
                                 <div class='post-content'>
-                                    <span class="sub-title" style="font-size: 24px; font-weight: 300 !important;font-family:gotham;font-size:16px">Spell Bee <br> Offered by AI/DS</span>
+                                    <span class="sub-title" style="font-size: 24px; font-weight: 300 !important;font-family:gotham;font-size:16px">Spell Bee <br> Offered by AI&DS</span>
                                     <p class='description description32' style="font-family:gotham;font-size:14px"><br>Register Now and Win exciting prizes</p>
                                 </div>
                             </div>
@@ -1961,7 +1960,7 @@
                                 <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;color:green;" class="btn  buttonfntr"style="color:red;font-family:euro;font-size:16px;">Registered</p>
                                 {% endif %}
                                 {% else %}
-                                <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
+                                <a href="{% url 'regform' %}"  target="_blank" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
                                     {% endif %}
                                 </div>
                                 <div class="col-md-6" style="padding:0px; margin:0px;">
@@ -1977,7 +1976,7 @@
                                 <div class='thumbnail' style="background-image: linear-gradient(180deg, rgba(18, 25, 33, 0) 41.15%, rgba(18, 25, 33, 0.37) 54.8%, rgba(18, 25, 33, 0.63) 71.51%, rgba(18, 25, 33, 0.86) 85.37%, #121921 100%), url('static/assets/images/event33.jpg');" >
                                 </div>
                                 <div class='post-content'>
-                                    <span class="sub-title" style="font-size: 24px; font-weight: 300 !important;font-family:gotham;font-size:16px">Photofunia <br> Offered by AI/DS</span>
+                                    <span class="sub-title" style="font-size: 24px; font-weight: 300 !important;font-family:gotham;font-size:16px">Photofunia <br> Offered by AI&DS</span>
                                     <p class='description description33' style="font-family:gotham;font-size:14px"><br>Register Now and Win exciting prizes</p>
                                 </div>
                             </div>
@@ -1990,7 +1989,7 @@
                                 <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;color:green;" class="btn  buttonfntr"style="color:red;font-family:euro;font-size:16px;">Registered</p>
                                 {% endif %}
                                 {% else %}
-                                <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
+                                <a href="{% url 'regform' %}"  target="_blank" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
                                     {% endif %}
                                 </div>
                                 <div class="col-md-6" style="padding:0px; margin:0px;">
@@ -2011,7 +2010,7 @@
                                 <div class='thumbnail' style="background-image: linear-gradient(180deg, rgba(18, 25, 33, 0) 41.15%, rgba(18, 25, 33, 0.37) 54.8%, rgba(18, 25, 33, 0.63) 71.51%, rgba(18, 25, 33, 0.86) 85.37%, #121921 100%), url('static/assets/images/event34.jpg');" >
                                 </div>
                                 <div class='post-content'>
-                                    <span class="sub-title" style="font-size: 24px; font-weight: 300 !important;font-family:gotham;font-size:16px">Suduko <br> Offered by CS/IT</span>
+                                    <span class="sub-title" style="font-size: 24px; font-weight: 300 !important;font-family:gotham;font-size:16px">Suduko <br> Offered by CS-IT</span>
                                     <p class='description description34' style="font-family:gotham;font-size:14px"><br>Register Now and Win exciting prizes</p>
                                 </div>
                             </div>
@@ -2024,7 +2023,7 @@
                                 <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;color:green;" class="btn  buttonfntr"style="color:red;font-family:euro;font-size:16px;">Registered</p>
                                 {% endif %}
                                 {% else %}
-                                <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
+                                <a href="{% url 'regform' %}"  target="_blank" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
                                     {% endif %}
                                 </div>
                                 <div class="col-md-6" style="padding:0px; margin:0px;">
@@ -2041,7 +2040,7 @@
                                 <div class='thumbnail' style="background-image: linear-gradient(180deg, rgba(18, 25, 33, 0) 41.15%, rgba(18, 25, 33, 0.37) 54.8%, rgba(18, 25, 33, 0.63) 71.51%, rgba(18, 25, 33, 0.86) 85.37%, #121921 100%), url('static/assets/images/event35.jpg');" >
                                 </div>
                                 <div class='post-content'>
-                                    <span class="sub-title" style="font-size: 24px; font-weight: 300 !important;font-family:gotham;font-size:16px">Smashkarts <br> Offered by CS/IT</span>
+                                    <span class="sub-title" style="font-size: 24px; font-weight: 300 !important;font-family:gotham;font-size:16px">Smashkarts <br> Offered by CS-IT</span>
                                     <p class='description description35' style="font-family:gotham;font-size:14px"><br>Register Now and Win exciting prizes</p>
                                 </div>
                             </div>
@@ -2054,7 +2053,7 @@
                                 <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;color:green;" class="btn  buttonfntr"style="color:red;font-family:euro;font-size:16px;">Registered</p>
                                 {% endif %}
                                 {% else %}
-                                <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
+                                <a href="{% url 'regform' %}"  target="_blank" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
                                     {% endif %}
                                 </div>
                                 <div class="col-md-6" style="padding:0px; margin:0px;">
@@ -2070,7 +2069,7 @@
                                 <div class='thumbnail' style="background-image: linear-gradient(180deg, rgba(18, 25, 33, 0) 41.15%, rgba(18, 25, 33, 0.37) 54.8%, rgba(18, 25, 33, 0.63) 71.51%, rgba(18, 25, 33, 0.86) 85.37%, #121921 100%), url('static/assets/images/event36.jpg');" >
                                 </div>
                                 <div class='post-content'>
-                                    <span class="sub-title" style="font-size: 24px; font-weight: 300 !important;font-family:gotham;font-size:16px">Dumchrads <br> Offered by CS/IT</span>
+                                    <span class="sub-title" style="font-size: 24px; font-weight: 300 !important;font-family:gotham;font-size:16px">Dumchrads <br> Offered by CS-IT</span>
                                     <p class='description description36' style="font-family:gotham;font-size:14px"><br>Register Now and Win exciting prizes</p>
                                 </div>
                             </div>
@@ -2083,7 +2082,7 @@
                                 <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;color:green;" class="btn  buttonfntr"style="color:red;font-family:euro;font-size:16px;">Registered</p>
                                 {% endif %}
                                 {% else %}
-                                <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
+                                <a href="{% url 'regform' %}"  target="_blank" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
                                     {% endif %}
                                 </div>
                                 <div class="col-md-6" style="padding:0px; margin:0px;">
@@ -2112,7 +2111,7 @@
                                 <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;color:green;" class="btn  buttonfntr"style="color:red;font-family:euro;font-size:16px;">Registered</p>
                                 {% endif %}
                                 {% else %}
-                                <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
+                                <a href="{% url 'regform' %}"  target="_blank" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
                                     {% endif %}
                                 </div>
                                 <div class="col-md-6" style="padding:0px; margin:0px;">
@@ -2143,7 +2142,7 @@
                                 <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;color:green;" class="btn  buttonfntr"style="color:red;font-family:euro;font-size:16px;">Registered</p>
                                 {% endif %}
                                 {% else %}
-                                <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
+                                <a href="{% url 'regform' %}"  target="_blank" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
                                     {% endif %}
                                 </div>
                                 <div class="col-md-6" style="padding:0px; margin:0px;">
@@ -2173,7 +2172,7 @@
                                 <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;color:green;" class="btn  buttonfntr"style="color:red;font-family:euro;font-size:16px;">Registered</p>
                                 {% endif %}
                                 {% else %}
-                                <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
+                                <a href="{% url 'regform' %}"  target="_blank" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
                                     {% endif %}
                                 </div>
                                 <div class="col-md-6" style="padding:0px; margin:0px;">
@@ -2202,7 +2201,7 @@
                                 <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;color:green;" class="btn  buttonfntr"style="color:red;font-family:euro;font-size:16px;">Registered</p>
                                 {% endif %}
                                 {% else %}
-                                <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
+                                <a href="{% url 'regform' %}"  target="_blank" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
                                     {% endif %}
                                 </div>
                                 <div class="col-md-6" style="padding:0px; margin:0px;">
@@ -2231,7 +2230,7 @@
                                 <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;color:green;" class="btn  buttonfntr"style="color:red;font-family:euro;font-size:16px;">Registered</p>
                                 {% endif %}
                                 {% else %}
-                                <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
+                                <a href="{% url 'regform' %}"  target="_blank" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
                                     {% endif %}
                                 </div>
                                 <div class="col-md-6" style="padding:0px; margin:0px;">
@@ -2263,7 +2262,7 @@
                                 <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;color:green;" class="btn  buttonfntr"style="color:red;font-family:euro;font-size:16px;">Registered</p>
                                 {% endif %}
                                 {% else %}
-                                <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
+                                <a href="{% url 'regform' %}"  target="_blank" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
                                     {% endif %}
                                 </div>
                                 <div class="col-md-6" style="padding:0px; margin:0px;">
@@ -2293,7 +2292,7 @@
                                 <p  style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;color:green;" class="btn  buttonfntr"style="color:red;font-family:euro;font-size:16px;">Registered</p>
                                 {% endif %}
                                 {% else %}
-                                <a href="{% url 'log' %}" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
+                                <a href="{% url 'regform' %}"  target="_blank" style="padding:10px; margin:0px;width:100%;border-radius: 0px 0px 0px 5px;" class="btn  buttonfntr" style="font-family:euro;font-size:16px;">Pay Now</a>
                                     {% endif %}
                                 </div>
                                 <div class="col-md-6" style="padding:0px; margin:0px;">
@@ -3267,14 +3266,14 @@
         x.getElementsByClassName("thumbnail")[0].style.transition = "all 0.3s";
     }
     function bgrestore47(x) {
-        x.getElementsByClassName("thumbnail")[0].style.background = "linear-gradient(180deg, rgba(18, 25, 33, 0) 41.15%, rgba(18, 25, 33, 0.37) 54.8%, rgba(18, 25, 33, 0.63) 71.51%, rgba(18, 25, 33, 0.86) 85.37%, #121921 100%), url('static/assets/images/w4.jpg')";
+        x.getElementsByClassName("thumbnail")[0].style.background = "linear-gradient(180deg, rgba(18, 25, 33, 0) 41.15%, rgba(18, 25, 33, 0.37) 54.8%, rgba(18, 25, 33, 0.63) 71.51%, rgba(18, 25, 33, 0.86) 85.37%, #121921 100%), url('static/assets/images/w4.png')";
         x.getElementsByClassName("thumbnail")[0].style.backgroundSize = "cover";
         x.getElementsByClassName("thumbnail")[0].style.filter = "blur(0px)";
         x.getElementsByClassName("thumbnail")[0].style.transition = "all 0.3s";
     }
 
     function bgblur47(x) {
-        x.getElementsByClassName("thumbnail")[0].style.background = "linear-gradient(180deg, rgba(20, 30, 44, 0) 0%, rgba(19, 31, 44, 0.28) 17.19%, rgba(19, 31, 43, 0.61) 35.94%, rgba(19, 31, 44, 0.88) 85.37%, #141F2C 100%), url(static/assets/images/w4.jpg";
+        x.getElementsByClassName("thumbnail")[0].style.background = "linear-gradient(180deg, rgba(20, 30, 44, 0) 0%, rgba(19, 31, 44, 0.28) 17.19%, rgba(19, 31, 43, 0.61) 35.94%, rgba(19, 31, 44, 0.88) 85.37%, #141F2C 100%), url(static/assets/images/w4.png";
         x.getElementsByClassName("thumbnail")[0].style.backgroundSize = "cover";
         x.getElementsByClassName("thumbnail")[0].style.filter = "blur(2px)";
         x.getElementsByClassName("thumbnail")[0].style.transition = "all 0.3s";
